@@ -26,6 +26,7 @@ public class ResultSetMapper {
                 .route(mapResultSetToRoute(resultSet))
                 .dateStart(resultSet.getDate("date_start").toLocalDate())
                 .dateEnd(resultSet.getDate("date_end").toLocalDate())
+                .nights(resultSet.getInt("nights"))
                 .cruiseStatus(mapResultSetToCruiseStatus(resultSet))
                 .ship(mapResultSetToShip(resultSet))
                 .build();
@@ -67,7 +68,7 @@ public class ResultSetMapper {
     public static CabinType mapResultSetToCabinType(ResultSet resultSet) throws SQLException {
         return CabinType.newBuilder()
                 .id(resultSet.getInt("cabin_type_id"))
-                .cabinName(resultSet.getString("cabin_type_name"))
+                .cabinTypeName(resultSet.getString("cabin_type_name"))
                 .numberOfBeds(resultSet.getInt("number_of_beds"))
                 .price(resultSet.getInt("price"))
                 .build();

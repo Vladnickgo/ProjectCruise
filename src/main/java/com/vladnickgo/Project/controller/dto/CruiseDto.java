@@ -9,6 +9,7 @@ public class CruiseDto {
     private final String routeName;
     private final LocalDate dateStart;
     private final LocalDate dateEnd;
+    private final Integer nights;
     private final String cruiseStatusName;
     private final String shipName;
     private final String shipImageSource;
@@ -19,6 +20,7 @@ public class CruiseDto {
         routeName = builder.routeName;
         dateStart = builder.dateStart;
         dateEnd = builder.dateEnd;
+        nights = builder.nights;
         cruiseStatusName = builder.cruiseStatusName;
         shipName = builder.shipName;
         shipImageSource = builder.shipImageSource;
@@ -35,6 +37,7 @@ public class CruiseDto {
         private String routeName;
         private LocalDate dateStart;
         private LocalDate dateEnd;
+        private Integer nights;
         private String cruiseStatusName;
         private String shipName;
         private String shipImageSource;
@@ -64,6 +67,11 @@ public class CruiseDto {
 
         public Builder dateEnd(LocalDate val) {
             dateEnd = val;
+            return this;
+        }
+
+        public Builder nights(Integer val) {
+            nights = val;
             return this;
         }
 
@@ -107,6 +115,10 @@ public class CruiseDto {
         return dateEnd;
     }
 
+    public Integer getNights() {
+        return nights;
+    }
+
     public String getCruiseStatusName() {
         return cruiseStatusName;
     }
@@ -124,12 +136,12 @@ public class CruiseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CruiseDto cruiseDto = (CruiseDto) o;
-        return Objects.equals(id, cruiseDto.id) && Objects.equals(cruiseName, cruiseDto.cruiseName) && Objects.equals(routeName, cruiseDto.routeName) && Objects.equals(dateStart, cruiseDto.dateStart) && Objects.equals(dateEnd, cruiseDto.dateEnd) && Objects.equals(cruiseStatusName, cruiseDto.cruiseStatusName) && Objects.equals(shipName, cruiseDto.shipName) && Objects.equals(shipImageSource, cruiseDto.shipImageSource);
+        return Objects.equals(id, cruiseDto.id) && Objects.equals(cruiseName, cruiseDto.cruiseName) && Objects.equals(routeName, cruiseDto.routeName) && Objects.equals(dateStart, cruiseDto.dateStart) && Objects.equals(dateEnd, cruiseDto.dateEnd) && Objects.equals(nights, cruiseDto.nights) && Objects.equals(cruiseStatusName, cruiseDto.cruiseStatusName) && Objects.equals(shipName, cruiseDto.shipName) && Objects.equals(shipImageSource, cruiseDto.shipImageSource);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cruiseName, routeName, dateStart, dateEnd, cruiseStatusName, shipName, shipImageSource);
+        return Objects.hash(id, cruiseName, routeName, dateStart, dateEnd, nights, cruiseStatusName, shipName, shipImageSource);
     }
 
     @Override
@@ -140,6 +152,7 @@ public class CruiseDto {
                 ", routeName='" + routeName + '\'' +
                 ", dateStart=" + dateStart +
                 ", dateEnd=" + dateEnd +
+                ", nights=" + nights +
                 ", cruiseStatusName='" + cruiseStatusName + '\'' +
                 ", shipName='" + shipName + '\'' +
                 ", shipImageSource='" + shipImageSource + '\'' +

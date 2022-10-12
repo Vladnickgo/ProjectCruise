@@ -25,7 +25,7 @@ VALUES ('Queen Sapphire', 1000, 2200,'/views/img/linersImg/queen_sapphire.jpg'),
        ('Silver Wave', 1000, 2220,'/views/img/linersImg/silver_wave.jpg');
 
 INSERT INTO cabin_types(cabin_type_name, number_of_beds, price)
-VALUES ('sigle', 1, 3500),
+VALUES ('single', 1, 3500),
        ('inside', 2, 5500),
        ('oceanview', 2, 7500),
        ('balcony', 2, 12000),
@@ -3230,5 +3230,5 @@ VALUES ('XMas Tour', 1, '2022-12-23', '2023-01-01', 1, 1),
        ('New Year Tour', 2, '2022-12-28', '2023-01-06', 1, 2),
        ('Winter Tour', 3, '2023-01-10', '2023-01-19', 1, 3),
        ('Italy, Spain', 4, '2023-01-15', '2023-01-21', 1, 4),
-       ('XMas holidays', 2, '2022-12-20', '2023-01-29', 1, 5),
+       ('XMas holidays', 2, '2022-12-20', '2022-12-29', 1, 5),
        ('Mediterranean cruise', 3, '2023-01-20', '2023-01-29', 1, 6);

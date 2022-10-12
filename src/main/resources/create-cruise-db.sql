@@ -96,6 +96,7 @@ CREATE TABLE IF NOT EXISTS cruises
     date_end         DATE         NOT NULL,
     cruise_status_id INTEGER      NOT NULL,
     ship_id          INTEGER      NOT NULL,
+    nights INTEGER AS (datediff(date_end, date_start)),
     FOREIGN KEY (route_id) REFERENCES routes (route_id),
     FOREIGN KEY (cruise_status_id) REFERENCES cruise_statuses (cruise_status_id)
 );

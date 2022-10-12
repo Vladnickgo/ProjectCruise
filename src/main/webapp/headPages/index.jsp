@@ -15,8 +15,6 @@
 
 <c:set var="Title" scope="request" value="Homepage"/>
 
-<%--<jsp:useBean id="now" class="java.util.Date" scope="page"/>--%>
-
 <c:import url="../views/head.jsp"/>
 <html>
 <head>
@@ -66,7 +64,6 @@
         <div class="col-4">
         </div>
     </div>
-
 </div>
 <c:import url="../views/footer.jsp"/>
 </body>

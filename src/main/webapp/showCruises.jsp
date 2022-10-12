@@ -109,13 +109,13 @@
                                                     </tr>
                                                     <tr>
                                                         <th><f:message key="route" bundle="${bunCont}"/></th>
-                                                        <td>${item.routeName}</td>
+                                                        <td class="cruiseInfoCell">${item.routeName}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>
                                                             <f:message key="dateStart" bundle="${bunCont}"/>
                                                         </th>
-                                                        <td>
+                                                        <td class="cruiseInfoCell">
                                                             <tags:fulldate date="${item.dateStart}"/>
                                                         </td>
                                                     </tr>
@@ -123,7 +123,7 @@
                                                         <th>
                                                             <f:message key="dateEnd" bundle="${bunCont}"/>
                                                         </th>
-                                                        <td>
+                                                        <td class="cruiseInfoCell">
                                                                 <tags:fulldate date="${item.dateEnd}"/>
                                                         </td>
                                                     </tr>
@@ -156,17 +156,17 @@
                                                 <table>
                                                     <tr>
                                                         <th><f:message key="ship" bundle="${bunCont}"/></th>
-                                                        <td>${item.shipName}</td>
+                                                        <td class="cruiseInfoCell">${item.shipName}</td>
                                                     </tr>
                                                     <tr>
                                                         <th><f:message key="route" bundle="${bunCont}"/></th>
-                                                        <td>${item.routeName}</td>
+                                                        <td class="cruiseInfoCell">${item.routeName}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>
                                                             <f:message key="dateStart" bundle="${bunCont}"/>
                                                         </th>
-                                                        <td>
+                                                        <td class="cruiseInfoCell">
                                                                 <tags:fulldate date="${item.dateStart}"/>
                                                         </td>
                                                     </tr>
@@ -174,7 +174,7 @@
                                                         <th>
                                                             <f:message key="dateEnd" bundle="${bunCont}"/>
                                                         </th>
-                                                        <td>
+                                                        <td class="cruiseInfoCell">
                                                                 <tags:fulldate date="${item.dateEnd}"/>
                                                         </td>
                                                     </tr>

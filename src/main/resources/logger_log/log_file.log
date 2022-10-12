@@ -2416,3 +2416,1691 @@
 2022-10-12 07:22:40 INFO  AbstractServlet:63 - method: GET
 2022-10-12 07:22:40 INFO  AbstractServlet:66 - page: /showCruises.jsp
 2022-10-12 07:22:40 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 07:53:40 INFO  LocalFilter:38 - ua
+2022-10-12 07:53:40 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 07:53:43 INFO  LocalFilter:38 - ua
+2022-10-12 07:53:43 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 07:53:43 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 07:53:43 INFO  AbstractServlet:63 - method: GET
+2022-10-12 07:53:43 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 07:53:43 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 07:53:45 INFO  LocalFilter:38 - ua
+2022-10-12 07:53:45 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 07:53:45 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 07:53:45 INFO  AbstractServlet:63 - method: GET
+2022-10-12 07:53:45 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 07:53:45 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 07:53:46 INFO  LocalFilter:38 - ua
+2022-10-12 07:53:46 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 07:53:46 INFO  AbstractServlet:62 - Command name: aboutPage
+2022-10-12 07:53:46 INFO  AbstractServlet:63 - method: GET
+2022-10-12 07:53:46 INFO  AbstractServlet:66 - page: /headPages/aboutUs.jsp
+2022-10-12 07:53:46 INFO  AbstractServlet:48 - doGet: /headPages/aboutUs.jsp
+2022-10-12 07:53:48 INFO  LocalFilter:38 - ua
+2022-10-12 07:53:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 07:53:48 INFO  AbstractServlet:62 - Command name: contactsPage
+2022-10-12 07:53:48 INFO  AbstractServlet:63 - method: GET
+2022-10-12 07:53:48 INFO  AbstractServlet:66 - page: /headPages/contacts.jsp
+2022-10-12 07:53:48 INFO  AbstractServlet:48 - doGet: /headPages/contacts.jsp
+2022-10-12 07:53:49 INFO  AbstractServlet:34 - Path: user
+2022-10-12 07:53:49 INFO  LocalFilter:38 - ua
+2022-10-12 07:53:49 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 07:53:49 INFO  AbstractServlet:62 - Command name: loginPage
+2022-10-12 07:53:49 INFO  AbstractServlet:63 - method: GET
+2022-10-12 07:53:49 INFO  LoginPageCommand:23 - errorMessage: null
+2022-10-12 07:53:49 INFO  AbstractServlet:66 - page: /headPages/loginPage.jsp
+2022-10-12 07:53:49 INFO  AbstractServlet:48 - doGet: /headPages/loginPage.jsp
+2022-10-12 07:55:51 INFO  LocalFilter:38 - ua
+2022-10-12 07:55:51 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 07:55:51 INFO  AbstractServlet:62 - Command name: registerPage
+2022-10-12 07:55:51 INFO  AbstractServlet:63 - method: GET
+2022-10-12 07:55:51 INFO  AbstractServlet:66 - page: /headPages/signIn.jsp
+2022-10-12 07:55:51 INFO  AbstractServlet:48 - doGet: /headPages/signIn.jsp
+2022-10-12 07:55:55 INFO  LocalFilter:34 - en
+2022-10-12 07:55:55 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 07:55:55 INFO  AbstractServlet:62 - Command name: registerPage
+2022-10-12 07:55:55 INFO  AbstractServlet:63 - method: GET
+2022-10-12 07:55:55 INFO  AbstractServlet:66 - page: /headPages/signIn.jsp
+2022-10-12 07:55:55 INFO  AbstractServlet:48 - doGet: /headPages/signIn.jsp
+2022-10-12 07:56:01 INFO  LocalFilter:34 - ua
+2022-10-12 07:56:01 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 07:56:01 INFO  AbstractServlet:62 - Command name: registerPage
+2022-10-12 07:56:01 INFO  AbstractServlet:63 - method: GET
+2022-10-12 07:56:01 INFO  AbstractServlet:66 - page: /headPages/signIn.jsp
+2022-10-12 07:56:01 INFO  AbstractServlet:48 - doGet: /headPages/signIn.jsp
+2022-10-12 08:04:48 INFO  LocalFilter:38 - ua
+2022-10-12 08:04:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:04:52 INFO  LocalFilter:34 - ua
+2022-10-12 08:04:52 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:04:52 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:04:52 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:04:52 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:04:52 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:04:57 INFO  LocalFilter:34 - en
+2022-10-12 08:04:57 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:04:57 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:04:57 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:04:57 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:04:57 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:04:59 INFO  LocalFilter:34 - ua
+2022-10-12 08:04:59 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:04:59 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:04:59 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:04:59 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:04:59 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:12:01 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:12:03 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:12:07 INFO  LocalFilter:38 - ua
+2022-10-12 08:12:07 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:12:08 INFO  AbstractServlet:29 - Path: home
+2022-10-12 08:12:08 INFO  LocalFilter:38 - ua
+2022-10-12 08:12:08 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:12:08 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:12:08 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:12:08 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:12:08 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:12:10 INFO  LocalFilter:38 - ua
+2022-10-12 08:12:10 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:12:10 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:12:10 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:12:10 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:12:10 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:12:17 INFO  LocalFilter:34 - en
+2022-10-12 08:12:17 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:12:17 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:12:17 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:12:17 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:12:17 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:12:19 INFO  LocalFilter:34 - ua
+2022-10-12 08:12:19 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:12:19 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:12:19 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:12:19 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:12:19 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:17:08 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:17:10 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:17:23 INFO  AbstractServlet:29 - Path: home
+2022-10-12 08:17:23 INFO  LocalFilter:38 - ua
+2022-10-12 08:17:23 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:17:23 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:17:23 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:17:23 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:17:23 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:17:27 INFO  LocalFilter:38 - ua
+2022-10-12 08:17:27 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:17:27 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:17:27 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:17:27 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:17:27 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:18:07 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:18:09 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:18:12 INFO  AbstractServlet:29 - Path: home
+2022-10-12 08:18:12 INFO  LocalFilter:38 - ua
+2022-10-12 08:18:12 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:18:12 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:18:12 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:18:12 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:18:12 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:18:13 INFO  LocalFilter:38 - ua
+2022-10-12 08:18:13 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:18:16 INFO  LocalFilter:38 - ua
+2022-10-12 08:18:16 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:18:16 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:18:16 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:18:16 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:18:16 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:18:18 INFO  LocalFilter:38 - ua
+2022-10-12 08:18:18 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:18:18 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:18:18 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:18:18 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:18:18 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:18:19 INFO  LocalFilter:38 - ua
+2022-10-12 08:18:19 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:18:19 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:18:19 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:18:19 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:18:19 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:18:20 INFO  LocalFilter:38 - ua
+2022-10-12 08:18:20 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:18:20 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:18:20 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:18:20 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:18:20 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:18:54 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:18:56 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:19:02 INFO  AbstractServlet:29 - Path: home
+2022-10-12 08:19:02 INFO  LocalFilter:38 - ua
+2022-10-12 08:19:02 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:19:02 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:19:02 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:19:02 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:19:02 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:19:29 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:19:31 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:19:39 INFO  AbstractServlet:29 - Path: home
+2022-10-12 08:19:39 INFO  LocalFilter:38 - ua
+2022-10-12 08:19:39 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:19:39 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:19:39 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:19:39 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:19:39 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:40:06 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:40:08 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:40:10 INFO  AbstractServlet:29 - Path: home
+2022-10-12 08:40:10 INFO  LocalFilter:38 - ua
+2022-10-12 08:40:10 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:40:10 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:40:10 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:40:10 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:40:10 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:40:10 INFO  LocalFilter:38 - ua
+2022-10-12 08:40:10 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:40:11 INFO  LocalFilter:38 - ua
+2022-10-12 08:40:11 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:40:11 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:40:11 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:40:11 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:40:11 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:40:33 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:40:35 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:40:44 INFO  AbstractServlet:29 - Path: home
+2022-10-12 08:40:44 INFO  LocalFilter:38 - ua
+2022-10-12 08:40:44 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:40:44 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:40:44 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:40:44 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:40:44 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:45:30 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:45:32 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:49:11 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:49:30 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:49:31 INFO  LocalFilter:38 - ua
+2022-10-12 08:49:31 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:49:32 INFO  LocalFilter:38 - ua
+2022-10-12 08:49:32 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:49:33 INFO  LocalFilter:38 - ua
+2022-10-12 08:49:33 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:49:33 INFO  LocalFilter:38 - ua
+2022-10-12 08:49:33 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:49:35 INFO  AbstractServlet:29 - Path: home
+2022-10-12 08:49:35 INFO  LocalFilter:38 - ua
+2022-10-12 08:49:35 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:49:35 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:49:35 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:49:36 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:49:36 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:52:49 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:52:52 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:52:59 INFO  AbstractServlet:29 - Path: home
+2022-10-12 08:52:59 INFO  LocalFilter:38 - ua
+2022-10-12 08:52:59 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:52:59 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:52:59 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:52:59 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:52:59 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:53:01 INFO  LocalFilter:38 - ua
+2022-10-12 08:53:01 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:53:01 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:53:01 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:53:01 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:53:01 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:53:04 INFO  LocalFilter:38 - ua
+2022-10-12 08:53:04 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:53:04 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:53:04 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:53:04 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:53:04 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:53:05 INFO  LocalFilter:38 - ua
+2022-10-12 08:53:05 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:53:05 INFO  LocalFilter:38 - ua
+2022-10-12 08:53:05 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:53:05 INFO  LocalFilter:38 - ua
+2022-10-12 08:53:05 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:53:05 INFO  LocalFilter:38 - ua
+2022-10-12 08:53:05 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:53:24 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:53:27 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:53:42 INFO  AbstractServlet:29 - Path: home
+2022-10-12 08:53:42 INFO  LocalFilter:38 - ua
+2022-10-12 08:53:42 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:53:42 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:53:42 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:53:42 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:53:42 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:53:45 INFO  LocalFilter:38 - ua
+2022-10-12 08:53:45 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:53:45 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:53:45 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:53:45 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:53:45 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 08:53:46 INFO  LocalFilter:38 - ua
+2022-10-12 08:53:46 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:53:46 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 08:53:46 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:53:46 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 08:53:46 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 08:54:15 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 08:54:17 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 08:54:24 INFO  AbstractServlet:29 - Path: home
+2022-10-12 08:54:24 INFO  LocalFilter:38 - ua
+2022-10-12 08:54:24 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:54:24 INFO  AbstractServlet:62 - Command name: aboutPage
+2022-10-12 08:54:24 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:54:24 INFO  AbstractServlet:66 - page: /headPages/aboutUs.jsp
+2022-10-12 08:54:24 INFO  AbstractServlet:48 - doGet: /headPages/aboutUs.jsp
+2022-10-12 08:54:26 INFO  LocalFilter:38 - ua
+2022-10-12 08:54:26 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 08:54:26 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 08:54:26 INFO  AbstractServlet:63 - method: GET
+2022-10-12 08:54:26 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 08:54:26 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 09:01:39 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:01:42 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:15:09 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:15:29 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:15:29 INFO  LocalFilter:38 - ua
+2022-10-12 09:15:29 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:15:31 INFO  LocalFilter:38 - ua
+2022-10-12 09:15:31 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:15:31 INFO  LocalFilter:38 - ua
+2022-10-12 09:15:31 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:15:31 INFO  LocalFilter:38 - ua
+2022-10-12 09:15:31 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:15:35 INFO  AbstractServlet:29 - Path: home
+2022-10-12 09:15:35 INFO  LocalFilter:38 - ua
+2022-10-12 09:15:35 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:15:35 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 09:15:35 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:15:36 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 09:15:36 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 09:25:36 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:25:38 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:25:49 INFO  AbstractServlet:29 - Path: home
+2022-10-12 09:25:49 INFO  LocalFilter:38 - ua
+2022-10-12 09:25:49 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:25:49 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 09:25:49 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:25:49 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 09:25:49 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 09:27:12 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:27:15 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:27:28 INFO  AbstractServlet:29 - Path: home
+2022-10-12 09:27:28 INFO  LocalFilter:38 - ua
+2022-10-12 09:27:28 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:27:28 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 09:27:28 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:27:29 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 09:27:29 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 09:29:06 INFO  LocalFilter:38 - ua
+2022-10-12 09:29:06 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:29:26 INFO  AbstractServlet:34 - Path: user
+2022-10-12 09:29:26 INFO  LocalFilter:38 - ua
+2022-10-12 09:29:26 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:29:26 INFO  AbstractServlet:62 - Command name: loginPage
+2022-10-12 09:29:26 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:29:26 INFO  LoginPageCommand:23 - errorMessage: null
+2022-10-12 09:29:26 INFO  AbstractServlet:66 - page: /headPages/loginPage.jsp
+2022-10-12 09:29:26 INFO  AbstractServlet:48 - doGet: /headPages/loginPage.jsp
+2022-10-12 09:29:38 INFO  LocalFilter:38 - ua
+2022-10-12 09:29:38 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:29:38 INFO  AbstractServlet:62 - Command name: login
+2022-10-12 09:29:38 INFO  AbstractServlet:63 - method: POST
+2022-10-12 09:29:38 INFO  AbstractServlet:66 - page: home?command=homePage
+2022-10-12 09:29:38 INFO  AbstractServlet:55 - doPost: home?command=homePage
+2022-10-12 09:29:38 INFO  LocalFilter:38 - ua
+2022-10-12 09:29:38 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:29:38 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 09:29:38 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:29:38 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 09:29:38 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 09:30:17 INFO  LocalFilter:34 - en
+2022-10-12 09:30:17 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:30:17 INFO  AbstractServlet:62 - Command name: null
+2022-10-12 09:30:17 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:30:17 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 09:30:17 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 09:30:20 INFO  LocalFilter:34 - ua
+2022-10-12 09:30:20 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:30:20 INFO  AbstractServlet:62 - Command name: null
+2022-10-12 09:30:20 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:30:20 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 09:30:20 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 09:30:36 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:30:39 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:31:05 INFO  AbstractServlet:29 - Path: home
+2022-10-12 09:31:05 INFO  LocalFilter:38 - ua
+2022-10-12 09:31:05 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:31:05 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 09:31:05 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:31:05 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 09:31:05 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 09:31:24 INFO  LocalFilter:38 - ua
+2022-10-12 09:31:24 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:31:24 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 09:31:24 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:31:24 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 09:31:24 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 09:31:32 INFO  LocalFilter:38 - ua
+2022-10-12 09:31:32 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:31:32 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 09:31:32 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:31:32 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 09:31:32 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 09:40:32 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:40:34 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:41:02 INFO  AbstractServlet:29 - Path: home
+2022-10-12 09:41:02 INFO  LocalFilter:38 - ua
+2022-10-12 09:41:02 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:41:02 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 09:41:02 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:41:02 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 09:41:02 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 09:41:04 INFO  LocalFilter:38 - ua
+2022-10-12 09:41:04 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:41:04 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 09:41:04 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:41:04 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 09:41:04 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 09:41:51 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:41:53 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:42:00 INFO  AbstractServlet:29 - Path: home
+2022-10-12 09:42:00 INFO  LocalFilter:38 - ua
+2022-10-12 09:42:00 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:42:00 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 09:42:00 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:42:00 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 09:42:00 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 09:42:02 INFO  LocalFilter:38 - ua
+2022-10-12 09:42:02 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:42:02 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 09:42:02 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:42:02 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 09:42:02 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 09:43:12 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:43:14 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:43:31 INFO  AbstractServlet:29 - Path: home
+2022-10-12 09:43:31 INFO  LocalFilter:38 - ua
+2022-10-12 09:43:31 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:43:31 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 09:43:31 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:43:31 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 09:43:31 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 09:43:32 INFO  LocalFilter:38 - ua
+2022-10-12 09:43:32 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:45:32 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:45:35 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:45:36 INFO  AbstractServlet:29 - Path: home
+2022-10-12 09:45:36 INFO  LocalFilter:38 - ua
+2022-10-12 09:45:36 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:45:36 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 09:45:36 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:45:37 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 09:45:37 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 09:46:25 INFO  LocalFilter:38 - ua
+2022-10-12 09:46:25 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:46:25 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 09:46:25 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:46:25 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 09:46:25 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 09:46:26 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:46:28 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:46:29 INFO  AbstractServlet:29 - Path: home
+2022-10-12 09:46:29 INFO  LocalFilter:38 - ua
+2022-10-12 09:46:29 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:46:29 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 09:46:29 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:46:30 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 09:46:30 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 09:46:48 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:46:50 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:47:02 INFO  AbstractServlet:29 - Path: home
+2022-10-12 09:47:02 INFO  LocalFilter:38 - ua
+2022-10-12 09:47:02 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:47:02 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 09:47:02 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:47:03 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 09:47:03 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 09:47:06 INFO  LocalFilter:38 - ua
+2022-10-12 09:47:06 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:47:06 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 09:47:06 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:47:06 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 09:47:06 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 09:47:07 INFO  LocalFilter:38 - ua
+2022-10-12 09:47:07 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:47:07 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 09:47:07 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:47:07 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 09:47:07 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 09:47:35 INFO  LocalFilter:38 - ua
+2022-10-12 09:47:35 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:47:35 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 09:47:35 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:47:35 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 09:47:35 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 09:47:36 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 09:47:39 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 09:47:43 INFO  AbstractServlet:29 - Path: home
+2022-10-12 09:47:43 INFO  LocalFilter:38 - ua
+2022-10-12 09:47:43 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:47:43 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 09:47:43 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:47:43 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 09:47:43 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 09:47:45 INFO  LocalFilter:38 - ua
+2022-10-12 09:47:45 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 09:47:45 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 09:47:45 INFO  AbstractServlet:63 - method: GET
+2022-10-12 09:47:45 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 09:47:45 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 13:15:33 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 13:15:33 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:33 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:35 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:35 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:38 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:38 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:38 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:38 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:38 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:38 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:39 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:39 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:40 INFO  AbstractServlet:29 - Path: home
+2022-10-12 13:15:40 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:40 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:40 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 13:15:40 INFO  AbstractServlet:63 - method: GET
+2022-10-12 13:15:42 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 13:15:42 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 13:15:42 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:42 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:42 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:42 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:42 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:42 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:42 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:42 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:48 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:48 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 13:15:48 INFO  AbstractServlet:63 - method: GET
+2022-10-12 13:15:48 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 13:15:48 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 13:15:48 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:48 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:50 INFO  LocalFilter:38 - ua
+2022-10-12 13:15:50 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:15:50 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 13:15:50 INFO  AbstractServlet:63 - method: GET
+2022-10-12 13:15:50 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 13:15:50 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 13:16:03 INFO  LocalFilter:38 - ua
+2022-10-12 13:16:03 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 13:16:03 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 13:16:03 INFO  AbstractServlet:63 - method: GET
+2022-10-12 13:16:03 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 13:16:03 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 16:31:55 INFO  LocalFilter:38 - ua
+2022-10-12 16:31:55 INFO  LocalFilter:38 - ua
+2022-10-12 16:31:55 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 16:31:55 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:12:52 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 17:13:00 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 17:13:02 INFO  AbstractServlet:29 - Path: home
+2022-10-12 17:13:02 INFO  LocalFilter:38 - ua
+2022-10-12 17:13:02 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:13:02 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 17:13:02 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:13:03 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 17:13:03 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 17:13:03 INFO  LocalFilter:38 - ua
+2022-10-12 17:13:03 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:13:03 INFO  LocalFilter:38 - ua
+2022-10-12 17:13:03 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:13:03 INFO  LocalFilter:38 - ua
+2022-10-12 17:13:03 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:13:03 INFO  LocalFilter:38 - ua
+2022-10-12 17:13:03 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:13:05 INFO  LocalFilter:38 - ua
+2022-10-12 17:13:05 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:13:05 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 17:13:05 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:13:05 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 17:13:05 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 17:14:25 INFO  LocalFilter:38 - ua
+2022-10-12 17:14:25 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:14:25 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 17:14:25 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:14:25 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 17:14:25 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 17:14:27 INFO  LocalFilter:38 - ua
+2022-10-12 17:14:27 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:14:27 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 17:14:27 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:14:27 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 17:14:27 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 17:32:19 INFO  LocalFilter:38 - ua
+2022-10-12 17:32:19 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:32:19 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 17:32:19 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:32:19 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 17:32:19 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 17:32:19 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 17:32:24 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 17:32:25 INFO  AbstractServlet:29 - Path: home
+2022-10-12 17:32:25 INFO  LocalFilter:38 - ua
+2022-10-12 17:32:25 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:32:25 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 17:32:25 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:32:26 ERROR AbstractCrudDaoImpl:66 - Connection is failedjava.sql.SQLException: Column 'nights' not found.
+2022-10-12 17:33:07 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 17:33:12 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 17:33:19 INFO  AbstractServlet:29 - Path: home
+2022-10-12 17:33:19 INFO  LocalFilter:38 - ua
+2022-10-12 17:33:19 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:33:19 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 17:33:19 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:33:19 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 17:33:19 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 17:33:20 INFO  LocalFilter:38 - ua
+2022-10-12 17:33:20 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:33:20 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 17:33:20 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:35:22 INFO  LocalFilter:38 - ua
+2022-10-12 17:35:22 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:35:22 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 17:35:22 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:35:22 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 17:35:22 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 17:35:23 INFO  LocalFilter:38 - ua
+2022-10-12 17:35:23 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:35:23 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 17:35:23 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:35:23 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 17:35:23 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 17:42:53 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 17:42:59 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 17:43:03 INFO  AbstractServlet:29 - Path: home
+2022-10-12 17:43:03 INFO  LocalFilter:38 - ua
+2022-10-12 17:43:03 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:43:03 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 17:43:03 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:43:04 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 17:43:04 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 17:48:35 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 17:48:41 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 17:48:51 INFO  AbstractServlet:29 - Path: home
+2022-10-12 17:48:51 INFO  LocalFilter:38 - ua
+2022-10-12 17:48:51 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:48:51 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 17:48:51 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:48:51 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 17:48:51 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 17:48:53 INFO  LocalFilter:38 - ua
+2022-10-12 17:48:53 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:48:53 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 17:48:53 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:48:53 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 17:48:53 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 17:52:55 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 17:53:00 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 17:53:13 INFO  AbstractServlet:29 - Path: home
+2022-10-12 17:53:13 INFO  LocalFilter:38 - ua
+2022-10-12 17:53:13 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:53:13 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 17:53:13 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:53:13 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 17:53:13 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 17:53:14 INFO  LocalFilter:38 - ua
+2022-10-12 17:53:14 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:53:14 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 17:53:14 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:53:14 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 17:53:14 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 17:53:16 INFO  LocalFilter:38 - ua
+2022-10-12 17:53:16 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 17:53:16 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 17:53:16 INFO  AbstractServlet:63 - method: GET
+2022-10-12 17:53:16 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 17:53:16 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:02:37 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 18:02:42 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 18:02:45 INFO  AbstractServlet:29 - Path: home
+2022-10-12 18:02:45 INFO  LocalFilter:38 - ua
+2022-10-12 18:02:45 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:02:45 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 18:02:45 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:02:45 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 18:02:45 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 18:02:46 INFO  LocalFilter:38 - ua
+2022-10-12 18:02:46 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:02:48 INFO  LocalFilter:38 - ua
+2022-10-12 18:02:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:02:48 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:02:48 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:02:48 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:02:48 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:04:35 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 18:04:40 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 18:04:50 INFO  AbstractServlet:29 - Path: home
+2022-10-12 18:04:50 INFO  LocalFilter:38 - ua
+2022-10-12 18:04:50 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:04:50 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:04:50 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:04:51 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:04:51 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:05:00 INFO  LocalFilter:38 - ua
+2022-10-12 18:05:00 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:05:00 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:05:00 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:05:00 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:05:00 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:05:04 INFO  LocalFilter:38 - ua
+2022-10-12 18:05:04 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:05:04 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:05:04 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:05:04 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:05:04 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:05:14 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 18:05:19 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 18:24:27 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 18:24:32 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 18:24:34 INFO  AbstractServlet:29 - Path: home
+2022-10-12 18:24:34 INFO  LocalFilter:38 - ua
+2022-10-12 18:24:34 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:24:34 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 18:24:34 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:24:34 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 18:24:34 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 18:24:36 INFO  LocalFilter:38 - ua
+2022-10-12 18:24:36 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:24:36 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:24:36 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:24:36 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:24:36 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:24:36 INFO  LocalFilter:38 - ua
+2022-10-12 18:24:36 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:25:32 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 18:25:37 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 18:25:56 INFO  AbstractServlet:29 - Path: home
+2022-10-12 18:25:56 INFO  LocalFilter:38 - ua
+2022-10-12 18:25:56 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:25:56 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:25:56 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:25:56 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:25:56 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:25:56 INFO  LocalFilter:38 - ua
+2022-10-12 18:25:56 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:27:32 INFO  LocalFilter:38 - ua
+2022-10-12 18:27:32 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:27:32 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:27:32 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:27:32 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:27:32 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:27:32 INFO  LocalFilter:38 - ua
+2022-10-12 18:27:32 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:27:33 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 18:27:38 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 18:27:39 INFO  AbstractServlet:29 - Path: home
+2022-10-12 18:27:39 INFO  LocalFilter:38 - ua
+2022-10-12 18:27:39 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:27:39 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:27:39 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:27:40 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:27:40 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:28:29 INFO  LocalFilter:38 - ua
+2022-10-12 18:28:29 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:31:28 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 18:31:34 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 18:31:35 INFO  AbstractServlet:29 - Path: home
+2022-10-12 18:31:35 INFO  LocalFilter:38 - ua
+2022-10-12 18:31:35 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:31:35 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:31:35 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:31:35 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:31:35 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:31:35 INFO  LocalFilter:38 - ua
+2022-10-12 18:31:35 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:31:41 INFO  LocalFilter:34 - en
+2022-10-12 18:31:41 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:31:41 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:31:41 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:31:41 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:31:41 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:31:46 INFO  LocalFilter:34 - ua
+2022-10-12 18:31:46 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:31:46 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:31:46 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:31:46 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:31:46 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:31:48 INFO  LocalFilter:34 - en
+2022-10-12 18:31:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:31:48 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:31:48 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:31:48 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:31:48 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:34:08 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 18:34:12 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 18:34:22 INFO  AbstractServlet:29 - Path: home
+2022-10-12 18:34:22 INFO  LocalFilter:34 - en
+2022-10-12 18:34:22 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:34:22 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:34:22 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:34:22 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:34:22 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:34:23 INFO  LocalFilter:38 - ua
+2022-10-12 18:34:23 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:34:34 INFO  LocalFilter:34 - ua
+2022-10-12 18:34:34 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:34:34 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:34:34 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:34:34 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:34:34 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:37:10 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 18:37:15 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 18:37:26 INFO  AbstractServlet:29 - Path: home
+2022-10-12 18:37:26 INFO  LocalFilter:34 - en
+2022-10-12 18:37:26 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:37:26 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:37:26 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:37:27 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:37:27 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:37:27 INFO  LocalFilter:38 - ua
+2022-10-12 18:37:27 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:37:32 INFO  LocalFilter:34 - ua
+2022-10-12 18:37:32 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:37:32 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:37:32 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:37:32 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:37:32 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:37:34 INFO  LocalFilter:34 - en
+2022-10-12 18:37:34 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:37:34 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:37:34 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:37:34 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:37:34 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:38:41 INFO  LocalFilter:34 - ua
+2022-10-12 18:38:41 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:38:41 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:38:41 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:38:41 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:38:41 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:38:44 INFO  LocalFilter:34 - en
+2022-10-12 18:38:44 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:38:44 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:38:44 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:38:44 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:38:44 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:38:53 INFO  LocalFilter:34 - en
+2022-10-12 18:38:53 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:38:53 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:38:53 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:38:53 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:38:53 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:38:53 INFO  LocalFilter:38 - ua
+2022-10-12 18:38:53 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:38:56 INFO  LocalFilter:34 - ua
+2022-10-12 18:38:56 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:38:56 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:38:56 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:38:56 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:38:56 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:39:06 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 18:39:11 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 18:43:35 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 18:43:40 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 18:43:42 INFO  AbstractServlet:29 - Path: home
+2022-10-12 18:43:42 INFO  LocalFilter:34 - ua
+2022-10-12 18:43:42 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:43:42 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:43:42 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:43:42 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:43:42 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:43:43 INFO  LocalFilter:38 - ua
+2022-10-12 18:43:43 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:43:58 INFO  LocalFilter:34 - en
+2022-10-12 18:43:58 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:43:58 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:43:58 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:43:58 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:43:58 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 18:44:01 INFO  LocalFilter:34 - ua
+2022-10-12 18:44:01 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 18:44:01 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 18:44:01 INFO  AbstractServlet:63 - method: GET
+2022-10-12 18:44:01 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 18:44:01 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:08:44 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:08:49 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:08:52 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:08:52 INFO  LocalFilter:34 - en
+2022-10-12 19:08:52 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:08:52 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:08:52 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:08:52 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:08:52 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:08:53 INFO  LocalFilter:38 - ua
+2022-10-12 19:08:53 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:08:53 INFO  LocalFilter:38 - ua
+2022-10-12 19:08:53 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:09:07 INFO  LocalFilter:34 - ua
+2022-10-12 19:09:07 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:09:07 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:09:07 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:09:07 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:09:07 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:09:09 INFO  LocalFilter:34 - en
+2022-10-12 19:09:09 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:09:09 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:09:09 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:09:09 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:09:09 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:09:11 INFO  LocalFilter:34 - ua
+2022-10-12 19:09:11 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:09:11 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:09:11 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:09:11 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:09:11 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:09:14 INFO  LocalFilter:34 - en
+2022-10-12 19:09:14 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:09:14 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:09:14 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:09:14 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:09:14 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:09:50 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:09:55 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:09:58 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:09:58 INFO  LocalFilter:38 - ua
+2022-10-12 19:09:58 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:09:58 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:09:58 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:09:58 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:09:58 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:10:00 INFO  LocalFilter:38 - ua
+2022-10-12 19:10:00 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:10:00 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:10:00 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:10:00 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:10:00 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:10:04 INFO  LocalFilter:38 - ua
+2022-10-12 19:10:04 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:10:04 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:10:04 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:10:04 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:10:04 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:10:46 INFO  LocalFilter:38 - ua
+2022-10-12 19:10:46 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:10:46 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:10:46 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:10:46 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:10:46 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:10:46 INFO  LocalFilter:38 - ua
+2022-10-12 19:10:47 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:10:47 INFO  LocalFilter:38 - ua
+2022-10-12 19:10:47 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:10:48 INFO  LocalFilter:38 - ua
+2022-10-12 19:10:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:10:48 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:10:48 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:10:48 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:10:48 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:10:50 INFO  LocalFilter:38 - ua
+2022-10-12 19:10:50 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:10:50 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:10:50 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:10:50 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:10:50 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:10:51 INFO  LocalFilter:38 - ua
+2022-10-12 19:10:51 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:10:51 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:10:51 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:10:51 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:10:51 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:10:51 INFO  LocalFilter:38 - ua
+2022-10-12 19:10:51 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:10:51 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:10:51 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:10:51 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:10:51 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:11:02 INFO  LocalFilter:38 - ua
+2022-10-12 19:11:02 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:11:02 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:11:02 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:11:02 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:11:02 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:11:07 INFO  LocalFilter:38 - ua
+2022-10-12 19:11:07 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:11:07 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:11:07 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:11:07 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:11:07 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:11:09 INFO  LocalFilter:38 - ua
+2022-10-12 19:11:09 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:11:09 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:11:09 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:11:09 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:11:09 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:11:10 INFO  LocalFilter:38 - ua
+2022-10-12 19:11:10 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:11:10 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:11:10 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:11:10 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:11:10 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:11:13 INFO  LocalFilter:34 - en
+2022-10-12 19:11:13 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:11:13 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:11:13 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:11:13 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:11:13 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:11:15 INFO  LocalFilter:34 - ua
+2022-10-12 19:11:15 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:11:15 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:11:15 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:11:15 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:11:15 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:12:52 INFO  LocalFilter:38 - ua
+2022-10-12 19:12:52 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:12:52 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:12:52 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:12:52 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:12:52 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:14:42 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:14:47 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:16:40 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:16:44 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:16:54 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:16:54 INFO  LocalFilter:38 - ua
+2022-10-12 19:16:54 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:16:54 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:16:54 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:16:54 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:16:54 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:16:55 INFO  LocalFilter:38 - ua
+2022-10-12 19:16:55 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:17:34 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:17:39 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:17:43 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:17:43 INFO  LocalFilter:38 - ua
+2022-10-12 19:17:43 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:17:43 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:17:43 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:17:43 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:17:43 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:17:45 INFO  LocalFilter:38 - ua
+2022-10-12 19:17:45 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:17:45 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:17:45 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:17:45 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:17:45 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:18:47 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:18:52 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:18:59 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:18:59 INFO  LocalFilter:38 - ua
+2022-10-12 19:18:59 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:18:59 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:18:59 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:18:59 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:18:59 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:23:46 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:23:51 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:23:52 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:23:52 INFO  LocalFilter:38 - ua
+2022-10-12 19:23:52 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:23:52 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:23:52 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:23:53 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:23:53 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:23:53 INFO  LocalFilter:38 - ua
+2022-10-12 19:23:53 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:24:16 INFO  LocalFilter:38 - ua
+2022-10-12 19:24:16 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:24:16 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:24:16 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:24:16 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:24:16 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:24:17 INFO  LocalFilter:38 - ua
+2022-10-12 19:24:17 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:24:18 INFO  LocalFilter:38 - ua
+2022-10-12 19:24:18 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:24:18 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:24:18 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:24:18 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:24:18 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:24:26 INFO  LocalFilter:38 - ua
+2022-10-12 19:24:26 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:24:26 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:24:26 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:24:26 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:24:26 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:24:28 INFO  LocalFilter:38 - ua
+2022-10-12 19:24:28 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:24:28 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:24:28 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:24:28 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:24:28 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:24:43 INFO  LocalFilter:38 - ua
+2022-10-12 19:24:43 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:24:43 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:24:43 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:24:43 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:24:43 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:24:48 INFO  LocalFilter:38 - ua
+2022-10-12 19:24:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:24:48 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:24:48 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:24:48 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:24:48 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:24:52 INFO  LocalFilter:38 - ua
+2022-10-12 19:24:52 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:24:52 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:24:52 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:24:52 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:24:52 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:29:35 INFO  LocalFilter:38 - ua
+2022-10-12 19:29:35 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:29:35 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:29:35 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:29:35 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:29:35 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:29:46 INFO  LocalFilter:38 - ua
+2022-10-12 19:29:46 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:29:46 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:29:46 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:29:46 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:29:46 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:29:47 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:29:52 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:29:53 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:29:53 INFO  LocalFilter:38 - ua
+2022-10-12 19:29:53 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:29:53 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:29:53 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:29:53 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:29:53 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:32:01 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:32:06 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:32:09 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:32:09 INFO  LocalFilter:38 - ua
+2022-10-12 19:32:09 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:32:09 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:32:09 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:32:10 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:32:10 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:32:10 INFO  LocalFilter:38 - ua
+2022-10-12 19:32:10 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:32:16 INFO  LocalFilter:38 - ua
+2022-10-12 19:32:16 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:32:16 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:32:16 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:32:16 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:32:16 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:32:19 INFO  LocalFilter:38 - ua
+2022-10-12 19:32:19 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:32:19 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:32:19 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:32:19 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:32:19 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:32:31 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:32:35 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:36:09 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:36:13 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:36:19 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:36:19 INFO  LocalFilter:38 - ua
+2022-10-12 19:36:19 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:36:19 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:36:19 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:36:19 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:36:19 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:36:21 INFO  LocalFilter:38 - ua
+2022-10-12 19:36:21 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:36:21 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:36:21 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:36:21 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:36:21 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:41:36 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:41:41 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:41:41 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:41:41 INFO  LocalFilter:38 - ua
+2022-10-12 19:41:41 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:41:41 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:41:41 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:41:41 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:41:41 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:41:43 INFO  LocalFilter:38 - ua
+2022-10-12 19:41:43 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:41:43 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:41:43 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:41:43 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:41:43 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:41:43 INFO  LocalFilter:38 - ua
+2022-10-12 19:41:43 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:44:32 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:44:38 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:44:40 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:44:40 INFO  LocalFilter:38 - ua
+2022-10-12 19:44:40 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:44:40 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:44:40 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:44:41 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:44:41 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:47:03 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:47:07 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:47:09 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:47:09 INFO  LocalFilter:38 - ua
+2022-10-12 19:47:09 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:47:09 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:47:09 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:47:10 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:47:10 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:47:14 INFO  LocalFilter:38 - ua
+2022-10-12 19:47:14 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:47:14 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:47:14 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:47:14 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:47:14 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:47:16 INFO  LocalFilter:38 - ua
+2022-10-12 19:47:16 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:47:16 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:47:16 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:47:16 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:47:16 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:49:54 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:49:59 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:50:02 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:50:02 INFO  LocalFilter:38 - ua
+2022-10-12 19:50:02 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:50:02 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:50:02 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:50:02 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:50:02 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:50:02 INFO  LocalFilter:38 - ua
+2022-10-12 19:50:02 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:51:25 INFO  LocalFilter:38 - ua
+2022-10-12 19:51:25 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:51:25 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:51:25 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:51:25 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:51:25 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:51:26 INFO  LocalFilter:38 - ua
+2022-10-12 19:51:26 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:51:26 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:51:26 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:51:26 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:51:26 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 19:51:35 INFO  LocalFilter:38 - ua
+2022-10-12 19:51:35 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:51:35 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:51:35 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:51:35 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:51:35 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:52:00 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:52:05 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:52:06 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:52:06 INFO  LocalFilter:38 - ua
+2022-10-12 19:52:06 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:52:06 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:52:06 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:52:07 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:52:07 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:52:09 INFO  LocalFilter:38 - ua
+2022-10-12 19:52:09 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:52:09 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:52:09 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:52:09 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:52:09 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:52:11 INFO  LocalFilter:38 - ua
+2022-10-12 19:52:11 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:52:11 INFO  AbstractServlet:62 - Command name: homePage
+2022-10-12 19:52:11 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:52:11 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-10-12 19:52:11 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-10-12 19:52:12 INFO  LocalFilter:38 - ua
+2022-10-12 19:52:12 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:52:12 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:52:12 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:52:12 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:52:12 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:53:39 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:53:44 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:53:45 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:53:45 INFO  LocalFilter:38 - ua
+2022-10-12 19:53:45 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:53:45 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:53:45 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:53:45 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:53:45 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:53:51 INFO  LocalFilter:38 - ua
+2022-10-12 19:53:51 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:53:51 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:53:51 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:53:51 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:53:51 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:54:53 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:54:58 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:54:59 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:54:59 INFO  LocalFilter:38 - ua
+2022-10-12 19:54:59 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:54:59 INFO  AbstractServlet:62 - Command name: aboutPage
+2022-10-12 19:54:59 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:54:59 INFO  AbstractServlet:66 - page: /headPages/aboutUs.jsp
+2022-10-12 19:54:59 INFO  AbstractServlet:48 - doGet: /headPages/aboutUs.jsp
+2022-10-12 19:55:02 INFO  LocalFilter:38 - ua
+2022-10-12 19:55:02 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:55:02 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:55:02 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:55:03 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:55:03 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:56:34 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:56:39 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:56:42 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:56:42 INFO  LocalFilter:38 - ua
+2022-10-12 19:56:42 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:56:42 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:56:42 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:56:42 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:56:42 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:57:50 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 19:57:55 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 19:58:48 INFO  AbstractServlet:29 - Path: home
+2022-10-12 19:58:48 INFO  LocalFilter:38 - ua
+2022-10-12 19:58:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:58:48 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 19:58:48 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:58:49 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 19:58:49 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 19:59:00 INFO  LocalFilter:38 - ua
+2022-10-12 19:59:00 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 19:59:00 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 19:59:00 INFO  AbstractServlet:63 - method: GET
+2022-10-12 19:59:00 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 19:59:00 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:00:44 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:00:50 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:00:51 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:00:51 INFO  LocalFilter:38 - ua
+2022-10-12 20:00:51 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:00:51 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 20:00:51 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:00:52 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 20:00:52 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 20:00:54 INFO  LocalFilter:38 - ua
+2022-10-12 20:00:54 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:00:54 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:00:54 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:00:54 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:00:54 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:00:54 INFO  LocalFilter:38 - ua
+2022-10-12 20:00:54 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:04:19 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:04:24 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:04:28 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:04:28 INFO  LocalFilter:38 - ua
+2022-10-12 20:04:28 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:04:28 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 20:04:28 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:04:28 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 20:04:28 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 20:04:28 INFO  LocalFilter:38 - ua
+2022-10-12 20:04:28 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:04:28 INFO  LocalFilter:38 - ua
+2022-10-12 20:04:28 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:04:28 INFO  LocalFilter:38 - ua
+2022-10-12 20:04:28 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:04:30 INFO  LocalFilter:38 - ua
+2022-10-12 20:04:30 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:04:30 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:04:30 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:04:30 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:04:30 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:05:53 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:05:58 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:05:59 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:05:59 INFO  LocalFilter:38 - ua
+2022-10-12 20:05:59 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:05:59 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:05:59 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:05:59 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:05:59 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:06:00 INFO  LocalFilter:38 - ua
+2022-10-12 20:06:00 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:07:01 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:07:06 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:07:07 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:07:07 INFO  LocalFilter:38 - ua
+2022-10-12 20:07:07 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:07:07 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:07:07 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:07:07 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:07:07 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:07:08 INFO  LocalFilter:38 - ua
+2022-10-12 20:07:08 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:09:11 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:09:16 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:09:18 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:09:18 INFO  LocalFilter:38 - ua
+2022-10-12 20:09:18 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:09:18 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:09:18 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:09:19 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:09:19 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:09:19 INFO  LocalFilter:38 - ua
+2022-10-12 20:09:19 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:10:33 INFO  LocalFilter:38 - ua
+2022-10-12 20:10:33 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:10:33 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:10:33 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:10:33 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:10:33 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:10:33 INFO  LocalFilter:38 - ua
+2022-10-12 20:10:33 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:10:34 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:10:39 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:11:07 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:11:07 INFO  LocalFilter:38 - ua
+2022-10-12 20:11:07 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:11:07 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 20:11:07 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:11:07 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 20:11:07 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 20:11:08 INFO  LocalFilter:38 - ua
+2022-10-12 20:11:08 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:11:36 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:11:41 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:11:42 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:11:42 INFO  LocalFilter:38 - ua
+2022-10-12 20:11:42 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:11:42 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 20:11:42 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:11:43 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 20:11:43 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 20:11:43 INFO  LocalFilter:38 - ua
+2022-10-12 20:11:43 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:11:48 INFO  LocalFilter:38 - ua
+2022-10-12 20:11:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:11:48 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:11:48 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:11:48 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:11:48 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:11:48 INFO  LocalFilter:38 - ua
+2022-10-12 20:11:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:11:48 INFO  LocalFilter:38 - ua
+2022-10-12 20:11:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:13:03 INFO  LocalFilter:38 - ua
+2022-10-12 20:13:03 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:13:03 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:13:03 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:13:03 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:13:03 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:13:03 INFO  LocalFilter:38 - ua
+2022-10-12 20:13:03 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:13:03 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:13:08 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:13:09 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:13:09 INFO  LocalFilter:38 - ua
+2022-10-12 20:13:09 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:13:09 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:13:09 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:13:09 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:13:09 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:16:39 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:16:44 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:16:45 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:16:45 INFO  LocalFilter:38 - ua
+2022-10-12 20:16:45 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:16:45 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:16:45 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:16:45 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:16:45 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:16:46 INFO  LocalFilter:38 - ua
+2022-10-12 20:16:46 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:17:43 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:17:48 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:17:48 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:17:48 INFO  LocalFilter:38 - ua
+2022-10-12 20:17:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:17:48 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:17:48 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:17:49 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:17:49 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:17:49 INFO  LocalFilter:38 - ua
+2022-10-12 20:17:49 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:18:54 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:18:58 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:18:59 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:18:59 INFO  LocalFilter:38 - ua
+2022-10-12 20:18:59 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:18:59 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 20:18:59 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:18:59 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 20:18:59 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 20:18:59 INFO  LocalFilter:38 - ua
+2022-10-12 20:18:59 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:19:01 INFO  LocalFilter:38 - ua
+2022-10-12 20:19:01 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:19:01 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:19:01 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:19:01 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:19:01 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:19:01 INFO  LocalFilter:38 - ua
+2022-10-12 20:19:01 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:21:12 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:21:17 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:21:19 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:21:19 INFO  LocalFilter:38 - ua
+2022-10-12 20:21:19 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:21:19 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:21:19 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:21:19 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:21:19 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:21:20 INFO  LocalFilter:38 - ua
+2022-10-12 20:21:20 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:21:55 INFO  LocalFilter:38 - ua
+2022-10-12 20:21:55 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:22:51 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:22:56 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:23:00 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:23:00 INFO  LocalFilter:38 - ua
+2022-10-12 20:23:00 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:23:00 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:23:00 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:23:00 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:23:00 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:23:01 INFO  LocalFilter:38 - ua
+2022-10-12 20:23:01 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:24:26 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:24:31 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:24:32 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:24:32 INFO  LocalFilter:38 - ua
+2022-10-12 20:24:32 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:24:32 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:24:32 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:24:33 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:24:33 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:24:33 INFO  LocalFilter:38 - ua
+2022-10-12 20:24:33 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:24:33 INFO  LocalFilter:38 - ua
+2022-10-12 20:24:33 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:25:17 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:25:22 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:25:37 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:25:37 INFO  LocalFilter:38 - ua
+2022-10-12 20:25:37 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:25:37 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:25:37 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:25:37 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:25:37 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:25:38 INFO  LocalFilter:38 - ua
+2022-10-12 20:25:38 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:25:41 INFO  LocalFilter:38 - ua
+2022-10-12 20:25:41 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:25:41 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:25:41 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:25:41 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:25:41 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:25:42 INFO  LocalFilter:38 - ua
+2022-10-12 20:25:42 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:25:42 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:25:42 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:25:42 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:25:42 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:25:43 INFO  LocalFilter:38 - ua
+2022-10-12 20:25:43 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:25:43 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:25:43 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:25:43 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:25:43 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:25:43 INFO  LocalFilter:38 - ua
+2022-10-12 20:25:43 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:25:43 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:25:43 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:25:43 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:25:43 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:25:43 INFO  LocalFilter:38 - ua
+2022-10-12 20:25:43 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:25:43 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:25:43 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:25:43 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:25:43 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:25:44 INFO  LocalFilter:38 - ua
+2022-10-12 20:25:44 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:25:44 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:25:44 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:25:44 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:25:44 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:25:44 INFO  LocalFilter:38 - ua
+2022-10-12 20:25:44 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:25:44 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:25:44 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:25:44 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:25:44 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:25:44 INFO  LocalFilter:38 - ua
+2022-10-12 20:25:44 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:25:44 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:25:44 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:25:44 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:25:44 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:27:27 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:27:32 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:27:32 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:27:32 INFO  LocalFilter:38 - ua
+2022-10-12 20:27:32 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:27:32 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:27:32 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:27:32 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:27:32 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:27:33 INFO  LocalFilter:38 - ua
+2022-10-12 20:27:33 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:29:56 INFO  LocalFilter:38 - ua
+2022-10-12 20:29:56 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:29:56 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:29:56 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:29:56 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:29:56 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:29:56 INFO  LocalFilter:38 - ua
+2022-10-12 20:29:56 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:30:17 INFO  LocalFilter:38 - ua
+2022-10-12 20:30:17 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:30:17 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:30:17 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:30:17 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:30:17 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:30:46 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:30:51 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:32:08 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:32:08 INFO  LocalFilter:34 - en
+2022-10-12 20:32:08 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:32:08 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:32:08 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:32:08 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:32:08 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:32:09 INFO  LocalFilter:38 - ua
+2022-10-12 20:32:09 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:34:16 INFO  LocalFilter:34 - en
+2022-10-12 20:34:16 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:34:16 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:34:16 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:34:16 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:34:16 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:34:16 INFO  LocalFilter:38 - ua
+2022-10-12 20:34:16 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:34:17 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:34:22 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:34:25 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:34:25 INFO  LocalFilter:34 - en
+2022-10-12 20:34:25 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:34:25 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:34:25 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:34:25 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:34:25 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:35:49 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:35:54 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:35:54 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:35:54 INFO  LocalFilter:34 - en
+2022-10-12 20:35:54 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:35:54 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:35:54 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:35:55 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:35:55 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:35:55 INFO  LocalFilter:38 - ua
+2022-10-12 20:35:55 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:39:54 INFO  LocalFilter:38 - ua
+2022-10-12 20:39:54 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:39:54 INFO  LocalFilter:38 - ua
+2022-10-12 20:39:54 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:39:56 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:40:01 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:40:03 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:40:03 INFO  LocalFilter:38 - ua
+2022-10-12 20:40:03 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:40:03 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:40:03 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:40:03 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:40:03 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:41:22 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:41:27 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:41:57 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:41:57 INFO  LocalFilter:38 - ua
+2022-10-12 20:41:57 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:41:57 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:41:57 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:41:57 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:41:57 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:42:54 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:42:58 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:43:16 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:43:16 INFO  LocalFilter:38 - ua
+2022-10-12 20:43:16 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:43:16 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:43:16 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:43:17 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:43:17 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:43:17 INFO  LocalFilter:38 - ua
+2022-10-12 20:43:17 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:45:23 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-12 20:45:28 INFO  LocalFilter:23 - LocalFilter init
+2022-10-12 20:45:28 INFO  AbstractServlet:29 - Path: home
+2022-10-12 20:45:28 INFO  LocalFilter:38 - ua
+2022-10-12 20:45:28 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:45:28 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:45:28 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:45:29 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:45:29 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:47:08 INFO  LocalFilter:38 - ua
+2022-10-12 20:47:08 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:47:08 INFO  AbstractServlet:62 - Command name: showCruises
+2022-10-12 20:47:08 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:47:08 INFO  AbstractServlet:66 - page: /showCruises.jsp
+2022-10-12 20:47:08 INFO  AbstractServlet:48 - doGet: /showCruises.jsp
+2022-10-12 20:47:08 INFO  LocalFilter:38 - ua
+2022-10-12 20:47:08 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:47:10 INFO  LocalFilter:38 - ua
+2022-10-12 20:47:10 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-12 20:47:10 INFO  AbstractServlet:62 - Command name: viewCruiseCommand
+2022-10-12 20:47:10 INFO  AbstractServlet:63 - method: GET
+2022-10-12 20:47:10 INFO  AbstractServlet:66 - page: /viewCruise.jsp
+2022-10-12 20:47:10 INFO  AbstractServlet:48 - doGet: /viewCruise.jsp
+2022-10-12 20:47:44 INFO  LocalFilter:46 - LocalFilter destroyed

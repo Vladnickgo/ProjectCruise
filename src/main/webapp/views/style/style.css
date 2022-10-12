@@ -13,10 +13,21 @@
     color: darkslateblue;
 }
 
-.cruiseInfoCell{
+.cruiseInfoCell {
     color: darkslateblue;
-    padding-left: 30px;
+    padding-left: 5px;
+    font-size: 14pt;
 }
 
+.linerInfoCellTh {
+    font-size: 16pt;
+    padding-bottom: 10pt;
+}
+
+.linerInfoCellTd {
+    padding-left: 15px;
+    padding-bottom: 10pt;
+    font-size: 16pt;
+}
 
 

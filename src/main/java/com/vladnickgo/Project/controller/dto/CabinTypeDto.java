@@ -1,14 +1,14 @@
-package com.vladnickgo.Project.dao.entity;
+package com.vladnickgo.Project.controller.dto;
 
 import java.util.Objects;
 
-public class CabinType {
+public class CabinTypeDto {
     private final Integer id;
     private final String cabinTypeName;
     private final Integer numberOfBeds;
     private final Integer price;
 
-    private CabinType(Builder builder) {
+    private CabinTypeDto(Builder builder) {
         id = builder.id;
         cabinTypeName = builder.cabinTypeName;
         numberOfBeds = builder.numberOfBeds;
@@ -18,7 +18,6 @@ public class CabinType {
     public static Builder newBuilder() {
         return new Builder();
     }
-
 
     public static final class Builder {
         private Integer id;
@@ -49,8 +48,8 @@ public class CabinType {
             return this;
         }
 
-        public CabinType build() {
-            return new CabinType(this);
+        public CabinTypeDto build() {
+            return new CabinTypeDto(this);
         }
     }
 
@@ -74,7 +73,7 @@ public class CabinType {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CabinType that = (CabinType) o;
+        CabinTypeDto that = (CabinTypeDto) o;
         return Objects.equals(id, that.id) && Objects.equals(cabinTypeName, that.cabinTypeName) && Objects.equals(numberOfBeds, that.numberOfBeds) && Objects.equals(price, that.price);
     }
 
@@ -85,7 +84,7 @@ public class CabinType {
 
     @Override
     public String toString() {
-        return "CabinTypes{" +
+        return "CabinTypeDto{" +
                 "id=" + id +
                 ", cabinTypeName='" + cabinTypeName + '\'' +
                 ", numberOfBeds=" + numberOfBeds +

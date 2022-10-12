@@ -9,6 +9,7 @@ public class Cruise {
     private final Route route;
     private final LocalDate dateStart;
     private final LocalDate dateEnd;
+    private final Integer nights;
     private final CruiseStatus cruiseStatus;
     private final Ship ship;
 
@@ -18,6 +19,7 @@ public class Cruise {
         route = builder.route;
         dateStart = builder.dateStart;
         dateEnd = builder.dateEnd;
+        nights = builder.nights;
         cruiseStatus = builder.cruiseStatus;
         ship = builder.ship;
     }
@@ -33,6 +35,7 @@ public class Cruise {
         private Route route;
         private LocalDate dateStart;
         private LocalDate dateEnd;
+        private Integer nights;
         private CruiseStatus cruiseStatus;
         private Ship ship;
 
@@ -61,6 +64,11 @@ public class Cruise {
 
         public Builder dateEnd(LocalDate val) {
             dateEnd = val;
+            return this;
+        }
+
+        public Builder nights(Integer val) {
+            nights = val;
             return this;
         }
 
@@ -99,6 +107,10 @@ public class Cruise {
         return dateEnd;
     }
 
+    public Integer getNights() {
+        return nights;
+    }
+
     public CruiseStatus getCruiseStatus() {
         return cruiseStatus;
     }
@@ -111,23 +123,24 @@ public class Cruise {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Cruise cruises = (Cruise) o;
-        return Objects.equals(id, cruises.id) && Objects.equals(cruiseName, cruises.cruiseName) && Objects.equals(route, cruises.route) && Objects.equals(dateStart, cruises.dateStart) && Objects.equals(dateEnd, cruises.dateEnd) && Objects.equals(cruiseStatus, cruises.cruiseStatus) && Objects.equals(ship, cruises.ship);
+        Cruise cruise = (Cruise) o;
+        return Objects.equals(id, cruise.id) && Objects.equals(cruiseName, cruise.cruiseName) && Objects.equals(route, cruise.route) && Objects.equals(dateStart, cruise.dateStart) && Objects.equals(dateEnd, cruise.dateEnd) && Objects.equals(nights, cruise.nights) && Objects.equals(cruiseStatus, cruise.cruiseStatus) && Objects.equals(ship, cruise.ship);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cruiseName, route, dateStart, dateEnd, cruiseStatus, ship);
+        return Objects.hash(id, cruiseName, route, dateStart, dateEnd, nights, cruiseStatus, ship);
     }
 
     @Override
     public String toString() {
-        return "Cruises{" +
+        return "Cruise{" +
                 "id=" + id +
                 ", cruiseName='" + cruiseName + '\'' +
                 ", route=" + route +
                 ", dateStart=" + dateStart +
                 ", dateEnd=" + dateEnd +
+                ", nights=" + nights +
                 ", cruiseStatus=" + cruiseStatus +
                 ", ship=" + ship +
                 '}';

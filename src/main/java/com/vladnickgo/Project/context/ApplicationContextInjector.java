@@ -5,18 +5,25 @@ import com.vladnickgo.Project.controller.command.Command;
 import com.vladnickgo.Project.controller.command.home.ViewCruiseCommand;
 import com.vladnickgo.Project.controller.command.home.header.*;
 import com.vladnickgo.Project.controller.command.user.*;
+import com.vladnickgo.Project.controller.dto.CabinTypeDto;
 import com.vladnickgo.Project.controller.dto.CruiseDto;
 import com.vladnickgo.Project.controller.dto.UserDto;
+import com.vladnickgo.Project.dao.CabinTypeDao;
 import com.vladnickgo.Project.dao.CruiseDao;
 import com.vladnickgo.Project.dao.UserDao;
+import com.vladnickgo.Project.dao.entity.CabinType;
 import com.vladnickgo.Project.dao.entity.Cruise;
 import com.vladnickgo.Project.dao.entity.User;
+import com.vladnickgo.Project.dao.impl.CabinTypeDaoImpl;
 import com.vladnickgo.Project.dao.impl.CruiseDaoImpl;
 import com.vladnickgo.Project.dao.impl.UserDaoImpl;
+import com.vladnickgo.Project.service.CabinTypeService;
 import com.vladnickgo.Project.service.CruiseService;
 import com.vladnickgo.Project.service.UserService;
+import com.vladnickgo.Project.service.impl.CabinTypeServiceImpl;
 import com.vladnickgo.Project.service.impl.CruiseServiceImpl;
 import com.vladnickgo.Project.service.impl.UserServiceImpl;
+import com.vladnickgo.Project.service.mapper.CabinTypeMapper;
 import com.vladnickgo.Project.service.mapper.CruiseMapper;
 import com.vladnickgo.Project.service.mapper.Mapper;
 import com.vladnickgo.Project.service.mapper.UserMapper;
@@ -39,9 +46,13 @@ public final class ApplicationContextInjector {
 
     private static final CruiseDao CRUISE_DAO = new CruiseDaoImpl(HIKARI_CONNECTION_POOL);
 
+    private static final CabinTypeDao CABIN_TYPE_DAO = new CabinTypeDaoImpl(HIKARI_CONNECTION_POOL);
+
     private static final Mapper<UserDto, User> USER_MAPPER = new UserMapper();
 
     public static final Mapper<CruiseDto, Cruise> CRUISE_MAPPER = new CruiseMapper();
+
+    private static final Mapper<CabinTypeDto, CabinType> CABIN_TYPE_MAPPER = new CabinTypeMapper();
 
     private static final UserValidator USER_VALIDATOR = new UserValidator();
 
@@ -52,6 +63,8 @@ public final class ApplicationContextInjector {
     private static final UserService USER_SERVICE = new UserServiceImpl(USER_DAO, USER_MAPPER, USER_VALIDATOR, PASSWORD_ENCRYPTION_SERVICE);
 
     private static final CruiseService CRUISE_SERVICE = new CruiseServiceImpl(CRUISE_DAO, CRUISE_MAPPER, CRUISE_VALIDATOR);
+
+    private static final CabinTypeService CABIN_TYPE_SERVICE = new CabinTypeServiceImpl(CABIN_TYPE_DAO,CABIN_TYPE_MAPPER);
 
     private static final PageService PAGE_SERVICE = new PageServiceImpl();
 
@@ -144,6 +157,10 @@ public final class ApplicationContextInjector {
         return USER_SERVICE;
     }
 
+    public CabinTypeService getCabinTypeService() {
+        return CABIN_TYPE_SERVICE;
+    }
+
     public CruiseService getCruiseService() {
         return CRUISE_SERVICE;
     }
@@ -159,5 +176,4 @@ public final class ApplicationContextInjector {
     public Map<String, Command> getUserCommands() {
         return USER_COMMAND_NAME_TO_COMMAND;
     }
-
 }

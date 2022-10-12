@@ -17,7 +17,6 @@ public class MyTagHandler extends TagSupport {
             if (user != null) {
                 out.print(user.getRole() + ": " + user.getFirstName() + " " + user.getLastName() + "<br>" + user.getEmail());
             }
-
         } catch (IOException e) {
             throw new JspException(e);
         }
