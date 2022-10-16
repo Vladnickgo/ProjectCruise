@@ -15179,3 +15179,18 @@
 2022-10-16 19:03:23 INFO  AbstractServlet:63 - method: GET
 2022-10-16 19:03:23 INFO  AbstractServlet:66 - page: /userProfile.jsp
 2022-10-16 19:03:23 INFO  AbstractServlet:48 - doGet: /userProfile.jsp
+2022-10-16 20:25:08 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-10-16 20:25:11 INFO  LocalFilter:23 - LocalFilter init
+2022-10-16 20:25:12 INFO  AbstractServlet:34 - Path: user
+2022-10-16 20:25:12 INFO  LocalFilter:38 - ua
+2022-10-16 20:25:12 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-16 20:25:12 INFO  AbstractServlet:62 - Command name: successPaymentCommand
+2022-10-16 20:25:12 INFO  AbstractServlet:63 - method: GET
+2022-10-16 20:25:12 INFO  AbstractServlet:66 - page: /successPayment.jsp
+2022-10-16 20:25:12 INFO  AbstractServlet:48 - doGet: /successPayment.jsp
+2022-10-16 20:25:14 INFO  LocalFilter:38 - ua
+2022-10-16 20:25:14 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-10-16 20:25:14 INFO  AbstractServlet:62 - Command name: showUserProfile
+2022-10-16 20:25:14 INFO  AbstractServlet:63 - method: GET
+2022-10-16 20:25:14 INFO  AbstractServlet:66 - page: /userProfile.jsp
+2022-10-16 20:25:14 INFO  AbstractServlet:48 - doGet: /userProfile.jsp
