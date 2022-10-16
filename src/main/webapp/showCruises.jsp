@@ -13,7 +13,6 @@
 <c:set var="Title" scope="request" value="Show Cruises"/>
 
 <c:import url="views/head.jsp"/>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Show Cruises</title>

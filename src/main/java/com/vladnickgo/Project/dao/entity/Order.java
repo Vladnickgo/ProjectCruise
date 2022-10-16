@@ -6,6 +6,7 @@ import java.util.Objects;
 public class Order {
     private final Integer id;
     private final User user;
+    private final CabinStatus cabinStatus;
     private final LocalDate orderDate;
     private final OrderStatus orderStatus;
     private final Cruise cruise;
@@ -13,6 +14,7 @@ public class Order {
     private Order(Builder builder) {
         id = builder.id;
         user = builder.user;
+        cabinStatus = builder.cabinStatus;
         orderDate = builder.orderDate;
         orderStatus = builder.orderStatus;
         cruise = builder.cruise;
@@ -22,10 +24,10 @@ public class Order {
         return new Builder();
     }
 
-
     public static final class Builder {
         private Integer id;
         private User user;
+        private CabinStatus cabinStatus;
         private LocalDate orderDate;
         private OrderStatus orderStatus;
         private Cruise cruise;
@@ -40,6 +42,11 @@ public class Order {
 
         public Builder user(User val) {
             user = val;
+            return this;
+        }
+
+        public Builder cabinStatus(CabinStatus val) {
+            cabinStatus = val;
             return this;
         }
 
@@ -71,6 +78,10 @@ public class Order {
         return user;
     }
 
+    public CabinStatus getCabinStatus() {
+        return cabinStatus;
+    }
+
     public LocalDate getOrderDate() {
         return orderDate;
     }
@@ -88,12 +99,12 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return Objects.equals(id, order.id) && Objects.equals(user, order.user) && Objects.equals(orderDate, order.orderDate) && orderStatus == order.orderStatus && Objects.equals(cruise, order.cruise);
+        return Objects.equals(id, order.id) && Objects.equals(user, order.user) && Objects.equals(cabinStatus, order.cabinStatus) && Objects.equals(orderDate, order.orderDate) && orderStatus == order.orderStatus && Objects.equals(cruise, order.cruise);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, orderDate, orderStatus, cruise);
+        return Objects.hash(id, user, cabinStatus, orderDate, orderStatus, cruise);
     }
 
     @Override
@@ -101,6 +112,7 @@ public class Order {
         return "Order{" +
                 "id=" + id +
                 ", user=" + user +
+                ", cabinStatus=" + cabinStatus +
                 ", orderDate=" + orderDate +
                 ", orderStatus=" + orderStatus +
                 ", cruise=" + cruise +

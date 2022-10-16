@@ -67,7 +67,7 @@
                     <div style="font-size: 9pt;margin-left: 10px;">
                         <input type="checkbox" id="notPaid" name="statusNotPaid"
                                value="notPaid" ${statusNotPaid=='notPaid'?'checked':''}>
-                        <label for="notPaid"><f:message key="notPaid" bundle="${bunCont}"/></label><br>
+                        <label for="notPaid"><f:message key="done" bundle="${bunCont}"/></label><br>
                         <input type="checkbox" id="paid" name="statusPaid"
                                value="paid" ${statusPaid=='paid'?'checked':''}>
                         <label for="paid"><f:message key="paid" bundle="${bunCont}"/></label><br>

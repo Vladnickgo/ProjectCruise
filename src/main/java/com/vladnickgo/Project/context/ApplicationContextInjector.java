@@ -2,37 +2,23 @@ package com.vladnickgo.Project.context;
 
 import com.vladnickgo.Project.connection.HikariConnectionPool;
 import com.vladnickgo.Project.controller.command.Command;
+import com.vladnickgo.Project.controller.command.home.CreateCabinOrderCommand;
+import com.vladnickgo.Project.controller.command.user.PaymentCommand;
+import com.vladnickgo.Project.controller.command.user.PaymentConfirmationPage;
 import com.vladnickgo.Project.controller.command.home.ViewCruiseCommand;
 import com.vladnickgo.Project.controller.command.home.header.*;
 import com.vladnickgo.Project.controller.command.user.*;
-import com.vladnickgo.Project.controller.dto.CabinTypeDto;
-import com.vladnickgo.Project.controller.dto.CruiseDto;
-import com.vladnickgo.Project.controller.dto.UserDto;
-import com.vladnickgo.Project.dao.CabinTypeDao;
-import com.vladnickgo.Project.dao.CruiseDao;
-import com.vladnickgo.Project.dao.UserDao;
-import com.vladnickgo.Project.dao.entity.CabinType;
-import com.vladnickgo.Project.dao.entity.Cruise;
-import com.vladnickgo.Project.dao.entity.User;
-import com.vladnickgo.Project.dao.impl.CabinTypeDaoImpl;
-import com.vladnickgo.Project.dao.impl.CruiseDaoImpl;
-import com.vladnickgo.Project.dao.impl.UserDaoImpl;
-import com.vladnickgo.Project.service.CabinTypeService;
-import com.vladnickgo.Project.service.CruiseService;
-import com.vladnickgo.Project.service.UserService;
-import com.vladnickgo.Project.service.impl.CabinTypeServiceImpl;
-import com.vladnickgo.Project.service.impl.CruiseServiceImpl;
-import com.vladnickgo.Project.service.impl.UserServiceImpl;
-import com.vladnickgo.Project.service.mapper.CabinTypeMapper;
-import com.vladnickgo.Project.service.mapper.CruiseMapper;
-import com.vladnickgo.Project.service.mapper.Mapper;
-import com.vladnickgo.Project.service.mapper.UserMapper;
+import com.vladnickgo.Project.controller.dto.*;
+import com.vladnickgo.Project.dao.*;
+import com.vladnickgo.Project.dao.entity.*;
+import com.vladnickgo.Project.dao.impl.*;
+import com.vladnickgo.Project.service.*;
+import com.vladnickgo.Project.service.impl.*;
+import com.vladnickgo.Project.service.mapper.*;
 import com.vladnickgo.Project.service.util.PageService;
 import com.vladnickgo.Project.service.util.PageServiceImpl;
 import com.vladnickgo.Project.service.util.PasswordEncryptionService;
-import com.vladnickgo.Project.validator.CruiseValidator;
-import com.vladnickgo.Project.validator.UserValidator;
-import com.vladnickgo.Project.validator.Validator;
+import com.vladnickgo.Project.validator.*;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -48,15 +34,33 @@ public final class ApplicationContextInjector {
 
     private static final CabinTypeDao CABIN_TYPE_DAO = new CabinTypeDaoImpl(HIKARI_CONNECTION_POOL);
 
+    private static final CabinDao CABIN_DAO = new CabinDaoImpl(HIKARI_CONNECTION_POOL);
+
+    private static final CabinStatusDao CABIN_STATUS_DAO = new CabinStatusDaoImpl(HIKARI_CONNECTION_POOL);
+
+    private static final PaymentDao PAYMENT_DAO = new PaymentDaoImpl(HIKARI_CONNECTION_POOL);
+
     private static final Mapper<UserDto, User> USER_MAPPER = new UserMapper();
 
     public static final Mapper<CruiseDto, Cruise> CRUISE_MAPPER = new CruiseMapper();
 
+    private static final Mapper<CabinDto, Cabin> CABIN_MAPPER = new CabinMapper();
+
     private static final Mapper<CabinTypeDto, CabinType> CABIN_TYPE_MAPPER = new CabinTypeMapper();
+
+    private static final Mapper<CabinStatusDto, CabinStatus> CABIN_STATUS_MAPPER = new CabinStatusMapper();
+
+    private static final Mapper<PaymentDto, Payment> PAYMENT_MAPPER = new PaymentMapper();
 
     private static final UserValidator USER_VALIDATOR = new UserValidator();
 
     private static final Validator<CruiseDto> CRUISE_VALIDATOR = new CruiseValidator();
+
+    private static final Validator<CabinDto> CABIN_VALIDATOR = new CabinValidator();
+
+    private static final Validator<PaymentDocumentsDto> PAYMENT_DOCUMENTS_VALIDATOR = new PaymentDocumentsValidator();
+
+    private static final Validator<PaymentDto> PAYMENT_VALIDATOR = new PaymentValidator();
 
     private static final PasswordEncryptionService PASSWORD_ENCRYPTION_SERVICE = new PasswordEncryptionService();
 
@@ -64,7 +68,15 @@ public final class ApplicationContextInjector {
 
     private static final CruiseService CRUISE_SERVICE = new CruiseServiceImpl(CRUISE_DAO, CRUISE_MAPPER, CRUISE_VALIDATOR);
 
-    private static final CabinTypeService CABIN_TYPE_SERVICE = new CabinTypeServiceImpl(CABIN_TYPE_DAO,CABIN_TYPE_MAPPER);
+    private static final CabinTypeService CABIN_TYPE_SERVICE = new CabinTypeServiceImpl(CABIN_TYPE_DAO, CABIN_TYPE_MAPPER);
+
+    private static final CabinService CABIN_SERVICE = new CabinServiceImpl(CABIN_DAO, CABIN_MAPPER, CABIN_VALIDATOR);
+
+    private static final CabinStatusService CABIN_STATUS_SERVICE = new CabinStatusServiceImpl(CABIN_STATUS_DAO, CABIN_STATUS_MAPPER);
+
+    private static final PaymentService PAYMENT_SERVICE = new PaymentServiceImpl(PAYMENT_DAO, PAYMENT_MAPPER, PAYMENT_VALIDATOR);
+
+    private static final PaymentDocumentsService PAYMENT_DOCUMENTS_SERVICE = new PaymentDocumentsServiceImpl(PAYMENT_DOCUMENTS_VALIDATOR);
 
     private static final PageService PAGE_SERVICE = new PageServiceImpl();
 
@@ -102,9 +114,18 @@ public final class ApplicationContextInjector {
 
     private static final Command VIEW_CRUISES_COMMAND = new ViewCruiseCommand();
 
+    private static final Command CREATE_CABIN_ORDER_COMMAND = new CreateCabinOrderCommand();
+
+    private static final Command PAYMENT_CONFIRMATION_PAGE_COMMAND = new PaymentConfirmationPage();
+
+    private static final Command PAYMENT_COMMAND = new PaymentCommand();
+
+    private static final Command SUCCESS_PAYMENT_COMMAND = new SuccessPaymentCommand();
+
     private static final Map<String, Command> USER_COMMAND_NAME_TO_COMMAND = initUserCommand();
 
     private static final Map<String, Command> HOME_COMMAND_NAME_TO_COMMAND = initHomeCommand();
+
 
     private static ApplicationContextInjector applicationContextInjector;
 
@@ -124,6 +145,10 @@ public final class ApplicationContextInjector {
         userCommandNameToCommand.put("showUserProfile", SHOW_USER_PROFILE_COMMAND);
         userCommandNameToCommand.put("showAdminProfile", SHOW_ADMIN_PROFILE_COMMAND);
         userCommandNameToCommand.put("myOrdersPage", MY_ORDERS_PAGE_COMMAND);
+        userCommandNameToCommand.put("createCabinOrder", CREATE_CABIN_ORDER_COMMAND);
+        userCommandNameToCommand.put("paymentConfirmationPageCommand", PAYMENT_CONFIRMATION_PAGE_COMMAND);
+        userCommandNameToCommand.put("paymentCommand", PAYMENT_COMMAND);
+        userCommandNameToCommand.put("successPaymentCommand", SUCCESS_PAYMENT_COMMAND);
         userCommandNameToCommand.put("defaultCommand", DEFAULT_COMMAND);
         return Collections.unmodifiableMap(userCommandNameToCommand);
     }
@@ -136,9 +161,7 @@ public final class ApplicationContextInjector {
         homeCommandNameToCommand.put("showCruises", SHOW_CRUISES_COMMAND);
         homeCommandNameToCommand.put("showCruisesPageCommand", SHOW_CRUISES_PAGE_COMMAND);
         homeCommandNameToCommand.put("viewCruiseCommand", VIEW_CRUISES_COMMAND);
-
         homeCommandNameToCommand.put("defaultCommand", DEFAULT_COMMAND);
-
         return Collections.unmodifiableMap(homeCommandNameToCommand);
     }
 
@@ -165,6 +188,10 @@ public final class ApplicationContextInjector {
         return CRUISE_SERVICE;
     }
 
+    public CabinStatusService getCabinStatusService() {
+        return CABIN_STATUS_SERVICE;
+    }
+
     public PageService getPageService() {
         return PAGE_SERVICE;
     }
@@ -175,5 +202,17 @@ public final class ApplicationContextInjector {
 
     public Map<String, Command> getUserCommands() {
         return USER_COMMAND_NAME_TO_COMMAND;
+    }
+
+    public CabinService getCabinService() {
+        return CABIN_SERVICE;
+    }
+
+    public PaymentService getPaymentService() {
+        return PAYMENT_SERVICE;
+    }
+
+    public PaymentDocumentsService getPaymentDocumentsService() {
+        return PAYMENT_DOCUMENTS_SERVICE;
     }
 }

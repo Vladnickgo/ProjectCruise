@@ -32,4 +32,12 @@ public class ValidatorErrorMessage {
     public static final String EMPTY_ROUTE_NAME = "Empty route name";
     public static final String EMPTY_CRUISE_STATUS_NAME = "Empty cruise status name";
     public static final String CRUISE_NOT_FOUND = "Cruise not found";
+    public static final String CABIN_NOT_FOUND = "Cabin not found";
+    public static final String ID_CARD_FILE_NAME_IS_NOT_VALID = "idCard file name is not valid";
+    public static final String CARD_NUMBER_IS_NOT_VALID = "Card number is not valid";
+    public static final String CVV_NUMBER_IS_NOT_VALID = "CVV number is not valid";
+    public static final String USER_ID_IS_NULL = "userId is null";
+    public static final String CABIN_STATUS_ID_IS_NULL = "cabinStatusId is null";
+    public static final String CRUISE_ID_IS_NULL = "cruiseId is null";
+    public static final String AMOUNT_VALUE_IS_NULL = "Amount value is null";
 }

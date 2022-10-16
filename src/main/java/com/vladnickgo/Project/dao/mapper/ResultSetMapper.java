@@ -60,7 +60,6 @@ public class ResultSetMapper {
         return Cabin.newBuilder()
                 .id(resultSet.getInt("cabin_id"))
                 .cabinType(mapResultSetToCabinType(resultSet))
-                .cabinStatus(mapResultSetToCabinStatus(resultSet))
                 .ship(mapResultSetToShip(resultSet))
                 .build();
     }
@@ -77,7 +76,24 @@ public class ResultSetMapper {
     public static CabinStatus mapResultSetToCabinStatus(ResultSet resultSet) throws SQLException {
         return CabinStatus.newBuilder()
                 .id(resultSet.getInt("cabin_status_id"))
-                .cabinStatusName(resultSet.getString("cabin_status_name"))
+                .cabin(mapResultSetToCabin(resultSet))
+                .statusStart(resultSet.getDate("status_start").toLocalDate())
+                .statusEnd(resultSet.getDate("status_end").toLocalDate())
+                .statusStatement(mapResultSetToCabinStatusStatement(resultSet))
+                .build();
+    }
+
+    public static CabinStatusStatement mapResultSetToCabinStatusStatement(ResultSet resultSet) throws SQLException {
+        return CabinStatusStatement.newBuilder()
+                .id(resultSet.getInt("status_statement_id"))
+                .statusStatementName(resultSet.getString("status_statement_name"))
+                .build();
+    }
+
+    public static OrderStatus mapResultSetToOrderStatus(ResultSet resultSet) throws SQLException {
+        return OrderStatus.newBuilder()
+                .id(resultSet.getInt("status_statement_id"))
+                .orderStatusName(resultSet.getString("order_status_name"))
                 .build();
     }
 
@@ -86,7 +102,8 @@ public class ResultSetMapper {
                 .id(resultSet.getInt("order_id"))
                 .user(mapResultSetToUser(resultSet))
                 .orderDate(resultSet.getDate("order_date").toLocalDate())
-                .orderStatus(OrderStatus.getOrderStatus(resultSet.getInt("order_status_id")))
+                .cabinStatus(mapResultSetToCabinStatus(resultSet))
+                .orderStatus(mapResultSetToOrderStatus(resultSet))
                 .cruise(mapResultSetToCruise(resultSet))
                 .build();
     }
@@ -95,7 +112,7 @@ public class ResultSetMapper {
         return Payment.newBuilder()
                 .id(resultSet.getInt("payment_id"))
                 .order(mapResultSetToOrder(resultSet))
-                .paymentDate(resultSet.getDate("payment_id").toLocalDate())
+                .paymentDate(resultSet.getDate("payment_date").toLocalDate())
                 .amount(resultSet.getInt("amount"))
                 .build();
     }
@@ -110,4 +127,12 @@ public class ResultSetMapper {
                 .build();
     }
 
+    public static RoutePoint mapResultSetToRoutePoint(ResultSet resultSet) throws SQLException {
+        return RoutePoint.newBuilder()
+                .id(resultSet.getInt("route_point_id"))
+                .route(mapResultSetToRoute(resultSet))
+                .dayNumber(resultSet.getInt("day_number"))
+                .port(mapResultSetToPort(resultSet))
+                .build();
+    }
 }

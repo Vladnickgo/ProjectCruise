@@ -66,7 +66,11 @@ public final class PagesConstant {
 
     public static final String SUCCESS_ROOM_UPDATE = "/successRoomUpdate.jsp";
 
-    public static final String DELETE_ROOM = "/deleteRoom.jsp";
-
     public static final String VIEW_CRUISE = "/viewCruise.jsp";
+
+    public static final String CREATE_ORDER = "/createOrderPage.jsp";
+
+    public static final String NOT_AVAILABLE_CABIN = "/errorPages/notAvailableCabin.jsp";
+
+    public static final String PAYMENT_CONFIRMATION_PAGE = "/paymentConfirmationPage.jsp";
 }

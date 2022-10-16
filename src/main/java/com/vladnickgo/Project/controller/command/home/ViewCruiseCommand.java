@@ -5,6 +5,7 @@ import com.vladnickgo.Project.context.ApplicationContextInjector;
 import com.vladnickgo.Project.controller.command.Command;
 import com.vladnickgo.Project.controller.dto.CabinTypeDto;
 import com.vladnickgo.Project.controller.dto.CruiseDto;
+import com.vladnickgo.Project.service.CabinStatusService;
 import com.vladnickgo.Project.service.CabinTypeService;
 import com.vladnickgo.Project.service.CruiseService;
 
@@ -18,6 +19,7 @@ public class ViewCruiseCommand implements Command {
     private final ApplicationContextInjector contextInjector = ApplicationContextInjector.getInstance();
     private final CruiseService cruiseService = contextInjector.getCruiseService();
     private final CabinTypeService cabinTypeService = contextInjector.getCabinTypeService();
+    private final CabinStatusService cabinStatusService=contextInjector.getCabinStatusService();
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,6 +28,7 @@ public class ViewCruiseCommand implements Command {
         request.setAttribute("command", command);
         CruiseDto cruiseById = cruiseService.findCruiseById(cruiseId);
         List<CabinTypeDto> cabinTypes = cabinTypeService.findAll();
+
         request.setAttribute("cruise", cruiseById);
         request.setAttribute("cabinTypes", cabinTypes);
         return PagesConstant.VIEW_CRUISE;
