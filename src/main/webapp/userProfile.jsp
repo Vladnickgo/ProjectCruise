@@ -15,7 +15,11 @@
 <c:set var="Title" scope="request" value="User profile"/>
 
 <c:import url="views/head.jsp"/>
+<html>
+<head>
 
+    <link rel="stylesheet" type="text/css" href="/views/style/style.css">
+</head>
 <body>
 
 <div class="">
@@ -31,19 +35,20 @@
                     <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
                 </select>
                 <input name="command" value="${command}" hidden>
-                <input name="statusNotPaid" value="${statusNotPaid}" hidden>
-                <input name="statusPaid" value="${statusPaid}" hidden>
-                <input name="statusCanceled" value="${statusCanceled}" hidden>
+
                 <input name="sorting" value="${sorting}" hidden>
                 <input name="ordering" value="${ordering}" hidden>
-                <input name="sorting" value="${sorting}" hidden>
                 <input name="itemsOnPage" value="${itemsOnPage}" hidden>
                 <input name="numberOfPage" value="${numberOfPage}" hidden>
+
+                <input name="statusInProgress" value="${statusInProgress}" hidden>
+                <input name="statusConfirmed" value="${statusConfirmed}" hidden>
+                <input name="statusCanceled" value="${statusCanceled}" hidden>
+                <input name="statusCompleted" value="${statusCompleted}" hidden>
             </form>
         </div>
     </div>
 </div>
-
 <div>
     <div class="row">
         <div class="col-2" style="">
@@ -65,15 +70,18 @@
                     <label style="margin-left: 50px; width: 60px;font-size: 8pt; margin-right: 5px;font-weight: bold"><f:message
                             key="bookingStatus" bundle="${bunCont}"/>:</label>
                     <div style="font-size: 9pt;margin-left: 10px;">
-                        <input type="checkbox" id="notPaid" name="statusNotPaid"
-                               value="notPaid" ${statusNotPaid=='notPaid'?'checked':''}>
-                        <label for="notPaid"><f:message key="done" bundle="${bunCont}"/></label><br>
-                        <input type="checkbox" id="paid" name="statusPaid"
-                               value="paid" ${statusPaid=='paid'?'checked':''}>
-                        <label for="paid"><f:message key="paid" bundle="${bunCont}"/></label><br>
+                        <input type="checkbox" id="inProgress" name="statusInProgress"
+                               value="inProgress" ${statusInProgress=='inProgress'?'checked':''}>
+                        <label for="inProgress"><f:message key="inProgress" bundle="${bunCont}"/></label><br>
+                        <input type="checkbox" id="confirmed" name="statusConfirmed"
+                               value="confirmed" ${statusConfirmed=='confirmed'?'checked':''}>
+                        <label for="confirmed"><f:message key="confirmed" bundle="${bunCont}"/></label><br>
                         <input type="checkbox" id="canceled" name="statusCanceled"
                                value="canceled" ${statusCanceled=='canceled'?'checked':''}>
                         <label for="canceled"><f:message key="canceled" bundle="${bunCont}"/></label><br>
+                        <input type="checkbox" id="completed" name="statusCompleted"
+                               value="completed" ${statusCompleted=='completed'?'checked':''}>
+                        <label for="completed"><f:message key="completed" bundle="${bunCont}"/></label><br>
                     </div>
 
                     <label for="sorting"
@@ -82,13 +90,17 @@
                     </label>
                     <select class="select-size form-control" name="sorting" id="sorting"
                             style="width: 140px;height: 40px">
-                        <option value="price" ${sorting == 'price' ? 'selected' : ''}><f:message key="price"
-                                                                                                 bundle="${bunCont}"/></option>
-                        <option value="number_of_beds" ${sorting == 'number_of_beds' ? 'selected' : ''}>
-                            <f:message key="numberOfBeds" bundle="${bunCont}"/>
+                        <option value="order_date" ${sorting == 'order_date' ? 'selected' : ''}>
+                            <f:message key="orderDate" bundle="${bunCont}"/>
                         </option>
-                        <option value="type_name" ${sorting == 'type_name'? 'selected' : ''}><f:message key="roomType"
-                                                                                                        bundle="${bunCont}"/></option>
+                        <option value="cruise_name" ${sorting == 'cruise_name' ? 'selected' : ''}>
+                            <f:message key="cruise" bundle="${bunCont}"/>
+                        </option>
+                        <option value="amount" ${sorting == 'amount' ? 'selected' : ''}><f:message key="price"
+                                                                                                   bundle="${bunCont}"/></option>
+                        <option value="date_start" ${sorting == 'date_start'? 'selected' : ''}><f:message
+                                key="dateStart"
+                                bundle="${bunCont}"/></option>
                         </option>
                     </select>
 
@@ -121,10 +133,6 @@
                                 style="width: 100%; height: 40px">
                             <f:message key="myProfile" bundle="${bunCont}"/>
                         </button>
-                        <button class="btn btn-outline-primary" name="command" value="myOrdersPage" type="submit"
-                                style="width: 100%; height: 40px">
-                            <f:message key="myOrders" bundle="${bunCont}"/>
-                        </button>
                     </form>
                 </div>
                 <div class="col-2"></div>
@@ -140,16 +148,14 @@
             <form action="home" method="get">
                 <table class="table table-striped" style="width: 100%;padding-bottom: 30px">
                     <tr class="table-primary">
-                        <th><f:message key="order" bundle="${bunCont}"/></th>
+                        <th><f:message key="receipt" bundle="${bunCont}"/></th>
                         <th><f:message key="orderDate" bundle="${bunCont}"/></th>
-<%--                        <th><f:message key="hotel" bundle="${bunCont}"/></th>--%>
-                        <th><f:message key="checkIn" bundle="${bunCont}"/></th>
-                        <th><f:message key="checkOut" bundle="${bunCont}"/></th>
-                        <th><f:message key="roomType" bundle="${bunCont}"/></th>
-                        <th><f:message key="numberOfBeds" bundle="${bunCont}"/></th>
+                        <th><f:message key="cruise" bundle="${bunCont}"/></th>
+                        <th><f:message key="dateStart" bundle="${bunCont}"/></th>
+                        <th><f:message key="dateEnd" bundle="${bunCont}"/></th>
+                        <th><f:message key="cabinType" bundle="${bunCont}"/></th>
+                        <th><f:message key="cabin" bundle="${bunCont}"/></th>
                         <th><f:message key="price" bundle="${bunCont}"/></th>
-                        <th><f:message key="nights" bundle="${bunCont}"/></th>
-                        <th><f:message key="toPay" bundle="${bunCont}"/></th>
                         <th>
                             <div style="display: flex;flex-direction: row;justify-content: center">
                                 <button class="btn btn-outline-primary" ${statusNotPaid=='notPaid'&&bookingsByUserIdAndParameters!='[]'?'':'hidden'}
@@ -167,18 +173,16 @@
                             </div>
                         </th>
                     </tr>
-                    <c:forEach var="booking" items="${bookingsByUserIdAndParameters}">
+                    <c:forEach var="payment" items="${paymentsList}">
                         <tr>
-                            <td>${booking.id}</td>
-                            <td><tags:fulldate date="${booking.bookTime}"/></td>
-                            <td>${booking.room.hotel.name}</td>
-                            <td><tags:fulldate date="${booking.checkIn}"/></td>
-                            <td><tags:fulldate date="${booking.checkOut}"/></td>
-                            <td>${booking.room.roomType.typeName}</td>
-                            <td>${booking.room.numberOfBeds}</td>
-                            <td>${booking.room.price} <f:message key="uah" bundle="${bunCont}"/></td>
-                            <td>${booking.nights}</td>
-                            <td>${booking.room.price*booking.nights} <f:message key="uah" bundle="${bunCont}"/></td>
+                            <td>${payment.paymentNumber}</td>
+                            <td><tags:fulldate date="${payment.paymentDate}"/></td>
+                            <td>${payment.cruiseName}</td>
+                            <td><tags:fulldate date="${payment.dateStart}"/></td>
+                            <td><tags:fulldate date="${payment.dateEnd}"/></td>
+                            <td>${payment.cabinType}</td>
+                            <td>${payment.cabinNumber}</td>
+                            <td>${payment.amount} <f:message key="uah" bundle="${bunCont}"/></td>
                             <td style="text-align: center">
                                 <input type="checkbox" ${booking.bookingStatusId==1?'':'hidden'} name="bookingId"
                                        value="${booking.id}">
@@ -195,14 +199,14 @@
             </form>
             <div style="padding-bottom: 100px">
                 <a class="btn btn-light"
-                   href="user?command=showUserProfile&numberOfPage=${numberOfPage-1<1?1:numberOfPage-1}&itemsOnPage=${itemsOnPage}&hotelId=${hotelId}&hotelName=${hotelName}&statusNotPaid=${statusNotPaid}&statusPaid=${statusPaid}&statusCanceled=${statusCanceled}&sorting=${sorting}&ordering=${ordering}"
+                   href="user?command=showUserProfile&numberOfPage=${numberOfPage-1<1?1:numberOfPage-1}&itemsOnPage=${itemsOnPage}&statusInProgress=${statusInProgress}&statusConfirmed=${statusConfirmed}&statusCanceled=${statusCanceled}&statusCompleted=${statusCompleted}&sorting=${sorting}&ordering=${ordering}"
                 ${numberOfPage==1?'hidden':''}><</a>
 
                 <c:forEach var="i" begin="1" end="${totalPages}">
                     <a href="" ${numberOfPage>3&&i==1?'':'hidden'} style="text-decoration: none;">...</a>
 
                     <a class="${(numberOfPage==i)?'btn btn-primary':'btn btn-light'}"
-                       href="user?command=showUserProfile&numberOfPage=${i}&itemsOnPage=${itemsOnPage}&hotelId=${hotelId}&hotelName=${hotelName}&statusNotPaid=${statusNotPaid}&statusPaid=${statusPaid}&statusCanceled=${statusCanceled}&sorting=${sorting}&ordering=${ordering}"
+                       href="user?command=showUserProfile&numberOfPage=${i}&itemsOnPage=${itemsOnPage}&statusInProgress=${statusInProgress}&statusConfirmed=${statusConfirmed}&statusCanceled=${statusCanceled}&statusCompleted=${statusCompleted}&sorting=${sorting}&ordering=${ordering}"
                         ${Math.abs(numberOfPage-i)<3||i==totalPages?'':'hidden'} ${totalPages==1?'hidden':''}>${i}</a>
 
                     <a href="" ${Math.abs(numberOfPage-totalPages)>3&&i==totalPages-1?'':'hidden'}
@@ -211,7 +215,7 @@
                 </c:forEach>
 
                 <a class="btn btn-light"
-                   href="user?command=showUserProfile&numberOfPage=${numberOfPage+1>totalPages?totalPages:numberOfPage+1}&itemsOnPage=${itemsOnPage}&hotelId=${hotelId}&hotelName=${hotelName}&statusNotPaid=${statusNotPaid}&statusPaid=${statusPaid}&statusCanceled=${statusCanceled}&sorting=${sorting}&ordering=${ordering}"
+                   href="user?command=showUserProfile&numberOfPage=${numberOfPage+1>totalPages?totalPages:numberOfPage+1}&&itemsOnPage=${itemsOnPage}&statusInProgress=${statusInProgress}&statusConfirmed=${statusConfirmed}&statusCanceled=${statusCanceled}&statusCompleted=${statusCompleted}&sorting=${sorting}&ordering=${ordering}"
                 ${numberOfPage>=totalPages?'hidden':''}>></a>
             </div>
             <div ${error=='true'?'':'hidden'}>
@@ -223,7 +227,6 @@
             </div>
         </div>
         <div class="col-2">
-
         </div>
     </div>
 </div>

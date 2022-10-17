@@ -1,0 +1,84 @@
+body{
+    background: #F9F6F6;
+}
+.col-8{
+    background: #ECECEC;
+}
+.above{
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.heading1{
+    color: rgb(6, 21, 86);
+    line-height: 100%;
+    font-size: 3rem;
+    text-align: center;
+    padding: 20px;
+}
+#col-81{
+    padding-bottom: 30px;
+}
+.Reasons{
+    text-align: center;
+    color: rgb(6, 21, 86);
+    font-size: 2rem;
+    padding: 20px;
+}
+.reasons2{
+    padding: 20px;
+    font-size: 13pt;
+    background: #F9F6F6;
+}
+.reasons21{
+    padding-right: 20px;
+}
+.txt1{
+    font-size: 13pt;
+}
+.meet{
+    text-align: center;
+    color: rgb(6, 21, 86);
+    font-size: 2rem;
+    padding: 20px;
+}
+.txt2, .col-6{
+    font-size: 13pt;
+}
+.col-6, .roomst{
+    padding: 20px;
+}
+.ogl{
+    text-align: center;
+    color: rgb(6, 21, 86);
+    font-size: 2rem;
+    padding: 20px;
+}
+.r1{
+    padding-right: 10px;
+}
+.r2{
+    padding-left: 10px;
+}
+.bgcol{
+    background: #ECECEC;
+    padding: 1.2% 1.2% 0;
+}
+.roomst{
+    background: #F9F6F6;
+}
+.roomtype{
+    padding-top: 20px;
+}
+.ones{
+    padding-bottom: 20px;
+}
+.ntkw{
+    padding-bottom: 20px;
+    width: 900px;
+}
+.coteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

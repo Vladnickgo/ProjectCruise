@@ -1,14 +1,21 @@
 package com.vladnickgo.Project.dao.impl;
 
 import com.vladnickgo.Project.connection.HikariConnectionPool;
+import com.vladnickgo.Project.controller.dto.PaymentRequestDto;
+import com.vladnickgo.Project.controller.dto.PaymentResponseDto;
 import com.vladnickgo.Project.dao.PaymentDao;
 import com.vladnickgo.Project.dao.entity.Payment;
 import com.vladnickgo.Project.dao.exception.DataBaseRuntimeException;
 import com.vladnickgo.Project.dao.mapper.ResultSetMapper;
+import com.vladnickgo.Project.service.util.PaymentRequestDtoUtil;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class PaymentDaoImpl extends AbstractCrudDaoImpl<Payment> implements PaymentDao {
     private static final Logger LOGGER = Logger.getLogger(PaymentDaoImpl.class);
@@ -45,8 +52,31 @@ public class PaymentDaoImpl extends AbstractCrudDaoImpl<Payment> implements Paym
             "LEFT JOIN cruise_statuses cs2 on cs2.cruise_status_id = c.cruise_status_id " +
             "WHERE o.cabin_status_id = ? AND payment_status_id=?; ";
 
+
+    private static final String FIND_PAYMENTS_BY_USER_ID_AND_ORDER_STATUSES = "SELECT * FROM payments " +
+            "LEFT JOIN orders o on payments.order_id = o.order_id " +
+            "LEFT JOIN users u on u.user_id = o.user_id " +
+            "LEFT JOIN cabin_statuses cs on cs.cabin_status_id = o.cabin_status_id " +
+            "LEFT JOIN cabins ca on ca.cabin_id = cs.cabin_id " +
+            "LEFT JOIN cabin_types ct on ct.cabin_type_id = ca.cabin_type_id " +
+            "LEFT JOIN cabin_status_statements css on css.status_statement_id = cs.status_statement_id " +
+            "LEFT JOIN ships s on s.ship_id = ca.ship_id " +
+            "LEFT JOIN order_statuses os on os.order_status_id = o.order_status_id " +
+            "LEFT JOIN cruises c on c.cruise_id = o.cruise_id " +
+            "LEFT JOIN routes r on r.route_id = c.route_id " +
+            "LEFT JOIN cruise_statuses cs2 on cs2.cruise_status_id = c.cruise_status_id " +
+            "WHERE u.user_id = ? " +
+            "AND (o.order_status_id=? OR o.cabin_status_id=? OR o.order_status_id=? OR o.order_status_id=?) " +
+            "ORDER BY ? " +
+            "LIMIT ? OFFSET ?;";
+
     private static final String UPDATE_CABIN_STATUS_BY_ID = "UPDATE cabin_statuses " +
             "SET status_statement_id=? WHERE cabin_status_id=? ";
+
+    private static final String COUNT_ALL_BY_USER_ID_AND_ORDER_STATUSES = "SELECT count(*) AS count_payments " +
+            "FROM payments LEFT JOIN orders o on o.order_id = payments.order_id " +
+            "WHERE user_id=? AND (o.order_status_id=? OR o.cabin_status_id=? OR o.order_status_id=? OR o.order_status_id=?); ";
+
 
     private static final Integer ORDER_STATUS_IN_PROGRESS = 1;
     private static final Integer PAYMENT_STATUS_PAID = 1;
@@ -115,6 +145,70 @@ public class PaymentDaoImpl extends AbstractCrudDaoImpl<Payment> implements Paym
                 connection.rollback();
                 LOGGER.info("Rollback of transaction for insert into Orders and Payments tables");
                 throw new DataBaseRuntimeException(e);
+            }
+        } catch (SQLException e) {
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Payment> findPaymentByUserId(Integer userId) {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("")) {
+            preparedStatement.setInt(1, userId);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                Set<Payment> entities = new HashSet<>();
+                while (resultSet.next()) {
+                    entities.add(mapResultSetToEntity(resultSet));
+                }
+                return new ArrayList<>(entities);
+            }
+        } catch (SQLException e) {
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public Integer countAll(PaymentRequestDto paymentRequestDto) {
+        PaymentRequestDtoUtil paymentRequestDtoUtil = new PaymentRequestDtoUtil(paymentRequestDto);
+        Integer[] paymentStatusIds = paymentRequestDtoUtil.getPaymentStatusIds();
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(COUNT_ALL_BY_USER_ID_AND_ORDER_STATUSES)) {
+            preparedStatement.setInt(1, paymentRequestDto.getUserId());
+            preparedStatement.setInt(2, paymentStatusIds[0]);
+            preparedStatement.setInt(3, paymentStatusIds[1]);
+            preparedStatement.setInt(4, paymentStatusIds[2]);
+            preparedStatement.setInt(5, paymentStatusIds[3]);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            return resultSet.getInt("count_payments");
+        } catch (SQLException e) {
+            LOGGER.info("Request not completed");
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Payment> findPaymentsByUserIdAndSortingParameters(PaymentRequestDto paymentRequestDto, Integer firstRecordOnPage) {
+        PaymentRequestDtoUtil paymentRequestDtoUtil = new PaymentRequestDtoUtil(paymentRequestDto);
+        String sortingAndOrdering = String.format("%s %s", paymentRequestDtoUtil.getSorting(), paymentRequestDtoUtil.getOrdering());
+        Integer[] paymentStatusIds = paymentRequestDtoUtil.getPaymentStatusIds();
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_PAYMENTS_BY_USER_ID_AND_ORDER_STATUSES)) {
+            preparedStatement.setInt(1, paymentRequestDtoUtil.getUserId());
+            preparedStatement.setInt(2, paymentStatusIds[0]);
+            preparedStatement.setInt(3, paymentStatusIds[1]);
+            preparedStatement.setInt(4, paymentStatusIds[2]);
+            preparedStatement.setInt(5, paymentStatusIds[3]);
+            preparedStatement.setString(6, sortingAndOrdering);
+            preparedStatement.setInt(7, paymentRequestDtoUtil.getItemsOnPage());
+            preparedStatement.setInt(8, firstRecordOnPage);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                Set<Payment> entities = new HashSet<>();
+                while (resultSet.next()) {
+                    entities.add(mapResultSetToEntity(resultSet));
+                }
+                return new ArrayList<>(entities);
             }
         } catch (SQLException e) {
             throw new DataBaseRuntimeException(e);

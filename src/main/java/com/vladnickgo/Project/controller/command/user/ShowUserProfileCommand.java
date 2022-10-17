@@ -3,7 +3,11 @@ package com.vladnickgo.Project.controller.command.user;
 import com.vladnickgo.Project.PagesConstant;
 import com.vladnickgo.Project.context.ApplicationContextInjector;
 import com.vladnickgo.Project.controller.command.Command;
+import com.vladnickgo.Project.controller.dto.PaymentRequestDto;
+import com.vladnickgo.Project.controller.dto.PaymentResponseDto;
+import com.vladnickgo.Project.controller.dto.UserDto;
 import com.vladnickgo.Project.service.PaymentService;
+import com.vladnickgo.Project.service.util.PaymentRequestDtoUtil;
 //import com.vladnickgo.Project.controller.dto.BookingDto;
 //import com.vladnickgo.Project.controller.dto.BookingRequestDto;
 //import com.vladnickgo.Project.controller.dto.UserDto;
@@ -24,9 +28,12 @@ public class ShowUserProfileCommand implements Command {
         request.getSession().removeAttribute("payment");
         String command = request.getParameter("command");
         request.setAttribute("command", command);
+        PaymentRequestDto paymentRequestDto = getPaymentRequestDto(request);
+        Integer pages = paymentService.getNumberOfPages(paymentRequestDto);
+        PaymentRequestDtoUtil paymentRequestDtoUtil = new PaymentRequestDtoUtil(paymentRequestDto);
+        List<PaymentResponseDto> paymentsList = paymentService.findPaymentsByPaymentRequestDto(paymentRequestDto);
+        request.setAttribute("paymentsList", paymentsList);
 
-//        BookingRequestDto bookingRequestDto = getBookingRequestDto(request);
-//        Integer pages = bookingService.getNumberOfPages(bookingRequestDto);
 //        List<BookingDto> bookingsByUserIdAndParameters = bookingService.findBookingsByUserIdAndParameters(bookingRequestDto);
 //        BookingRequestDtoUtil bookingRequestDtoUtil = new BookingRequestDtoUtil(bookingRequestDto);
 //        String statusPaid = bookingRequestDtoUtil.getStatusPaid();
@@ -37,39 +44,42 @@ public class ShowUserProfileCommand implements Command {
 //        Integer itemsOnPage = bookingRequestDtoUtil.getItemsOnPage();
 //        Integer numberOfPage = bookingRequestDtoUtil.getNumberOfPage();
 //
-//        request.setAttribute("statusNotPaid", statusNotPaid);
-//        request.setAttribute("statusPaid", statusPaid);
-//        request.setAttribute("statusCanceled", statusCanceled);
-//        request.setAttribute("sorting", sorting);
-//        request.setAttribute("ordering", ordering);
-//        request.setAttribute("itemsOnPage", itemsOnPage);
-//        request.setAttribute("bookingsByUserIdAndParameters", bookingsByUserIdAndParameters);
-//        request.setAttribute("numberOfPage", numberOfPage);
-//        request.setAttribute("totalPages", pages);
+        request.setAttribute("statusInProgress", paymentRequestDtoUtil.getStatusInProgress());
+        request.setAttribute("statusConfirmed", paymentRequestDtoUtil.getStatusConfirmed());
+        request.setAttribute("statusCanceled", paymentRequestDtoUtil.getStatusCanceled());
+        request.setAttribute("statusCompleted", paymentRequestDtoUtil.getStatusCompleted());
+        request.setAttribute("sorting", paymentRequestDtoUtil.getSorting());
+        request.setAttribute("ordering", paymentRequestDtoUtil.getOrdering());
+        request.setAttribute("itemsOnPage", paymentRequestDtoUtil.getItemsOnPage());
+        request.setAttribute("numberOfPage", paymentRequestDtoUtil.getNumberOfPage());
+        request.setAttribute("totalPages", pages);
 
         return PagesConstant.USER_PROFILE;
 
     }
 
-//    private BookingRequestDto getBookingRequestDto(HttpServletRequest request) {
-//        UserDto user = (UserDto) request.getSession().getAttribute("user");
-//        Integer userId = user.getId();
-//        String statusNotPaid = request.getParameter("statusNotPaid");
-//        String statusPaid = request.getParameter("statusPaid");
-//        String statusCanceled = request.getParameter("statusCanceled");
-//        String sorting = request.getParameter("sorting");
-//        String ordering = request.getParameter("ordering");
-//        String itemsOnPage = request.getParameter("itemsOnPage");
-//        String numberOfPage = request.getParameter("numberOfPage");
-//        return BookingRequestDto.newBuilder()
-//                .userId(userId)
-//                .statusNotPaid(statusNotPaid)
-//                .statusPaid(statusPaid)
-//                .statusCanceled(statusCanceled)
-//                .sorting(sorting)
-//                .ordering(ordering)
-//                .itemsOnPage(itemsOnPage)
-//                .numberOfPage(numberOfPage)
-//                .build();
-//    }
+    private PaymentRequestDto getPaymentRequestDto(HttpServletRequest request) {
+        String sorting = request.getParameter("sorting");
+        String ordering = request.getParameter("ordering");
+        String itemsOnPage = request.getParameter("itemsOnPage");
+        String numberOfPage = request.getParameter("numberOfPage");
+        String statusInProgress = request.getParameter("statusInProgress");
+        String statusConfirmed = request.getParameter("statusConfirmed");
+        String statusCanceled = request.getParameter("statusCanceled");
+        String statusCompleted = request.getParameter("statusCompleted");
+        UserDto user = (UserDto) request.getSession().getAttribute("user");
+        Integer userId = user.getId();
+        return PaymentRequestDto.newBuilder()
+                .userId(userId)
+                .sorting(sorting)
+                .ordering(ordering)
+                .itemsOnPage(itemsOnPage)
+                .numberOfPage(numberOfPage)
+                .statusInProgress(statusInProgress)
+                .statusConfirmed(statusConfirmed)
+                .statusCanceled(statusCanceled)
+                .statusCompleted(statusCompleted)
+                .build();
+    }
 }
+
