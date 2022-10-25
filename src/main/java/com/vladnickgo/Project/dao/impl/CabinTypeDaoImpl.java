@@ -1,6 +1,7 @@
 package com.vladnickgo.Project.dao.impl;
 
 import com.vladnickgo.Project.connection.HikariConnectionPool;
+import com.vladnickgo.Project.controller.dto.CabinTypeRequestDto;
 import com.vladnickgo.Project.dao.CabinTypeDao;
 import com.vladnickgo.Project.dao.entity.CabinType;
 import com.vladnickgo.Project.dao.mapper.ResultSetMapper;
@@ -43,4 +44,8 @@ public class CabinTypeDaoImpl extends AbstractCrudDaoImpl<CabinType> implements 
         preparedStatement.setInt(4, entity.getId());
     }
 
+    @Override
+    public void insertCabinTypesByCabinTypeNumbers(CabinTypeRequestDto cabinTypeRequestDto) {
+
+    }
 }

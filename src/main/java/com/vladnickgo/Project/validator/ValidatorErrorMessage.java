@@ -40,4 +40,7 @@ public class ValidatorErrorMessage {
     public static final String CABIN_STATUS_ID_IS_NULL = "cabinStatusId is null";
     public static final String CRUISE_ID_IS_NULL = "cruiseId is null";
     public static final String AMOUNT_VALUE_IS_NULL = "Amount value is null";
+    public static final String SHIP_IS_NULL_MESSAGE = "Ship is null";
+    public static final String SHIP_NAME_IS_EMPTY = "Ship name is empty";
+    public static final String SHIP_IMAGE_IS_EMPTY = "Ship image is empty";
 }

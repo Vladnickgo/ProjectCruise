@@ -6,6 +6,7 @@ import java.util.Objects;
 public class OrderDto {
     private final Integer id;
     private final Integer userId;
+    private final String userDocuments;
     private final Integer cabinStatusId;
     private final LocalDate orderDate;
     private final Integer orderStatusId;
@@ -14,6 +15,7 @@ public class OrderDto {
     private OrderDto(Builder builder) {
         id = builder.id;
         userId = builder.userId;
+        userDocuments = builder.userDocuments;
         cabinStatusId = builder.cabinStatusId;
         orderDate = builder.orderDate;
         orderStatusId = builder.orderStatusId;
@@ -27,6 +29,7 @@ public class OrderDto {
     public static final class Builder {
         private Integer id;
         private Integer userId;
+        private String userDocuments;
         private Integer cabinStatusId;
         private LocalDate orderDate;
         private Integer orderStatusId;
@@ -42,6 +45,11 @@ public class OrderDto {
 
         public Builder userId(Integer val) {
             userId = val;
+            return this;
+        }
+
+        public Builder userDocuments(String val) {
+            userDocuments = val;
             return this;
         }
 
@@ -78,6 +86,10 @@ public class OrderDto {
         return userId;
     }
 
+    public String getUserDocuments() {
+        return userDocuments;
+    }
+
     public Integer getCabinStatusId() {
         return cabinStatusId;
     }
@@ -99,12 +111,12 @@ public class OrderDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderDto orderDto = (OrderDto) o;
-        return Objects.equals(id, orderDto.id) && Objects.equals(userId, orderDto.userId) && Objects.equals(cabinStatusId, orderDto.cabinStatusId) && Objects.equals(orderDate, orderDto.orderDate) && Objects.equals(orderStatusId, orderDto.orderStatusId) && Objects.equals(cruiseId, orderDto.cruiseId);
+        return Objects.equals(id, orderDto.id) && Objects.equals(userId, orderDto.userId) && Objects.equals(userDocuments, orderDto.userDocuments) && Objects.equals(cabinStatusId, orderDto.cabinStatusId) && Objects.equals(orderDate, orderDto.orderDate) && Objects.equals(orderStatusId, orderDto.orderStatusId) && Objects.equals(cruiseId, orderDto.cruiseId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, cabinStatusId, orderDate, orderStatusId, cruiseId);
+        return Objects.hash(id, userId, userDocuments, cabinStatusId, orderDate, orderStatusId, cruiseId);
     }
 
     @Override
@@ -112,6 +124,7 @@ public class OrderDto {
         return "OrderDto{" +
                 "id=" + id +
                 ", userId=" + userId +
+                ", userDocuments='" + userDocuments + '\'' +
                 ", cabinStatusId=" + cabinStatusId +
                 ", orderDate=" + orderDate +
                 ", orderStatusId=" + orderStatusId +

@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS users
 CREATE TABLE IF NOT EXISTS ships
 (
     ship_id           INTEGER PRIMARY KEY AUTO_INCREMENT,
-    ship_name         VARCHAR(255) NOT NULL,
+    ship_name         VARCHAR(255)  UNIQUE NOT NULL,
     passengers        INTEGER      NOT NULL,
     number_of_staff   INTEGER      NOT NULL,
     ship_image_source VARCHAR(255) NOT NULL
@@ -118,12 +118,13 @@ CREATE TABLE IF NOT EXISTS order_statuses
 
 CREATE TABLE IF NOT EXISTS orders
 (
-    order_id        INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    user_id         INTEGER NOT NULL,
-    cabin_status_id INTEGER NOT NULL,
-    order_date      DATE    NOT NULL,
-    order_status_id INTEGER NOT NULL,
-    cruise_id       INTEGER NOT NULL,
+    order_id        INTEGER      NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user_id         INTEGER      NOT NULL,
+    user_document   VARCHAR(255) NOT NULL,
+    cabin_status_id INTEGER      NOT NULL,
+    order_date      DATE         NOT NULL,
+    order_status_id INTEGER      NOT NULL,
+    cruise_id       INTEGER      NOT NULL,
 
     FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE,
     FOREIGN KEY (cabin_status_id) REFERENCES cabin_statuses (cabin_status_id) ON DELETE CASCADE,

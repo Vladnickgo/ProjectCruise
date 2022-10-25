@@ -12,11 +12,14 @@ import com.vladnickgo.Project.validator.Validator;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class PaymentServiceImpl implements PaymentService {
     private static final Logger LOGGER = Logger.getLogger(PaymentServiceImpl.class);
+    private static final Integer PAYMENT_STATUS_CANCELED = 2;
+    private static final Integer ORDER_STATUS_CANCELED = 3;
 
 
     private final PaymentDao paymentRepository;
@@ -38,26 +41,45 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public List<PaymentResponseDto> findPaymentsByPaymentRequestDto(Integer userId) {
-        return paymentRepository.findPaymentByUserId(userId).stream()
+    public Integer getNumberOfPagesByUserIdAndSortingParameters(PaymentRequestDtoUtil paymentRequestDtoUtil) {
+        Integer countAllPayments = paymentRepository.countAllPaymentsByUserIdAndFilterParameters(paymentRequestDtoUtil);
+        return getNumberOfPages(paymentRequestDtoUtil, countAllPayments);
+    }
+
+    @Override
+    public Integer getNumberOfPagesByFilterParameters(PaymentRequestDtoUtil paymentRequestDtoUtil) {
+        Integer countAllPayments = paymentRepository.countAllPaymentsByFilterParameters(paymentRequestDtoUtil);
+        return getNumberOfPages(paymentRequestDtoUtil, countAllPayments);
+    }
+
+    @Override
+    public List<PaymentResponseDto> findPaymentsByUserIdAndSortingParameters(PaymentRequestDtoUtil paymentRequestDtoUtil) {
+        Integer firstRecordOnPage = getFirstRecordOnPage(paymentRequestDtoUtil);
+        return paymentRepository.findPaymentsByUserIdAndFilterParameters(paymentRequestDtoUtil, firstRecordOnPage)
+                .stream()
                 .map(this::paymentToPaymentResponseDtoMapper)
+                .sorted(paymentRequestDtoUtil.extractedComparator())
                 .collect(Collectors.toList());
     }
 
     @Override
-    public Integer getNumberOfPages(PaymentRequestDto paymentRequestDto) {
-        return paymentRepository.countAll(paymentRequestDto);
-    }
-
-    @Override
-    public List<PaymentResponseDto> findPaymentsByPaymentRequestDto(PaymentRequestDto paymentRequestDto) {
-        Integer firstRecordOnPage = getFirstRecordOnPage(paymentRequestDto);
-        return paymentRepository.findPaymentsByUserIdAndSortingParameters(paymentRequestDto, firstRecordOnPage)
+    public List<PaymentResponseDto> findPaymentsByFilterParameters(PaymentRequestDtoUtil paymentRequestDtoUtil) {
+        Integer firstRecordOnPage = getFirstRecordOnPage(paymentRequestDtoUtil);
+        return paymentRepository.findPaymentsByFilterParameters(paymentRequestDtoUtil, firstRecordOnPage)
                 .stream()
                 .map(this::paymentToPaymentResponseDtoMapper)
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public void confirmPaymentByPaymentId(Integer paymentId) {
+
+    }
+
+    @Override
+    public void cancelPayment(Integer paymentId) throws SQLException {
+        paymentRepository.updatePaymentStatusByPaymentId(paymentId, PAYMENT_STATUS_CANCELED, ORDER_STATUS_CANCELED);
+    }
 
     @NotNull
     private PaymentResponseDto paymentToPaymentResponseDtoMapper(Payment payment) {
@@ -65,6 +87,7 @@ public class PaymentServiceImpl implements PaymentService {
                 .firstName(payment.getOrder().getUser().getFirstName())
                 .lastName(payment.getOrder().getUser().getLastName())
                 .email(payment.getOrder().getUser().getEmail())
+                .userDocument(payment.getOrder().getUserDocuments())
                 .paymentNumber(payment.getId())
                 .paymentDate(payment.getPaymentDate())
                 .cruiseName(payment.getOrder().getCruise().getCruiseName())
@@ -74,12 +97,17 @@ public class PaymentServiceImpl implements PaymentService {
                 .dateStart(payment.getOrder().getCruise().getDateStart())
                 .dateEnd(payment.getOrder().getCruise().getDateEnd())
                 .amount(payment.getAmount())
+                .orderStatusName(payment.getOrder().getOrderStatus().getOrderStatusName())
                 .build();
     }
 
-    private Integer getFirstRecordOnPage(PaymentRequestDto paymentRequestDto) {
-        PaymentRequestDtoUtil paymentRequestDtoUtil = new PaymentRequestDtoUtil(paymentRequestDto);
+    private Integer getFirstRecordOnPage(PaymentRequestDtoUtil paymentRequestDtoUtil) {
         return paymentRequestDtoUtil.getItemsOnPage() * (paymentRequestDtoUtil.getNumberOfPage() - 1);
+    }
+
+    private int getNumberOfPages(PaymentRequestDtoUtil paymentRequestDtoUtil, Integer countAll) {
+        Integer itemsOnPage = paymentRequestDtoUtil.getItemsOnPage();
+        return (countAll - 1) / itemsOnPage + 1;
     }
 
 }

@@ -22,7 +22,7 @@ public final class PagesConstant {
 
     public static final String INTERNAL_SERVER_ERROR_PAGE = "/errorPages/internalServerError.jsp";
 
-    public static final String SHOW_HOTELS = "/showCruises.jsp";
+    public static final String SHOW_CRUISES = "/showCruises.jsp";
 
     public static final String SHOW_ROOMS = "/showRooms.jsp";
 
@@ -73,4 +73,16 @@ public final class PagesConstant {
     public static final String NOT_AVAILABLE_CABIN = "/errorPages/notAvailableCabin.jsp";
 
     public static final String PAYMENT_CONFIRMATION_PAGE = "/paymentConfirmationPage.jsp";
+
+    public static final String SUCCESS_PAYMENT_CONFIRMATION = "/successPaymentConfirmation.jsp";
+
+    public static final String ERROR_PAGE = "/errorPages/errorPage.jsp";
+
+    public static final String EDIT_LINERS_PAGE = "/editLinersPage.jsp";
+
+    public static final String EDIT_ROUTES_PAGE = "/editRoutesPage.jsp";
+
+    public static final String EDIT_CRUISES_PAGE = "/editCruisesPage.jsp";
+
+    public static final String EDIT_DATA_SHIP_PAGE = "/editDataShipPage.jsp";
 }

@@ -12,6 +12,22 @@
       <page-encoding>utf-8</page-encoding>
     </jsp-property-group>
   </jsp-config>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/error</location>
+  </error-page>
+  <error-page>
+    <exception-type>com.vladnickgo.Project.service.impl.exception.AuthorisationFailException</exception-type>
+    <location>/error</location>
+  </error-page>
+  <error-page>
+    <exception-type>com.vladnickgo.Project.service.impl.exception.EntityAlreadyExistException</exception-type>
+    <location>/error</location>
+  </error-page>
 
 
 

@@ -158,6 +158,7 @@
                         <input name="shipName" value="${shipName}" hidden>
                         <input name="cabinTypeName" value="${cabinTypeName}" hidden>
                         <input name="cabinStatusId" value="${cabinStatusId}" hidden>
+                        <input name="userDocument" value="${idCard}" hidden>
                         ${cabinStatusId}
                     </tr>
                 </table>

@@ -2,10 +2,7 @@ package com.vladnickgo.Project.context;
 
 import com.vladnickgo.Project.connection.HikariConnectionPool;
 import com.vladnickgo.Project.controller.command.Command;
-import com.vladnickgo.Project.controller.command.home.CreateCabinOrderCommand;
-import com.vladnickgo.Project.controller.command.user.PaymentCommand;
-import com.vladnickgo.Project.controller.command.user.PaymentConfirmationPage;
-import com.vladnickgo.Project.controller.command.home.ViewCruiseCommand;
+import com.vladnickgo.Project.controller.command.home.*;
 import com.vladnickgo.Project.controller.command.home.header.*;
 import com.vladnickgo.Project.controller.command.user.*;
 import com.vladnickgo.Project.controller.dto.*;
@@ -40,6 +37,10 @@ public final class ApplicationContextInjector {
 
     private static final PaymentDao PAYMENT_DAO = new PaymentDaoImpl(HIKARI_CONNECTION_POOL);
 
+    private static final OrderDao ORDER_DAO = new OrderDaoImpl(HIKARI_CONNECTION_POOL);
+
+    private static final ShipDao SHIP_DAO = new ShipDaoImpl(HIKARI_CONNECTION_POOL);
+
     private static final Mapper<UserDto, User> USER_MAPPER = new UserMapper();
 
     public static final Mapper<CruiseDto, Cruise> CRUISE_MAPPER = new CruiseMapper();
@@ -52,6 +53,8 @@ public final class ApplicationContextInjector {
 
     private static final Mapper<PaymentDto, Payment> PAYMENT_MAPPER = new PaymentMapper();
 
+    private static final Mapper<ShipDto, Ship> SHIP_MAPPER = new ShipMapper();
+
     private static final UserValidator USER_VALIDATOR = new UserValidator();
 
     private static final Validator<CruiseDto> CRUISE_VALIDATOR = new CruiseValidator();
@@ -61,6 +64,10 @@ public final class ApplicationContextInjector {
     private static final Validator<PaymentDocumentsDto> PAYMENT_DOCUMENTS_VALIDATOR = new PaymentDocumentsValidator();
 
     private static final Validator<PaymentDto> PAYMENT_VALIDATOR = new PaymentValidator();
+
+    private static final Validator<ShipDto> SHIP_VALIDATOR = new ShipValidator();
+
+    private static final Validator<CabinTypeRequestDto> CABIN_TYPE_REQUEST_DTO_VALIDATOR = new CabinTypeRequestValidator();
 
     private static final PasswordEncryptionService PASSWORD_ENCRYPTION_SERVICE = new PasswordEncryptionService();
 
@@ -76,9 +83,13 @@ public final class ApplicationContextInjector {
 
     private static final PaymentService PAYMENT_SERVICE = new PaymentServiceImpl(PAYMENT_DAO, PAYMENT_MAPPER, PAYMENT_VALIDATOR);
 
+    private static final OrderService ORDER_SERVICE = new OrderServiceImpl(ORDER_DAO);
+
     private static final PaymentDocumentsService PAYMENT_DOCUMENTS_SERVICE = new PaymentDocumentsServiceImpl(PAYMENT_DOCUMENTS_VALIDATOR);
 
     private static final PageService PAGE_SERVICE = new PageServiceImpl();
+
+    private static final ShipService SHIP_SERVICE = new ShipServiceImpl(SHIP_DAO, SHIP_MAPPER, SHIP_VALIDATOR);
 
     private static final Command REGISTER_COMMAND = new RegisterCommand();
 
@@ -122,10 +133,29 @@ public final class ApplicationContextInjector {
 
     private static final Command SUCCESS_PAYMENT_COMMAND = new SuccessPaymentCommand();
 
+    private static final Command ORDER_HANDLER_PAGE_COMMAND = new OrderHandlerPageCommand();
+
+    private static final Command CONFIRM_PAYMENT_COMMAND = new ConfirmPaymentCommand();
+
+    private static final Command CANCEL_PAYMENT_COMMAND = new CancelPaymentCommand();
+
+    private static final Command CONFIRM_PAYMENT_PAGE_COMMAND = new ConfirmPaymentPageCommand();
+
+    private static final Command EDIT_LINERS_COMMAND = new EditShipsCommand();
+
+    private static final Command EDIT_ROUTES_COMMAND = new EditRoutesCommand();
+
+    private static final Command EDIT_CRUISES_COMMAND = new EditCruisesCommand();
+
+    private static final Command ADD_SHIP_COMMAND = new AddShipCommand();
+
+    private static final Command EDIT_SHIP_DATA_COMMAND = new EditShipDataCommand();
+
+    private static final Command CONFIRM_CHANGE_SHIP_DATA_COMMAND = new ConfirmChangeShipDataCommand();
+
     private static final Map<String, Command> USER_COMMAND_NAME_TO_COMMAND = initUserCommand();
 
     private static final Map<String, Command> HOME_COMMAND_NAME_TO_COMMAND = initHomeCommand();
-
 
     private static ApplicationContextInjector applicationContextInjector;
 
@@ -149,6 +179,12 @@ public final class ApplicationContextInjector {
         userCommandNameToCommand.put("paymentConfirmationPageCommand", PAYMENT_CONFIRMATION_PAGE_COMMAND);
         userCommandNameToCommand.put("paymentCommand", PAYMENT_COMMAND);
         userCommandNameToCommand.put("successPaymentCommand", SUCCESS_PAYMENT_COMMAND);
+        userCommandNameToCommand.put("orderHandlerPage", ORDER_HANDLER_PAGE_COMMAND);
+        userCommandNameToCommand.put("confirmPayment", CONFIRM_PAYMENT_COMMAND);
+        userCommandNameToCommand.put("cancelPayment", CANCEL_PAYMENT_COMMAND);
+        userCommandNameToCommand.put("confirmPaymentPage", CONFIRM_PAYMENT_PAGE_COMMAND);
+
+
         userCommandNameToCommand.put("defaultCommand", DEFAULT_COMMAND);
         return Collections.unmodifiableMap(userCommandNameToCommand);
     }
@@ -161,6 +197,12 @@ public final class ApplicationContextInjector {
         homeCommandNameToCommand.put("showCruises", SHOW_CRUISES_COMMAND);
         homeCommandNameToCommand.put("showCruisesPageCommand", SHOW_CRUISES_PAGE_COMMAND);
         homeCommandNameToCommand.put("viewCruiseCommand", VIEW_CRUISES_COMMAND);
+        homeCommandNameToCommand.put("editLinersCommand", EDIT_LINERS_COMMAND);
+        homeCommandNameToCommand.put("editRoutesCommand", EDIT_ROUTES_COMMAND);
+        homeCommandNameToCommand.put("editCruisesCommand", EDIT_CRUISES_COMMAND);
+        homeCommandNameToCommand.put("addShipCommand", ADD_SHIP_COMMAND);
+        homeCommandNameToCommand.put("editShipDataCommand", EDIT_SHIP_DATA_COMMAND);
+        homeCommandNameToCommand.put("confirmChangeShipDataCommand", CONFIRM_CHANGE_SHIP_DATA_COMMAND);
         homeCommandNameToCommand.put("defaultCommand", DEFAULT_COMMAND);
         return Collections.unmodifiableMap(homeCommandNameToCommand);
     }
@@ -192,6 +234,10 @@ public final class ApplicationContextInjector {
         return CABIN_STATUS_SERVICE;
     }
 
+    public ShipService getShipService() {
+        return SHIP_SERVICE;
+    }
+
     public PageService getPageService() {
         return PAGE_SERVICE;
     }
@@ -210,6 +256,10 @@ public final class ApplicationContextInjector {
 
     public PaymentService getPaymentService() {
         return PAYMENT_SERVICE;
+    }
+
+    public OrderService getOrderService() {
+        return ORDER_SERVICE;
     }
 
     public PaymentDocumentsService getPaymentDocumentsService() {

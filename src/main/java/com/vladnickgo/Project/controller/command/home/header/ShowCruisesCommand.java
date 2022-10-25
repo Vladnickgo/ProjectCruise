@@ -5,7 +5,6 @@ import com.vladnickgo.Project.context.ApplicationContextInjector;
 import com.vladnickgo.Project.controller.command.Command;
 import com.vladnickgo.Project.controller.dto.CruiseDto;
 import com.vladnickgo.Project.service.CruiseService;
-import com.vladnickgo.Project.service.util.PageService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +15,6 @@ import java.util.List;
 public class ShowCruisesCommand implements Command {
     private final ApplicationContextInjector contextInjector = ApplicationContextInjector.getInstance();
     private final CruiseService cruiseService = contextInjector.getCruiseService();
-    private final PageService pageService=contextInjector.getPageService();
-
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,8 +30,7 @@ public class ShowCruisesCommand implements Command {
         request.setAttribute("totalPages", pages);
         request.setAttribute("recordsOnPage", initRecordsOnPage);
         request.setAttribute("numberOfPage", initNumberOfPage);
-        return PagesConstant.SHOW_HOTELS;
+        return PagesConstant.SHOW_CRUISES;
     }
-
 
 }

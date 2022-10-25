@@ -14,6 +14,6 @@ public class ShowCruisesPageCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String command = request.getParameter("command");
         request.setAttribute("command", command);
-        return PagesConstant.SHOW_HOTELS;
+        return PagesConstant.SHOW_CRUISES;
     }
 }

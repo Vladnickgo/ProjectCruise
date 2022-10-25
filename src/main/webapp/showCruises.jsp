@@ -49,7 +49,7 @@
                     <div class="col-5">
                         <input name="command" value="showCruises" hidden>
                         <%--                <input name="numberOfPage" value="${numberOfPage==null?1:numberOfPage}" hidden>--%>
-                        <select name="recordsOnPage">
+                        <select name="recordsOnPage" class="form-select" style="width: 150px">
                             <option value="4" ${recordsOnPage==4?'selected':''}>4 <f:message key="perPage"
                                                                                              bundle="${bunCont}"/></option>
                             <option value="8" ${recordsOnPage==8?'selected':''}>8 <f:message key="perPage"

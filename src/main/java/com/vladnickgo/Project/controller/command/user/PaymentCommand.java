@@ -22,11 +22,15 @@ public class PaymentCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer cabinStatusId = Integer.valueOf(request.getParameter("cabinStatusId"));
         Integer cruiseId = Integer.valueOf(request.getParameter("cruiseId"));
+        String idCard = request.getParameter("idCard");
         Integer amount = Integer.valueOf(request.getParameter("amount"));
+        String documentPath=String.format("/views/img/copyOfDocuments/%s",idCard);
         UserDto user = (UserDto) request.getSession().getAttribute("user");
+
         PaymentDto paymentDto = PaymentDto.newBuilder()
                 .orderDto(OrderDto.newBuilder()
                         .userId(user.getId())
+                        .userDocuments(documentPath)
                         .cabinStatusId(cabinStatusId)
                         .orderDate(LocalDate.now())
                         .cruiseId(cruiseId)

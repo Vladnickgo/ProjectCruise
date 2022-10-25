@@ -101,6 +101,7 @@ public class ResultSetMapper {
         return Order.newBuilder()
                 .id(resultSet.getInt("order_id"))
                 .user(mapResultSetToUser(resultSet))
+                .userDocuments(resultSet.getString("user_document"))
                 .orderDate(resultSet.getDate("order_date").toLocalDate())
                 .cabinStatus(mapResultSetToCabinStatus(resultSet))
                 .orderStatus(mapResultSetToOrderStatus(resultSet))

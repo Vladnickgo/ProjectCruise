@@ -41,6 +41,7 @@
                 <input name="amount" value="${amount}" hidden>
                 <input name="shipName" value="${shipName}" hidden>
                 <input name="cabinTypeName" value="${cabinTypeName}" hidden>
+                <input name="idCard" value="${idCard}" hidden>
                 <input name="command" value="${command}" hidden>
             </form>
         </div>
@@ -122,6 +123,7 @@
             <form action="user" method="post">
                 <input name="cabinStatusId" value="${cabinStatusId}" hidden>
                 <input name="cruiseId" value="${cruiseId}" hidden>
+                <input name="idCard" value="${idCard}" hidden>
                 <input name="amount" value="${amount}" hidden>
                 <button class="btn btn-outline-primary"
                         name="command" value="paymentCommand"
@@ -131,7 +133,6 @@
                 </button>
             </form>
         </div>
-
     </div>
     <div class="col-3">
     </div>
