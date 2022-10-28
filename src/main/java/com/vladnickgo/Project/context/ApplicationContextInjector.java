@@ -41,11 +41,19 @@ public final class ApplicationContextInjector {
 
     private static final ShipDao SHIP_DAO = new ShipDaoImpl(HIKARI_CONNECTION_POOL);
 
+    private static final RoutePointDao ROUTE_POINT_DAO = new RoutePointDaoImpl(HIKARI_CONNECTION_POOL);
+
+    private static final RouteDao ROUTE_DAO = new RouteDaoImpl(HIKARI_CONNECTION_POOL);
+
+    private static final PortDao PORT_DTO = new PortDaoImpl(HIKARI_CONNECTION_POOL);
+
     private static final Mapper<UserDto, User> USER_MAPPER = new UserMapper();
 
     public static final Mapper<CruiseDto, Cruise> CRUISE_MAPPER = new CruiseMapper();
 
     private static final Mapper<CabinDto, Cabin> CABIN_MAPPER = new CabinMapper();
+
+    private static final Mapper<RoutePointDto, RoutePoint> ROUTE_POINT_MAPPER = new RoutePointMapper();
 
     private static final Mapper<CabinTypeDto, CabinType> CABIN_TYPE_MAPPER = new CabinTypeMapper();
 
@@ -54,6 +62,10 @@ public final class ApplicationContextInjector {
     private static final Mapper<PaymentDto, Payment> PAYMENT_MAPPER = new PaymentMapper();
 
     private static final Mapper<ShipDto, Ship> SHIP_MAPPER = new ShipMapper();
+
+    private static final Mapper<RouteDto, Route> ROUTE_MAPPER = new RouteMapper();
+
+    private static final Mapper<PortDto, Port> PORT_MAPPER = new PortMapper();
 
     private static final UserValidator USER_VALIDATOR = new UserValidator();
 
@@ -67,7 +79,13 @@ public final class ApplicationContextInjector {
 
     private static final Validator<ShipDto> SHIP_VALIDATOR = new ShipValidator();
 
+    private static final Validator<RouteDto> ROUTE_VALIDATOR = new RouteValidator();
+
     private static final Validator<CabinTypeRequestDto> CABIN_TYPE_REQUEST_DTO_VALIDATOR = new CabinTypeRequestValidator();
+
+    private static final Validator<RoutePointDto> ROUTE_POINT_VALIDATOR = new RoutePointValidator();
+
+    private static final Validator<PortDto> PORT_VALIDATOR = new PortValidator();
 
     private static final PasswordEncryptionService PASSWORD_ENCRYPTION_SERVICE = new PasswordEncryptionService();
 
@@ -90,6 +108,12 @@ public final class ApplicationContextInjector {
     private static final PageService PAGE_SERVICE = new PageServiceImpl();
 
     private static final ShipService SHIP_SERVICE = new ShipServiceImpl(SHIP_DAO, SHIP_MAPPER, SHIP_VALIDATOR);
+
+    private static final RouteService ROUTE_SERVICE = new RouteServiceImpl(ROUTE_DAO, ROUTE_MAPPER, ROUTE_VALIDATOR);
+
+    private static final RoutePointService ROUTE_POINT_SERVICE = new RoutePointServiceImpl(ROUTE_POINT_DAO, ROUTE_POINT_MAPPER, ROUTE_POINT_VALIDATOR);
+
+    private static final PortService PORT_SERVICE = new PortServiceImpl(PORT_DTO, PORT_MAPPER, PORT_VALIDATOR);
 
     private static final Command REGISTER_COMMAND = new RegisterCommand();
 
@@ -153,6 +177,10 @@ public final class ApplicationContextInjector {
 
     private static final Command CONFIRM_CHANGE_SHIP_DATA_COMMAND = new ConfirmChangeShipDataCommand();
 
+    private static final Command ADD_ROUTE_COMMAND = new AddRouteCommand();
+
+    private static final Command EDIT_ROUTE_DATA_COMMAND = new EditRouteDataCommand();
+
     private static final Map<String, Command> USER_COMMAND_NAME_TO_COMMAND = initUserCommand();
 
     private static final Map<String, Command> HOME_COMMAND_NAME_TO_COMMAND = initHomeCommand();
@@ -183,8 +211,6 @@ public final class ApplicationContextInjector {
         userCommandNameToCommand.put("confirmPayment", CONFIRM_PAYMENT_COMMAND);
         userCommandNameToCommand.put("cancelPayment", CANCEL_PAYMENT_COMMAND);
         userCommandNameToCommand.put("confirmPaymentPage", CONFIRM_PAYMENT_PAGE_COMMAND);
-
-
         userCommandNameToCommand.put("defaultCommand", DEFAULT_COMMAND);
         return Collections.unmodifiableMap(userCommandNameToCommand);
     }
@@ -203,6 +229,10 @@ public final class ApplicationContextInjector {
         homeCommandNameToCommand.put("addShipCommand", ADD_SHIP_COMMAND);
         homeCommandNameToCommand.put("editShipDataCommand", EDIT_SHIP_DATA_COMMAND);
         homeCommandNameToCommand.put("confirmChangeShipDataCommand", CONFIRM_CHANGE_SHIP_DATA_COMMAND);
+        homeCommandNameToCommand.put("editRouteDataCommand", EDIT_ROUTE_DATA_COMMAND);
+
+        homeCommandNameToCommand.put("addRouteCommand", ADD_ROUTE_COMMAND);
+
         homeCommandNameToCommand.put("defaultCommand", DEFAULT_COMMAND);
         return Collections.unmodifiableMap(homeCommandNameToCommand);
     }
@@ -264,5 +294,17 @@ public final class ApplicationContextInjector {
 
     public PaymentDocumentsService getPaymentDocumentsService() {
         return PAYMENT_DOCUMENTS_SERVICE;
+    }
+
+    public RouteService getRouteService() {
+        return ROUTE_SERVICE;
+    }
+
+    public RoutePointService getRoutePontService() {
+        return ROUTE_POINT_SERVICE;
+    }
+
+    public PortService getPortService() {
+        return PORT_SERVICE;
     }
 }

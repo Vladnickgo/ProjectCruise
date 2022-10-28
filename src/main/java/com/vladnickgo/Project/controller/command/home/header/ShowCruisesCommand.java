@@ -4,7 +4,9 @@ import com.vladnickgo.Project.PagesConstant;
 import com.vladnickgo.Project.context.ApplicationContextInjector;
 import com.vladnickgo.Project.controller.command.Command;
 import com.vladnickgo.Project.controller.dto.CruiseDto;
+import com.vladnickgo.Project.controller.dto.CruiseRequestDto;
 import com.vladnickgo.Project.service.CruiseService;
+import com.vladnickgo.Project.service.util.CruiseRequestDtoUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,14 +24,17 @@ public class ShowCruisesCommand implements Command {
         String recordsOnPage = request.getParameter("recordsOnPage");
         String command = request.getParameter("command");
         request.setAttribute("command", command);
-        Integer initNumberOfPage = cruiseService.initNumberOfPage(numberOfPage);
-        Integer initRecordsOnPage = cruiseService.initRecordsOnPage(recordsOnPage);
-        List<CruiseDto> allCruises = cruiseService.findAll(initNumberOfPage, initRecordsOnPage);
-        Integer pages = cruiseService.getNumberOfPages(initRecordsOnPage);
+        CruiseRequestDto cruiseRequestDto = CruiseRequestDto.newBuilder()
+                .numberOfPage(numberOfPage)
+                .recordsOnPage(recordsOnPage)
+                .build();
+        CruiseRequestDtoUtil cruiseRequestDtoUtil = new CruiseRequestDtoUtil(cruiseRequestDto);
+        List<CruiseDto> allCruises = cruiseService.findAll(cruiseRequestDtoUtil);
+        Integer pages = cruiseService.getNumberOfPages(cruiseRequestDtoUtil.getItemsOnPage());
         request.setAttribute("listOfCruises", allCruises);
         request.setAttribute("totalPages", pages);
-        request.setAttribute("recordsOnPage", initRecordsOnPage);
-        request.setAttribute("numberOfPage", initNumberOfPage);
+        request.setAttribute("recordsOnPage", cruiseRequestDto.getRecordsOnPage());
+        request.setAttribute("numberOfPage", cruiseRequestDtoUtil.getNumberOfPage());
         return PagesConstant.SHOW_CRUISES;
     }
 

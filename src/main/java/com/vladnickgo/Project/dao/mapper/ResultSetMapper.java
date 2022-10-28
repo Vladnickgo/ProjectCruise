@@ -124,7 +124,7 @@ public class ResultSetMapper {
                 .portNameUa(resultSet.getString("port_name_ua"))
                 .portNameEn(resultSet.getString("port_name_en"))
                 .countryUa(resultSet.getString("country_ua"))
-                .getCountryEn(resultSet.getString("country_en"))
+                .countryEn(resultSet.getString("country_en"))
                 .build();
     }
 

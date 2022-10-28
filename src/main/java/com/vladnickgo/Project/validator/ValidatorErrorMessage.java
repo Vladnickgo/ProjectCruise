@@ -10,11 +10,7 @@ public class ValidatorErrorMessage {
     public static final String USER_ALREADY_EXIST_ERROR_MESSAGE = "User with email <strong>%s</strong> is already registered";
     public static final String NOT_AVAILABLE_PAGE = "The page is not available";
     public static final String USER_WITH_EMAIL_NOT_FOUND = "User with email <strong>%s</strong> not found";
-    public static final String NOT_CORRECT_DATE_START = "Not correct date start";
-    public static final String NOT_CORRECT_DATE_END = "Not correct date end";
-    public static final String NOT_CORRECT_ORDER_DATE = "Not correct order date";
     public static final String DATE_START_MORE_OR_EQUAL_THAN_DATE_END = "Date start more or equal than date end";
-    public static final String BOOKING_DATE_MORE_THAN_DATE_CHECK_IN = "Booking date more than date checkIn";
     public static final String ORDER_DATE_MORE_THAN_DATE_CHECK_IN = "Order date more than date checkIn";
     public static final String DATA_ABOUT_ROOM_IS_ABSENT = "Data about room is absent";
     public static final String USER_DATA_IS_ABSENT = "Data about user is absent";
@@ -43,4 +39,11 @@ public class ValidatorErrorMessage {
     public static final String SHIP_IS_NULL_MESSAGE = "Ship is null";
     public static final String SHIP_NAME_IS_EMPTY = "Ship name is empty";
     public static final String SHIP_IMAGE_IS_EMPTY = "Ship image is empty";
+    public static final String PORT_IS_NULL = "Port is null";
+    public static final String PORT_NAME_UA_IS_NULL_MESSAGE = "Port name for ua language is null";
+    public static final String PORT_NAME_EN_IS_NULL_MESSAGE = "Port name for en language is null";
+    public static final String COUNTRY_NAME_UA_IS_NULL_MESSAGE = "Country name for ua language is null";
+    public static final String COUNTRY_NAME_EN_IS_NULL_MESSAGE = "Country name for en language is null";
+    public static final String ROUTE_POINT_DTO_IS_NULL_MESSAGE = "Route point is null";
+    public static final String ROUTE_NAME_IS_NULL_MESSAGE = "Route name is null";
 }

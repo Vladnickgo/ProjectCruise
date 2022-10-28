@@ -2,8 +2,10 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/java/com/vladnickgo/Project/dao/impl/CabinStatusDaoImpl.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/vladnickgo/Project/dao/impl/CruiseDaoImpl.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/vladnickgo/Project/dao/impl/OrderDaoImpl.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/vladnickgo/Project/dao/impl/PaymentDaoImpl.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/vladnickgo/Project/dao/impl/RouteDaoImpl.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/vladnickgo/Project/dao/impl/ShipDaoImpl.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/stored-procedures.sql" dialect="MySQL" />
   </component>

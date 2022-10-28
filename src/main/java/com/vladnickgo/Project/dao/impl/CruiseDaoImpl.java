@@ -5,6 +5,7 @@ import com.vladnickgo.Project.dao.CruiseDao;
 import com.vladnickgo.Project.dao.entity.Cruise;
 import com.vladnickgo.Project.dao.exception.DataBaseRuntimeException;
 import com.vladnickgo.Project.dao.mapper.ResultSetMapper;
+import com.vladnickgo.Project.service.util.CruiseRequestDtoUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -29,11 +30,13 @@ public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements Cruise
             "SET cruise_name=?, route_id=?, date_start=?, date_end=?, cruise_status_id=?, ship_id=? " +
             "WHERE cruise_id = ? ;";
 
-    private static final String FIND_ALL_BY_PARAM = "SELECT * FROM cruises " +
-            "LEFT JOIN routes r on r.route_id = cruises.route_id " +
-            "LEFT JOIN cruise_statuses cs on cs.cruise_status_id = cruises.cruise_status_id " +
-            "LEFT JOIN ships s on cruises.ship_id = s.ship_id " +
-            "ORDER BY cruise_name LIMIT ? OFFSET ?";
+    private static final String FIND_ALL_BY_PARAM = "SELECT * FROM cruises c " +
+            "LEFT JOIN routes r on r.route_id = c.route_id " +
+            "LEFT JOIN cruise_statuses cs on cs.cruise_status_id = c.cruise_status_id " +
+            "LEFT JOIN ships s on c.ship_id = s.ship_id " +
+            "WHERE c.cruise_status_id=? OR c.cruise_status_id=? OR c.cruise_status_id=? OR c.cruise_status_id=? " +
+            "ORDER BY ? " +
+            "LIMIT ? OFFSET ?; ";
 
     private static final String COUNT_ALL = "SELECT count(*) AS number_of_cruises FROM cruises";
 
@@ -63,10 +66,23 @@ public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements Cruise
     }
 
     @Override
-    public List<Cruise> findAllByParameters(Integer firstRecordOnPage, Integer itemsOnPage) {
-        try (Connection connection = connector.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL_BY_PARAM)) {
-            preparedStatement.setInt(1, itemsOnPage);
-            preparedStatement.setInt(2, firstRecordOnPage);
+    public List<Cruise> findAllByParameters(CruiseRequestDtoUtil cruiseRequestDtoUtil) {
+        Integer[] paymentStatusIds = cruiseRequestDtoUtil.getPaymentStatusIds();
+
+        String sorting = cruiseRequestDtoUtil.getSorting();
+        String ordering = cruiseRequestDtoUtil.getOrdering();
+        Integer itemsOnPage = cruiseRequestDtoUtil.getItemsOnPage();
+        String orderParameters = String.format(("%s %s"), sorting, ordering);
+        Integer firstRecordOnPage = cruiseRequestDtoUtil.getFirstRecordOnPage();
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL_BY_PARAM)) {
+            preparedStatement.setInt(1, paymentStatusIds[0]);
+            preparedStatement.setInt(2, paymentStatusIds[1]);
+            preparedStatement.setInt(3, paymentStatusIds[2]);
+            preparedStatement.setInt(4, paymentStatusIds[3]);
+            preparedStatement.setString(5, orderParameters);
+            preparedStatement.setInt(6, itemsOnPage);
+            preparedStatement.setInt(7, firstRecordOnPage);
             try (final ResultSet resultSet = preparedStatement.executeQuery()) {
                 Set<Cruise> entities = new HashSet<>();
                 while (resultSet.next()) {

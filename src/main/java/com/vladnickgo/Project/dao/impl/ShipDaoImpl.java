@@ -96,6 +96,8 @@ public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
         } catch (SQLException e) {
             connection.rollback();
             throw new DataBaseRuntimeException(e);
+        }finally {
+            connection.close();
         }
     }
 

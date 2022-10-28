@@ -1,10 +1,12 @@
 package com.vladnickgo.Project.service.impl;
 
+import com.vladnickgo.Project.controller.dto.CabinTypeRequestDto;
 import com.vladnickgo.Project.controller.dto.CruiseDto;
 import com.vladnickgo.Project.dao.CruiseDao;
 import com.vladnickgo.Project.dao.entity.Cruise;
 import com.vladnickgo.Project.service.CruiseService;
 import com.vladnickgo.Project.service.mapper.Mapper;
+import com.vladnickgo.Project.service.util.CruiseRequestDtoUtil;
 import com.vladnickgo.Project.validator.Validator;
 
 import java.util.List;
@@ -27,11 +29,11 @@ public class CruiseServiceImpl implements CruiseService {
     }
 
     @Override
-    public List<CruiseDto> findAll(Integer numberOfPage, Integer recordsOnPage) {
-        Integer firstRecordOnPage = getFirstRecordOnPage(recordsOnPage, numberOfPage);
-        return cruiseRepository.findAllByParameters(firstRecordOnPage, recordsOnPage)
+    public List<CruiseDto> findAll(CruiseRequestDtoUtil cruiseRequestDtoUtil) {
+        return cruiseRepository.findAllByParameters(cruiseRequestDtoUtil)
                 .stream()
                 .map(cruiseMapper::mapEntityToDto)
+                .sorted(cruiseRequestDtoUtil.extractedComparator())
                 .collect(Collectors.toList());
     }
 

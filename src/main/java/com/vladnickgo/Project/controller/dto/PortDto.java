@@ -1,15 +1,15 @@
-package com.vladnickgo.Project.dao.entity;
+package com.vladnickgo.Project.controller.dto;
 
 import java.util.Objects;
 
-public class Port {
+public class PortDto {
     private final Integer id;
     private final String portNameUa;
     private final String portNameEn;
     private final String countryUa;
     private final String countryEn;
 
-    private Port(Builder builder) {
+    private PortDto(Builder builder) {
         id = builder.id;
         portNameUa = builder.portNameUa;
         portNameEn = builder.portNameEn;
@@ -56,8 +56,8 @@ public class Port {
             return this;
         }
 
-        public Port build() {
-            return new Port(this);
+        public PortDto build() {
+            return new PortDto(this);
         }
     }
 
@@ -85,8 +85,8 @@ public class Port {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Port port = (Port) o;
-        return Objects.equals(id, port.id) && Objects.equals(portNameUa, port.portNameUa) && Objects.equals(portNameEn, port.portNameEn) && Objects.equals(countryUa, port.countryUa) && Objects.equals(countryEn, port.countryEn);
+        PortDto portDto = (PortDto) o;
+        return Objects.equals(id, portDto.id) && Objects.equals(portNameUa, portDto.portNameUa) && Objects.equals(portNameEn, portDto.portNameEn) && Objects.equals(countryUa, portDto.countryUa) && Objects.equals(countryEn, portDto.countryEn);
     }
 
     @Override
@@ -96,7 +96,7 @@ public class Port {
 
     @Override
     public String toString() {
-        return "Port{" +
+        return "PortDto{" +
                 "id=" + id +
                 ", portNameUa='" + portNameUa + '\'' +
                 ", portNameEn='" + portNameEn + '\'' +
@@ -105,3 +105,4 @@ public class Port {
                 '}';
     }
 }
+

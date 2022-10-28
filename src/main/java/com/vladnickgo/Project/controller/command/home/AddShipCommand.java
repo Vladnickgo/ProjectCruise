@@ -25,6 +25,7 @@ public class AddShipCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ShipDto shipDto = getShipDto(request);
         List<CabinRequestDto> cabinRequestDtoList = getCabinRequestDtoList(request);
+
         try {
             shipService.addShip(shipDto, cabinRequestDtoList);
         } catch (SQLException e) {
