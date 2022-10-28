@@ -3,13 +3,16 @@ package com.vladnickgo.Project.service.impl;
 import com.vladnickgo.Project.controller.dto.RouteDto;
 import com.vladnickgo.Project.dao.RouteDao;
 import com.vladnickgo.Project.dao.entity.Route;
+import com.vladnickgo.Project.dao.exception.DataBaseRuntimeException;
 import com.vladnickgo.Project.service.RouteService;
 import com.vladnickgo.Project.service.mapper.Mapper;
 import com.vladnickgo.Project.service.util.RouteRequestDtoUtil;
 import com.vladnickgo.Project.validator.Validator;
 
+import java.sql.SQLException;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class RouteServiceImpl implements RouteService {
@@ -28,15 +31,19 @@ public class RouteServiceImpl implements RouteService {
         return routeRepository.findAllByNumberOfPageAndSorting(routeRequestDtoUtil)
                 .stream()
                 .map(mapper::mapEntityToDto)
-                .sorted(Comparator.comparing(RouteDto::getRouteName))
+                .sorted(Comparator.comparing(t->t.getRouteName().toLowerCase()))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public void addRoute(RouteDto routeDto) {
+    public Integer addRoute(RouteDto routeDto, Integer firstPortOfRouteId) {
         routeDtoValidator.validate(routeDto);
         Route route = mapper.mapDtoToEntity(routeDto);
-        routeRepository.save(route);
+        try {
+            return routeRepository.addRouteAndRoutePoint(route, firstPortOfRouteId);
+        }catch (SQLException e){
+            throw new DataBaseRuntimeException(e);
+        }
     }
 
     @Override

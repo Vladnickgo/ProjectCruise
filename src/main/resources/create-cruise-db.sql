@@ -23,10 +23,10 @@ CREATE TABLE IF NOT EXISTS users
 CREATE TABLE IF NOT EXISTS ships
 (
     ship_id           INTEGER PRIMARY KEY AUTO_INCREMENT,
-    ship_name         VARCHAR(255)  UNIQUE NOT NULL,
-    passengers        INTEGER      NOT NULL,
-    number_of_staff   INTEGER      NOT NULL,
-    ship_image_source VARCHAR(255) NOT NULL
+    ship_name         VARCHAR(255) UNIQUE NOT NULL,
+    passengers        INTEGER             NOT NULL,
+    number_of_staff   INTEGER             NOT NULL,
+    ship_image_source VARCHAR(255)        NOT NULL
 );
 
 
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS ports
 CREATE TABLE IF NOT EXISTS routes
 (
     route_id   INTEGER PRIMARY KEY AUTO_INCREMENT,
-    route_name VARCHAR(255) NOT NULL
+    route_name VARCHAR(255) UNIQUE NOT NULL
 );
 
 

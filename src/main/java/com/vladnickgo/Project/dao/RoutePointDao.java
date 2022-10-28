@@ -7,4 +7,6 @@ import java.util.List;
 public interface RoutePointDao extends CrudDao<RoutePoint, Integer> {
 
     List<RoutePoint> findAllByRouteId(Integer routeId);
+
+    void deleteById(Integer routePointId);
 }

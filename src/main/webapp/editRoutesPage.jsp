@@ -131,12 +131,12 @@
                                 <f:message key="routeName" bundle="${bunCont}"/>
                             </label>
                             <input class="form-control" type="text" id="routeName" name="routeName"
-                                   value="${routeName}">
+                                   value="${routeName}" required>
                         </div>
                         <label for="firstPortOfRoute">
                             <f:message key="firstPointOfRoute" bundle="${bunCont}"/>
                         </label>
-                        <select class="form-select mb-3" id="firstPortOfRoute" name="firstPortOfRoute">
+                        <select class="form-select mb-3" id="firstPortOfRoute" name="firstPortOfRoute" required>
                             <option selected><f:message key="chooseFirstPointOfRoute" bundle="${bunCont}"/></option>
                             <c:forEach var="port" items="${portList}">
                                 <option value="${port.id}">${port.portNameEn} / ${port.portNameUa}</option>

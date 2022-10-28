@@ -67,6 +67,8 @@ public final class ApplicationContextInjector {
 
     private static final Mapper<PortDto, Port> PORT_MAPPER = new PortMapper();
 
+    private static final Mapper<RoutePointRequestDto, RoutePoint> ROUTE_POINT_REQUEST_DTO_MAPPER = new RoutePointRequestMapper();
+
     private static final UserValidator USER_VALIDATOR = new UserValidator();
 
     private static final Validator<CruiseDto> CRUISE_VALIDATOR = new CruiseValidator();
@@ -111,7 +113,7 @@ public final class ApplicationContextInjector {
 
     private static final RouteService ROUTE_SERVICE = new RouteServiceImpl(ROUTE_DAO, ROUTE_MAPPER, ROUTE_VALIDATOR);
 
-    private static final RoutePointService ROUTE_POINT_SERVICE = new RoutePointServiceImpl(ROUTE_POINT_DAO, ROUTE_POINT_MAPPER, ROUTE_POINT_VALIDATOR);
+    private static final RoutePointService ROUTE_POINT_SERVICE = new RoutePointServiceImpl(ROUTE_POINT_DAO, ROUTE_POINT_MAPPER, ROUTE_POINT_REQUEST_DTO_MAPPER, ROUTE_POINT_VALIDATOR);
 
     private static final PortService PORT_SERVICE = new PortServiceImpl(PORT_DTO, PORT_MAPPER, PORT_VALIDATOR);
 
@@ -181,6 +183,10 @@ public final class ApplicationContextInjector {
 
     private static final Command EDIT_ROUTE_DATA_COMMAND = new EditRouteDataCommand();
 
+    private static final Command ADD_ROUTE_POINT_COMMAND = new AddRoutePointCommand();
+
+    private static final Command DELETE_ROUTE_POINT_COMMAND = new DeleteRoutePointCommand();
+
     private static final Map<String, Command> USER_COMMAND_NAME_TO_COMMAND = initUserCommand();
 
     private static final Map<String, Command> HOME_COMMAND_NAME_TO_COMMAND = initHomeCommand();
@@ -230,8 +236,9 @@ public final class ApplicationContextInjector {
         homeCommandNameToCommand.put("editShipDataCommand", EDIT_SHIP_DATA_COMMAND);
         homeCommandNameToCommand.put("confirmChangeShipDataCommand", CONFIRM_CHANGE_SHIP_DATA_COMMAND);
         homeCommandNameToCommand.put("editRouteDataCommand", EDIT_ROUTE_DATA_COMMAND);
-
         homeCommandNameToCommand.put("addRouteCommand", ADD_ROUTE_COMMAND);
+        homeCommandNameToCommand.put("addRoutePointCommand", ADD_ROUTE_POINT_COMMAND);
+        homeCommandNameToCommand.put("deleteRoutePointCommand", DELETE_ROUTE_POINT_COMMAND);
 
         homeCommandNameToCommand.put("defaultCommand", DEFAULT_COMMAND);
         return Collections.unmodifiableMap(homeCommandNameToCommand);

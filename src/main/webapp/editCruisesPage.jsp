@@ -161,6 +161,7 @@
                 </form>
             </c:forEach>
         </table>
+        ${cruiseList}
         <div class="col-7" style="display: flex">
             <form action="home" method="get">
                 <button class="btn btn-light" ${numberOfPage==1?'hidden':''}><</button>

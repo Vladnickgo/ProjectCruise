@@ -40,8 +40,8 @@
 </div>
 
 <div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
+    <div class="col-1"></div>
+    <div class="col-8">
         <h1><f:message key="route" bundle="${bunCont}"/></h1>
         <hr>
         <div style="text-transform:capitalize; background-color: darkslateblue; color: white;height: 60px; padding-left: 20px">
@@ -52,25 +52,64 @@
         <hr>
         <table class="table striped-table">
             <tr>
-                <th><f:message key="dayNumber" bundle="${bunCont}"/></th>
-                <th><f:message key="portName" bundle="${bunCont}"/></th>
-                <th><f:message key="country" bundle="${bunCont}"/></th>
+                <th rowspan="2"><f:message key="dayNumber" bundle="${bunCont}"/></th>
+                <th colspan="2"><f:message key="portName" bundle="${bunCont}"/></th>
+                <th colspan="2"><f:message key="country" bundle="${bunCont}"/></th>
+            </tr>
+            <tr>
+
+                <th>ua</th>
+                <th>en</th>
+                <th>ua</th>
+                <th>en</th>
             </tr>
             <c:forEach var="routePoint" items="${routePointDtoList}">
                 <tr>
                     <td>${routePoint.dayNumber}</td>
                     <td>${routePoint.portNameUa}</td>
+                    <td>${routePoint.portNameEn}</td>
                     <td>${routePoint.countryUa}</td>
+                    <td>${routePoint.countryEn}</td>
                 </tr>
             </c:forEach>
         </table>
-        lang: ${language}
-
-
-        <form action="home" method="get" onchange="submit()">
+        <form action="home" method="post">
+            <button class="btn btn-outline-primary" ${routePointDtoList.size()>1?'':'hidden'}>
+                <f:message key="deleteLastRecord" bundle="${bunCont}"/>
+            </button>
+            <input name="command" value="deleteRoutePointCommand" hidden>
+            <input name="routeId" value="${routeId}" hidden>
+            <input name="routePointId" value="${routePointDtoList.get(routePointDtoList.size()-1).id}" hidden>
         </form>
     </div>
-    <div class="col-3"></div>
+    <div class="col-3">
+        <div class="container">
+            <div id="userForm">
+                <h2 class="mb-4"><f:message key="addRoutePoint" bundle="${bunCont}"/></h2>
+                <form action="home" method="post">
+                    <table class="table">
+                        <tr>
+                            <th><f:message key="dayNumber" bundle="${bunCont}"/></th>
+                            <td>${routePointDtoList.size()+1}</td>
+                        </tr>
+                    </table>
+                    <select class="form-select mb-3" id="pointOfRoute" name="portId" required>
+                        <option selected><f:message key="chooseRoutePoint" bundle="${bunCont}"/></option>
+                        <c:forEach var="port" items="${portList}">
+                            <option value="${port.id}">${port.portNameEn} / ${port.portNameUa}</option>
+                        </c:forEach>
+                    </select>
+                    <button class="btn btn-outline-primary">
+                        <f:message key="add" bundle="${bunCont}"/>
+                    </button>
+                    <input name="portId" value="${portId}" hidden>
+                    <input name="routeId" value="${routeId}" hidden>
+                    <input name="dayNumber" value="${routePointDtoList.size()+1}" hidden>
+                    <input name="command" value="addRoutePointCommand" hidden>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

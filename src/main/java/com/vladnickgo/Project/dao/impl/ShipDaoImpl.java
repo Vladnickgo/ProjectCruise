@@ -3,7 +3,6 @@ package com.vladnickgo.Project.dao.impl;
 import com.vladnickgo.Project.connection.HikariConnectionPool;
 import com.vladnickgo.Project.controller.dto.CabinRequestDto;
 import com.vladnickgo.Project.dao.ShipDao;
-import com.vladnickgo.Project.dao.entity.Cruise;
 import com.vladnickgo.Project.dao.entity.Ship;
 import com.vladnickgo.Project.dao.exception.DataBaseRuntimeException;
 import com.vladnickgo.Project.dao.mapper.ResultSetMapper;
@@ -93,8 +92,10 @@ public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
                 }
             }
             connection.commit();
+            LOGGER.info("The insert ship, cabins and cabin statuses transaction has been committed");
         } catch (SQLException e) {
             connection.rollback();
+            LOGGER.info("Rollback of the insert ship, cabins and cabin statuses transaction");
             throw new DataBaseRuntimeException(e);
         }finally {
             connection.close();

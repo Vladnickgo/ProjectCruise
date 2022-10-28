@@ -18,19 +18,17 @@ public class AddRouteCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String routeName = request.getParameter("routeName");
-        String language = (String) request.getSession().getAttribute("language");
-        System.out.println("AddRouteCommand: " + language);
-        request.setAttribute("language", language);
+        Integer firstPortOfRouteId = Integer.valueOf(request.getParameter("firstPortOfRoute"));
         RouteDto routeDto = RouteDto.newBuilder()
                 .routeName(routeName)
                 .build();
-
         try {
-            routeService.addRoute(routeDto);
+            Integer routePointId = routeService.addRoute(routeDto, firstPortOfRouteId);
             request.getSession().setAttribute("message", ROUTE_CREATED_MESSAGE);
+            return String.format("home?command=editRouteDataCommand&routeId=%d",routePointId);
         } catch (IllegalArgumentException e) {
             request.getSession().setAttribute("message", e.getMessage());
+            return "home?command=editRoutesCommand";
         }
-        return "home?command=editRoutesCommand";
     }
 }

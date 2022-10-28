@@ -3,7 +3,9 @@ package com.vladnickgo.Project.controller.command.home;
 import com.vladnickgo.Project.PagesConstant;
 import com.vladnickgo.Project.context.ApplicationContextInjector;
 import com.vladnickgo.Project.controller.command.Command;
+import com.vladnickgo.Project.controller.dto.PortDto;
 import com.vladnickgo.Project.controller.dto.RoutePointDto;
+import com.vladnickgo.Project.service.PortService;
 import com.vladnickgo.Project.service.RoutePointService;
 
 import javax.servlet.ServletException;
@@ -15,6 +17,7 @@ import java.util.List;
 public class EditRouteDataCommand implements Command {
     private final ApplicationContextInjector contextInjector = ApplicationContextInjector.getInstance();
     private final RoutePointService routePointService = contextInjector.getRoutePontService();
+    private final PortService portService= contextInjector.getPortService();
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,7 +25,9 @@ public class EditRouteDataCommand implements Command {
         request.setAttribute("command", command);
         Integer routeId = Integer.valueOf(request.getParameter("routeId"));
         List<RoutePointDto> routePointDtoList = routePointService.findAllByRouteId(routeId);
+        List<PortDto> portList = portService.findAll();
         request.setAttribute("routePointDtoList", routePointDtoList);
+        request.setAttribute("portList", portList);
         request.setAttribute("routeId", routeId);
         return PagesConstant.EDIT_ROUTE_DATA_PAGE;
     }

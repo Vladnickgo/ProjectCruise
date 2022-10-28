@@ -21,7 +21,6 @@ public class PortServiceImpl implements PortService {
         this.validator = validator;
     }
 
-
     @Override
     public List<PortDto> findAll() {
         return portRepository.findAll().stream().map(portMapper::mapEntityToDto).collect(Collectors.toList());

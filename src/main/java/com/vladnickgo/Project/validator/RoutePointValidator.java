@@ -1,6 +1,5 @@
 package com.vladnickgo.Project.validator;
 
-import com.vladnickgo.Project.controller.dto.PortDto;
 import com.vladnickgo.Project.controller.dto.RoutePointDto;
 
 import java.util.Optional;

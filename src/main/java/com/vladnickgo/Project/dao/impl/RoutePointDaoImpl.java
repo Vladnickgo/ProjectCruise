@@ -5,6 +5,7 @@ import com.vladnickgo.Project.dao.RoutePointDao;
 import com.vladnickgo.Project.dao.entity.RoutePoint;
 import com.vladnickgo.Project.dao.exception.DataBaseRuntimeException;
 import com.vladnickgo.Project.dao.mapper.ResultSetMapper;
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +17,8 @@ import java.util.List;
 import java.util.Set;
 
 public class RoutePointDaoImpl extends AbstractCrudDaoImpl<RoutePoint> implements RoutePointDao {
+    private static final Logger LOGGER = Logger.getLogger(RoutePointDaoImpl.class);
+
     private static final String INSERT_QUERY = "INSERT INTO route_points(route_id, day_number, port_id) " +
             "VALUES (?,?,?);";
 
@@ -37,6 +40,9 @@ public class RoutePointDaoImpl extends AbstractCrudDaoImpl<RoutePoint> implement
             "LEFT JOIN routes r on r.route_id = route_points.route_id " +
             "LEFT JOIN ports p on p.port_id = route_points.port_id " +
             "WHERE r.route_id = ?; ";
+
+    private static final String DELETE_BY_ID = "DELETE FROM route_points " +
+            "WHERE route_point_id = ?;";
 
     public RoutePointDaoImpl(HikariConnectionPool connector) {
         super(connector, INSERT_QUERY, FIND_BY_ID, FIND_ALL, UPDATE);
@@ -74,6 +80,20 @@ public class RoutePointDaoImpl extends AbstractCrudDaoImpl<RoutePoint> implement
                 return new ArrayList<>(entities);
             }
         } catch (SQLException e) {
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public void deleteById(Integer routePointId) {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_BY_ID)
+        ) {
+            preparedStatement.setInt(1, routePointId);
+            preparedStatement.executeUpdate();
+            LOGGER.info(String.format("Route point with id=%d has been deleted", routePointId));
+        } catch (SQLException e) {
+            LOGGER.info("Route point not deleted");
             throw new DataBaseRuntimeException(e);
         }
     }
