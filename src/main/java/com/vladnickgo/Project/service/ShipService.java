@@ -5,6 +5,7 @@ import com.vladnickgo.Project.controller.dto.ShipDto;
 import com.vladnickgo.Project.service.util.ShipRequestDtoUtil;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ShipService {
@@ -19,4 +20,8 @@ public interface ShipService {
     Integer initRecordsOnPage(String recordsOnPage);
 
     Integer getTotalPages(Integer itemsOnPage);
+
+    List<ShipDto> findAllFreeShipsByDateStartAndDateEnd(LocalDate dateStart, LocalDate dateEnd);
+
+    void deleteShipById(Integer shipId);
 }

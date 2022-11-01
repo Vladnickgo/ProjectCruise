@@ -29,6 +29,23 @@ CREATE TABLE IF NOT EXISTS ships
     ship_image_source VARCHAR(255)        NOT NULL
 );
 
+# CREATE TABLE IF NOT EXISTS ship_status_statements
+# (
+#     ship_status_statement_id   INTEGER PRIMARY KEY AUTO_INCREMENT,
+#     ship_status_statement_name VARCHAR(255) NOT NULL
+# );
+#
+# CREATE TABLE IF NOT EXISTS ship_statuses
+# (
+#     ship_status_id           INTEGER PRIMARY KEY AUTO_INCREMENT,
+#     ship_id                  INTEGER NOT NULL,
+#     date_start               DATE    NOT NULL,
+#     date_end                 DATE    NOT NULL,
+#     ship_status_statement_id INTEGER NOT NULL,
+#     FOREIGN KEY (ship_status_statement_id) REFERENCES ship_status_statements (ship_status_statement_id) ON DELETE CASCADE,
+#     FOREIGN KEY (ship_id) REFERENCES ships (ship_id) ON DELETE CASCADE
+# );
+
 
 CREATE TABLE IF NOT EXISTS cabin_types
 (
@@ -136,6 +153,7 @@ CREATE TABLE IF NOT EXISTS payment_statuses
     payment_status_id   INTEGER PRIMARY KEY AUTO_INCREMENT,
     payment_status_name VARCHAR(255) NOT NULL
 );
+
 CREATE TABLE IF NOT EXISTS payments
 (
     payment_id        INTEGER PRIMARY KEY AUTO_INCREMENT,

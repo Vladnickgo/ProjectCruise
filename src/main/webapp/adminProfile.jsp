@@ -197,7 +197,7 @@
                                 <input name="dateEnd" value="${payment.dateEnd}" hidden>
                                 <input name="orderStatusName" value="${payment.orderStatusName}" hidden>
                                 <input name="amount" value="${payment.amount}" hidden>
-                                <input name="uerDocument" value="${payment.userDocument}" hidden>
+                                <input name="userDocument" value="${payment.userDocument}" hidden>
 
                             </form>
                         </td>

@@ -14,6 +14,8 @@ public class OrderHandlerPageCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("payment", getPaymentResponseDtoByRequest(request));
+        String command = request.getParameter("command");
+        request.setAttribute("command", command);
         return PagesConstant.ORDER_HANDLER_PAGE;
     }
 
@@ -31,7 +33,7 @@ public class OrderHandlerPageCommand implements Command {
         String dateEnd = request.getParameter("dateEnd");
         String orderStatusName = request.getParameter("orderStatusName");
         String amount = request.getParameter("amount");
-        String uerDocument = request.getParameter("uerDocument");
+        String userDocument = request.getParameter("userDocument");
         return PaymentResponseDto.newBuilder()
                 .paymentNumber(Integer.valueOf(paymentNumber))
                 .firstName(firstName)
@@ -45,7 +47,7 @@ public class OrderHandlerPageCommand implements Command {
                 .dateStart(LocalDate.parse(dateStart))
                 .dateEnd(LocalDate.parse(dateEnd))
                 .orderStatusName(orderStatusName)
-                .userDocument(uerDocument)
+                .userDocument(userDocument)
                 .amount(Integer.valueOf(amount))
                 .build();
     }

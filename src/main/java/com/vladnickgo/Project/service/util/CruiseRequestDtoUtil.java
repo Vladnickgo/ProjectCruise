@@ -1,6 +1,6 @@
 package com.vladnickgo.Project.service.util;
 
-import com.vladnickgo.Project.controller.dto.CruiseDto;
+import com.vladnickgo.Project.controller.dto.CruiseResponseDto;
 import com.vladnickgo.Project.controller.dto.CruiseRequestDto;
 
 import java.util.Comparator;
@@ -15,7 +15,7 @@ public class CruiseRequestDtoUtil {
     private static final Integer STATUS_FINISHED_ID = 3;
     private static final Integer STATUS_NOT_AVAILABLE_ID = 4;
     private static final Integer DEFAULT_PAGE_NUMBER = 1;
-    private static final Integer DEFAULT_ITEMS_ON_PAGE = 5;
+    private static final Integer DEFAULT_ITEMS_ON_PAGE = 4;
     private static final String DEFAULT_SORTING_PARAMETER = "cruise_name";
     private static final String DEFAULT_ORDERING_PARAMETER = "ASC";
 
@@ -88,27 +88,27 @@ public class CruiseRequestDtoUtil {
     }
 
     public String getStatusNotAvailable() {
-        return cruiseRequestDto.getStatusFinished();
+        return cruiseRequestDto.getStatusNotAvailable();
     }
 
-    public Comparator<CruiseDto> extractedComparator() {
+    public Comparator<CruiseResponseDto> extractedComparator() {
         String sort = getSorting();
         return getOrdering().equals("ASC") ? initNaturalComparatorMap().get(sort) : initReverseComparatorMap().get(sort);
     }
 
-    private Map<String, Comparator<CruiseDto>> initReverseComparatorMap() {
-        Map<String, Comparator<CruiseDto>> reverseComparatorMap = new HashMap<>();
-        reverseComparatorMap.put("cruise_name", Comparator.comparing(CruiseDto::getCruiseName, Comparator.reverseOrder()));
-        reverseComparatorMap.put("date_start", Comparator.comparing(CruiseDto::getDateStart, Comparator.reverseOrder()));
-        reverseComparatorMap.put("date_end", Comparator.comparing(CruiseDto::getDateEnd, Comparator.reverseOrder()));
+    private Map<String, Comparator<CruiseResponseDto>> initReverseComparatorMap() {
+        Map<String, Comparator<CruiseResponseDto>> reverseComparatorMap = new HashMap<>();
+        reverseComparatorMap.put("cruise_name", Comparator.comparing(CruiseResponseDto::getCruiseName, Comparator.reverseOrder()));
+        reverseComparatorMap.put("date_start", Comparator.comparing(CruiseResponseDto::getDateStart, Comparator.reverseOrder()));
+        reverseComparatorMap.put("date_end", Comparator.comparing(CruiseResponseDto::getDateEnd, Comparator.reverseOrder()));
         return reverseComparatorMap;
     }
 
-    private Map<String, Comparator<CruiseDto>> initNaturalComparatorMap() {
-        Map<String, Comparator<CruiseDto>> naturalComparatorMap = new HashMap<>();
-        naturalComparatorMap.put("cruise_name", Comparator.comparing(CruiseDto::getCruiseName, Comparator.naturalOrder()));
-        naturalComparatorMap.put("date_start", Comparator.comparing(CruiseDto::getDateStart, Comparator.naturalOrder()));
-        naturalComparatorMap.put("date_end", Comparator.comparing(CruiseDto::getDateEnd, Comparator.naturalOrder()));
+    private Map<String, Comparator<CruiseResponseDto>> initNaturalComparatorMap() {
+        Map<String, Comparator<CruiseResponseDto>> naturalComparatorMap = new HashMap<>();
+        naturalComparatorMap.put("cruise_name", Comparator.comparing(CruiseResponseDto::getCruiseName, Comparator.naturalOrder()));
+        naturalComparatorMap.put("date_start", Comparator.comparing(CruiseResponseDto::getDateStart, Comparator.naturalOrder()));
+        naturalComparatorMap.put("date_end", Comparator.comparing(CruiseResponseDto::getDateEnd, Comparator.naturalOrder()));
         return naturalComparatorMap;
     }
 

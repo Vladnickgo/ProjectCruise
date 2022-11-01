@@ -102,7 +102,10 @@
                                     style="width: 120px">
                                 <f:message key="edit" bundle="${bunCont}"/>
                             </button>
-                            <button class="btn btn-outline-primary" style="width: 120px">
+                            <button class="btn btn-outline-primary"
+                                    name="command" value="deleteShipPageCommand"
+                                    type="submit"
+                                    style="width: 120px">
                                 <f:message key="delete" bundle="${bunCont}"/>
                             </button>
                             <input name="id" value="${ship.id}" hidden>
@@ -110,25 +113,12 @@
                             <input name="passengersCapacity" value="${ship.passengersCapacity}" hidden>
                             <input name="numberOfStaff" value="${ship.numberOfStaff}" hidden>
                             <input name="shipImage" value="${ship.shipImage}" hidden>
+
                         </td>
                     </tr>
                 </form>
             </c:forEach>
         </table>
-        <%--        <div class="col-7">--%>
-        <%--            <a class="btn btn-light"--%>
-        <%--               href="home?command=editLinersCommand&numberOfPage=${numberOfPage-1<1?1:numberOfPage-1}&recordsOnPage=${recordsOnPage}" ${numberOfPage==1?'hidden':''}><</a>--%>
-        <%--            <c:forEach var="i" begin="1" end="${totalPages}">--%>
-        <%--                <a href="" ${numberOfPage>3&&i==1?'':'hidden'} style="text-decoration: none;">...</a>--%>
-        <%--                <a class="${(numberOfPage==i)?'btn btn-primary':'btn btn-light'}"--%>
-        <%--                   href="home?command=editLinersCommand&numberOfPage=${i}&recordsOnPage=${recordsOnPage}" ${Math.abs(numberOfPage-i)<3||i==totalPages?'':'hidden'}>${i}</a>--%>
-        <%--                <a href="" ${Math.abs(numberOfPage-totalPages)>3&&i==totalPages-1?'':'hidden'}--%>
-        <%--                   style="text-decoration: none;">...</a>--%>
-        <%--            </c:forEach>--%>
-        <%--            <a class="btn btn-light"--%>
-        <%--               href="home?command=editLinersCommand&numberOfPage=${numberOfPage+1>totalPages?totalPages:numberOfPage+1}&recordsOnPage=${recordsOnPage}"--%>
-        <%--            ${numberOfPage==totalPages?'hidden':''}>></a>--%>
-        <%--        </div>--%>
 
         <div class="col-7" style="display: flex">
             <form action="home" method="get">

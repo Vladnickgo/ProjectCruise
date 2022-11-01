@@ -31,12 +31,34 @@
                     <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
                 </select>
                 <input name="command" value="${command}" hidden>
+                <input name="paymentNumber" value="${payment.paymentNumber}" hidden>
+                <input name="paymentDate" value="${payment.paymentDate}" hidden>
+                <input name="firstName" value="${payment.firstName}" hidden>
+                <input name="lastName" value="${payment.lastName}" hidden>
+                <input name="email" value="${payment.email}" hidden>
+                <input name="cruiseName" value="${payment.cruiseName}" hidden>
+                <input name="routeName" value="${payment.routeName}" hidden>
+                <input name="cabinNumber" value="${payment.cabinNumber}" hidden>
+                <input name="cabinType" value="${payment.cabinType}" hidden>
+                <input name="dateStart" value="${payment.dateStart}" hidden>
+                <input name="dateEnd" value="${payment.dateEnd}" hidden>
+                <input name="orderStatusName" value="${payment.orderStatusName}" hidden>
+                <input name="amount" value="${payment.amount}" hidden>
+                <input name="userDocument" value="${payment.userDocument}" hidden>
             </form>
         </div>
     </div>
 </div>
-<f:message key="adminProfile" bundle="${bunCont}"/>
 <div>
+    <div class=" row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h1>
+                <f:message key="adminProfile" bundle="${bunCont}"/>
+            </h1>
+        </div>
+        <div class="col-3"></div>
+    </div>
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
@@ -98,7 +120,6 @@
                             type="submit"
                             style="width: 120px; margin-top: 20px"
                     ${payment.orderStatusName=='canceled'?'hidden':''}>
-                    >
                         <f:message key="cancel" bundle="${bunCont}"/>
                     </button>
                     <button class="btn btn-outline-primary"
@@ -121,7 +142,6 @@
                 </h3>
                 <div><img width="100%" src="${payment.userDocument}" alt="NO IMG"></div>
             </div>
-            ${payment}
         </div>
     </div>
 </div>

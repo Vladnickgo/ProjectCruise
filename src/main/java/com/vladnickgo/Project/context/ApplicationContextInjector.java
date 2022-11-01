@@ -49,7 +49,7 @@ public final class ApplicationContextInjector {
 
     private static final Mapper<UserDto, User> USER_MAPPER = new UserMapper();
 
-    public static final Mapper<CruiseDto, Cruise> CRUISE_MAPPER = new CruiseMapper();
+    public static final Mapper<CruiseResponseDto, Cruise> CRUISE_RESPONSE_MAPPER = new CruiseResponseMapper();
 
     private static final Mapper<CabinDto, Cabin> CABIN_MAPPER = new CabinMapper();
 
@@ -69,9 +69,11 @@ public final class ApplicationContextInjector {
 
     private static final Mapper<RoutePointRequestDto, RoutePoint> ROUTE_POINT_REQUEST_DTO_MAPPER = new RoutePointRequestMapper();
 
+    private static final Mapper<CruiseDto, Cruise> CRUISE_MAPPER = new CruiseMapper();
+
     private static final UserValidator USER_VALIDATOR = new UserValidator();
 
-    private static final Validator<CruiseDto> CRUISE_VALIDATOR = new CruiseValidator();
+    private static final Validator<CruiseResponseDto> CRUISE_VALIDATOR = new CruiseValidator();
 
     private static final Validator<CabinDto> CABIN_VALIDATOR = new CabinValidator();
 
@@ -93,7 +95,7 @@ public final class ApplicationContextInjector {
 
     private static final UserService USER_SERVICE = new UserServiceImpl(USER_DAO, USER_MAPPER, USER_VALIDATOR, PASSWORD_ENCRYPTION_SERVICE);
 
-    private static final CruiseService CRUISE_SERVICE = new CruiseServiceImpl(CRUISE_DAO, CRUISE_MAPPER, CRUISE_VALIDATOR);
+    private static final CruiseService CRUISE_SERVICE = new CruiseServiceImpl(CRUISE_DAO, CRUISE_RESPONSE_MAPPER, CRUISE_MAPPER, CRUISE_VALIDATOR);
 
     private static final CabinTypeService CABIN_TYPE_SERVICE = new CabinTypeServiceImpl(CABIN_TYPE_DAO, CABIN_TYPE_MAPPER);
 
@@ -149,7 +151,7 @@ public final class ApplicationContextInjector {
 
     private static final Command MY_ORDERS_PAGE_COMMAND = new MyOrdersPageCommand();
 
-    private static final Command VIEW_CRUISES_COMMAND = new ViewCruiseCommand();
+    private static final Command VIEW_CRUISES_COMMAND = new ViewCruisesCommand();
 
     private static final Command CREATE_CABIN_ORDER_COMMAND = new CreateCabinOrderCommand();
 
@@ -187,6 +189,16 @@ public final class ApplicationContextInjector {
 
     private static final Command DELETE_ROUTE_POINT_COMMAND = new DeleteRoutePointCommand();
 
+    private static final Command ADD_CRUISE_COMMAND = new AddCruiseCommand();
+
+    private static final Command DELETE_SHIP_PAGE_COMMAND = new DeleteShipPageCommand();
+
+    private static final Command DELETE_LINER_COMMAND = new DeleteLinerCommand();
+
+    private static final Command BLOCK_CRUISE_COMMAND = new BlockCruiseCommand();
+
+    private static final Command UNBLOCK_CRUISE_COMMAND = new UnblockCruiseCommand();
+
     private static final Map<String, Command> USER_COMMAND_NAME_TO_COMMAND = initUserCommand();
 
     private static final Map<String, Command> HOME_COMMAND_NAME_TO_COMMAND = initHomeCommand();
@@ -194,7 +206,6 @@ public final class ApplicationContextInjector {
     private static ApplicationContextInjector applicationContextInjector;
 
     private ApplicationContextInjector() {
-
     }
 
     private static Map<String, Command> initUserCommand() {
@@ -239,7 +250,11 @@ public final class ApplicationContextInjector {
         homeCommandNameToCommand.put("addRouteCommand", ADD_ROUTE_COMMAND);
         homeCommandNameToCommand.put("addRoutePointCommand", ADD_ROUTE_POINT_COMMAND);
         homeCommandNameToCommand.put("deleteRoutePointCommand", DELETE_ROUTE_POINT_COMMAND);
-
+        homeCommandNameToCommand.put("addCruiseCommand", ADD_CRUISE_COMMAND);
+        homeCommandNameToCommand.put("deleteShipPageCommand", DELETE_SHIP_PAGE_COMMAND);
+        homeCommandNameToCommand.put("deleteLinerCommand", DELETE_LINER_COMMAND);
+        homeCommandNameToCommand.put("blockCruiseCommand", BLOCK_CRUISE_COMMAND);
+        homeCommandNameToCommand.put("unblockCruiseCommand", UNBLOCK_CRUISE_COMMAND);
         homeCommandNameToCommand.put("defaultCommand", DEFAULT_COMMAND);
         return Collections.unmodifiableMap(homeCommandNameToCommand);
     }

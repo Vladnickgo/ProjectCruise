@@ -15,6 +15,7 @@
 <c:import url="views/head.jsp"/>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="views/style/style.css"/>
     <title>Edit cruises page</title>
 </head>
 <body>
@@ -51,7 +52,7 @@
         <hr>
         <form action="home" method="get" onchange="submit()">
             <div class="row">
-                <div class="col-10" style="display: flex">
+                <div class="col-12" style="display: flex">
                     <div>
                         <input name="command" value="editCruisesCommand" hidden>
                         <select name="recordsOnPage" class="form-select" style="width: 170px;">
@@ -64,35 +65,37 @@
                         </select>
                     </div>
 
-                    <div style="display: flex;width: 200px">
+                    <div style="display: flex;width: 250px">
                         <label style="margin-left: 50px; width: 60px;font-size: 8pt; margin-right: 5px;font-weight: bold"><f:message
                                 key="status" bundle="${bunCont}"/>:</label>
                         <div style="font-size: 9pt;margin-left: 10px;">
                             <div style="display: flex">
                                 <input type="checkbox" id="available" name="statusAvailable"
                                        value="available" ${statusAvailable=='available'?'checked':''}>
-                                <label for="available"><f:message key="available" bundle="${bunCont}"/></label><br>
+                                <label style="margin-left: 5px" for="available"><f:message key="available"
+                                                                                           bundle="${bunCont}"/></label><br>
                             </div>
                             <div style="display: flex">
                                 <input type="checkbox" id="inProgress" name="statusInProgress"
                                        value="in progress" ${statusInProgress=='in progress'?'checked':''}>
-                                <label for="inProgress"><f:message key="inProgress" bundle="${bunCont}"/></label><br>
+                                <label style="margin-left: 5px" for="inProgress"><f:message key="inProgress"
+                                                                                            bundle="${bunCont}"/></label><br>
                             </div>
                             <div style="display: flex">
                                 <input type="checkbox" id="finished" name="statusFinished"
                                        value="finished" ${statusFinished=='finished'?'checked':''}>
-                                <label for="finished"><f:message key="finished" bundle="${bunCont}"/></label><br>
+                                <label style="margin-left: 5px" for="finished"><f:message key="finished"
+                                                                                          bundle="${bunCont}"/></label><br>
                             </div>
                             <div style="display: flex">
                                 <input type="checkbox" id="notAvailable" name="statusNotAvailable"
                                        value="not available" ${statusNotAvailable=='not available'?'checked':''}>
-                                <label for="notAvailable"><f:message key="notAvailable"
-                                                                     bundle="${bunCont}"/></label><br>
+                                <label style="margin-left: 5px" for="notAvailable"><f:message key="notAvailable"
+                                                                                              bundle="${bunCont}"/></label><br>
                             </div>
 
                         </div>
                     </div>
-
 
                     <label for="sorting"
                            style="width: 200px;font-size: 8pt; margin-left: 30px; margin-right: 5px;font-weight: bold">
@@ -132,7 +135,7 @@
                 <th style="text-align: center"><f:message key="action" bundle="${bunCont}"/></th>
             </tr>
             <c:forEach items="${cruiseList}" var="cruise">
-                <form action="home" method="get">
+                <form action="home" method="post">
                     <tr>
                         <td>${cruise.cruiseName}</td>
                         <td>${cruise.routeName}</td>
@@ -142,15 +145,21 @@
                         <td>${cruise.cruiseStatusName}</td>
                         <td>${cruise.shipName}</td>
                         <td style="text-align: center">
-                            <button class="btn btn-outline-primary"
-                                    name="command" value="editShipDataCommand"
+                            <button class="btn btn-outline-primary" style="width: 120px"
+                                    name="command" value="blockCruiseCommand"
                                     type="submit"
-                                    style="width: 120px">
-                                <f:message key="edit" bundle="${bunCont}"/>
+                                ${cruise.cruiseStatusName=='available'?'':'hidden'}
+                            >
+                                <f:message key="block" bundle="${bunCont}"/>
                             </button>
-                            <button class="btn btn-outline-primary" style="width: 120px">
-                                <f:message key="delete" bundle="${bunCont}"/>
+                            <button class="btn btn-outline-primary" style="width: 120px"
+                                    name="command" value="unblockCruiseCommand"
+                                    type="submit"
+                                ${cruise.cruiseStatusName=='not available'?'':'hidden'}
+                            >
+                                <f:message key="unLock" bundle="${bunCont}"/>
                             </button>
+                            <input name="cruiseId" value="${cruise.id}" hidden>
                             <input name="id" value="${ship.id}" hidden>
                             <input name="shipName" value="${ship.shipName}" hidden>
                             <input name="passengersCapacity" value="${ship.passengersCapacity}" hidden>
@@ -161,7 +170,6 @@
                 </form>
             </c:forEach>
         </table>
-        ${cruiseList}
         <div class="col-7" style="display: flex">
             <form action="home" method="get">
                 <button class="btn btn-light" ${numberOfPage==1?'hidden':''}><</button>
@@ -201,35 +209,69 @@
                 <h3 style="text-align: center"><f:message key="addCruise" bundle="${bunCont}"/></h3>
                 <form class="form-floating" action="home" method="get" onchange="submit()">
                     <div class="form-floating mb-3">
+                        <input class="form-control" type="text" id="cruiseName" name="cruiseName" value="${cruiseName}"
+                               required>
+                        <label for="start"><f:message key="cruiseName" bundle="${bunCont}"/> </label>
+                    </div>
+                    <div class="form-floating mb-3">
                         <input class="form-control" type="date" id="start" name="dateStart" value="${dateStart}"
                                min="${minDateStart}" max="${maxDateStart}">
                         <label for="start"><f:message key="dateStart" bundle="${bunCont}"/> </label>
                     </div>
 
-                    <div class="col-md-12">
-                        <label for="hotel" class="form-label">
+                    <div class="form-floating mb-3">
+                        <select class="form-control" id="route" name="routeId" required>
+                            <option selected disabled value="">Choose...</option>
+                            <c:forEach var="route" items="${routeList}">
+                                <option value="${route.id}"
+                                    ${route.id==routeId?'selected':''}
+                                >${route.routeName}</option>
+                            </c:forEach>
+                        </select>
+                        <label for="route">
                             <f:message key="route" bundle="${bunCont}"/>
                         </label>
-                        <select class="form-select" id="hotel" name="hotelId" required>
-                            <option selected disabled value="">Choose...</option>
-                            <c:forEach var="hotelItem" items="${allHotels}">
-                                <option value="${hotelItem.id}"
-                                    ${hotelItem.id==hotelId?'selected':''}
-                                >${hotelItem.name}</option>
-                            </c:forEach>
-
-                        </select>
                     </div>
 
+                    <div ${routePointList.size()>1?'':'hidden'} class="col-md-12 mb-3">
+                        <f:message key="numberOfDays" bundle="${bunCont}"/>:
+                        ${routePointList.size()}
+                    </div>
+                    <div ${routePointList.size()>1?'':'hidden'} class="col-md-12 mb-3">
+                        <f:message key="dateEnd" bundle="${bunCont}"/>:
+                        ${dateEnd}
+                    </div>
+                    <div ${routePointList.size()>1?'':'hidden'} class="form-floating">
+
+                        <select class="form-control" id="ships" name="shipId" required>
+                            <option selected disabled value="">Choose...</option>
+                            <c:forEach var="ship" items="${shipList}">
+                                <option value="${ship.id}"
+                                    ${ship.id==shipId?'selected':''}
+                                >${ship.shipName}</option>
+                            </c:forEach>
+                        </select>
+                        <label for="ships">
+                            <f:message key="linerName" bundle="${bunCont}"/>
+                        </label>
+                    </div>
+                    <input name="command" value="editCruisesCommand" hidden>
+                </form>
+                <form>
                     <button class="btn btn-outline-primary"
-                            name="command" value="addShipCommand"
+                            name="command" value="addCruiseCommand"
                             type="submit"
                             style="width: 120px">
                         ok
                     </button>
-
-                    <input name="command" value="editCruisesCommand" hidden>
+                    <input name="shipId" value="${shipId}" hidden>
+                    <input name="dateStart" value="${dateStart}" hidden>
+                    <input name="dateEnd" value="${dateEnd}" hidden>
+                    <input name="routeId" value="${routeId}" hidden>
+                    <input name="nights" value="${routePointList.size()-1}" hidden>
+                    <input name="cruiseName" value="${cruiseName}" hidden>
                 </form>
+
             </div>
         </div>
 

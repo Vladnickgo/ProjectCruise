@@ -20,7 +20,5 @@ public interface PaymentService {
 
     List<PaymentResponseDto> findPaymentsByFilterParameters(PaymentRequestDtoUtil paymentRequestDtoUtil);
 
-    void confirmPaymentByPaymentId(Integer paymentId);
-
     void cancelPayment(Integer paymentId) throws SQLException;
 }

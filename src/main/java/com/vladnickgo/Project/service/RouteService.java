@@ -11,4 +11,7 @@ public interface RouteService {
     Integer addRoute(RouteDto routeDto, Integer firstPortOfRouteId);
 
     Integer getNumberOfPages(Integer recordsOnPage);
+
+    List<RouteDto> findAllRoutes();
+
 }

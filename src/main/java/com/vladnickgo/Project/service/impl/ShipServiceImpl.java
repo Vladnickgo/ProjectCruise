@@ -10,6 +10,8 @@ import com.vladnickgo.Project.service.util.ShipRequestDtoUtil;
 import com.vladnickgo.Project.validator.Validator;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -47,6 +49,7 @@ public class ShipServiceImpl implements ShipService {
     @Override
     public void addShip(ShipDto shipDto, List<CabinRequestDto> cabinRequestDtoList) throws SQLException {
         Ship ship = validateAndMapShipDto(shipDto);
+        System.out.println(cabinRequestDtoList);
         shipRepository.insertShipAndCabinsAndCabinStatuses(ship, cabinRequestDtoList);
     }
 
@@ -79,6 +82,20 @@ public class ShipServiceImpl implements ShipService {
     public Integer getTotalPages(Integer itemsOnPage) {
         Integer countAll = countAll();
         return countAll / itemsOnPage + (countAll % itemsOnPage > 0 ? 1 : 0);
+    }
+
+    @Override
+    public List<ShipDto> findAllFreeShipsByDateStartAndDateEnd(LocalDate dateStart, LocalDate dateEnd) {
+        return shipRepository.findAllFreeShipsByDateStartAndDateEnd(dateStart, dateEnd)
+                .stream()
+                .map(mapper::mapEntityToDto)
+                .sorted(Comparator.comparing(ShipDto::getShipName))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteShipById(Integer shipId) {
+        shipRepository.deleteShipBtId(shipId);
     }
 
 }

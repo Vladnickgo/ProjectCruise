@@ -38,6 +38,7 @@ public class PaymentMapper implements Mapper<PaymentDto, Payment> {
                 .orderDto(OrderDto.newBuilder()
                         .id(payment.getOrder().getId())
                         .userId(payment.getOrder().getUser().getId())
+                        .userDocuments(payment.getOrder().getUserDocuments())
                         .cabinStatusId(payment.getOrder().getCabinStatus().getId())
                         .orderDate(payment.getOrder().getOrderDate())
                         .orderStatusId(payment.getOrder().getOrderStatus().getId())

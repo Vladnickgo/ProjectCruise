@@ -49,7 +49,7 @@ public class ExceptionHandler extends HttpServlet {
 
             if ("AuthorisationFailException".equals(exceptionName)) {
                 req.getSession().invalidate();
-                LOGGER.info("AuthorisationFailException "+"HTTP Status " + code);
+                LOGGER.info("AuthorisationFailException HTTP Status " + code);
                 req.getRequestDispatcher(PagesConstant.NOT_AUTHORIZED_USER_PAGE).forward(req,resp);
             }
 

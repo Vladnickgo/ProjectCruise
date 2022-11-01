@@ -180,7 +180,9 @@
                             <td>${payment.cruiseName}</td>
                             <td><tags:fulldate date="${payment.dateStart}"/></td>
                             <td><tags:fulldate date="${payment.dateEnd}"/></td>
-                            <td>${payment.cabinType}</td>
+                            <td>
+                                    ${payment.cabinType}
+                            </td>
                             <td>${payment.cabinNumber}</td>
                             <td>${payment.amount} <f:message key="uah" bundle="${bunCont}"/></td>
                             <td style="text-align: center">

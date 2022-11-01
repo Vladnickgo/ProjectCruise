@@ -6,25 +6,24 @@ import com.vladnickgo.Project.dao.entity.CruiseStatus;
 import com.vladnickgo.Project.dao.entity.Route;
 import com.vladnickgo.Project.dao.entity.Ship;
 
-public class CruiseMapper implements Mapper<CruiseDto, Cruise>{
+public class CruiseMapper implements Mapper<CruiseDto, Cruise> {
     @Override
     public Cruise mapDtoToEntity(CruiseDto cruiseDto) {
         return Cruise.newBuilder()
                 .id(cruiseDto.getId())
                 .cruiseName(cruiseDto.getCruiseName())
                 .route(Route.newBuilder()
-                        .routeName(cruiseDto.getRouteName())
+                        .id(cruiseDto.getRouteID())
                         .build())
                 .dateStart(cruiseDto.getDateStart())
                 .dateEnd(cruiseDto.getDateEnd())
-                .nights(cruiseDto.getNights())
                 .cruiseStatus(CruiseStatus.newBuilder()
-                        .cruiseStatusName(cruiseDto.getCruiseStatusName())
+                        .id(cruiseDto.getCruiseStatusId())
                         .build())
                 .ship(Ship.newBuilder()
-                        .shipName(cruiseDto.getShipName())
-                        .shipImageSource(cruiseDto.getShipImageSource())
+                        .id(cruiseDto.getShipId())
                         .build())
+                .nights(cruiseDto.getNights())
                 .build();
     }
 
@@ -33,13 +32,12 @@ public class CruiseMapper implements Mapper<CruiseDto, Cruise>{
         return CruiseDto.newBuilder()
                 .id(cruise.getId())
                 .cruiseName(cruise.getCruiseName())
-                .routeName(cruise.getRoute().getRouteName())
+                .routeID(cruise.getRoute().getId())
                 .dateStart(cruise.getDateStart())
                 .dateEnd(cruise.getDateEnd())
+                .cruiseStatusId(cruise.getCruiseStatus().getId())
+                .shipId(cruise.getShip().getId())
                 .nights(cruise.getNights())
-                .cruiseStatusName(cruise.getCruiseStatus().getCruiseStatusName())
-                .shipName(cruise.getShip().getShipName())
-                .shipImageSource(cruise.getShip().getShipImage())
                 .build();
     }
 }

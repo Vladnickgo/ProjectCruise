@@ -1,7 +1,6 @@
 package com.vladnickgo.Project.service.impl;
 
 import com.vladnickgo.Project.controller.dto.PaymentDto;
-import com.vladnickgo.Project.controller.dto.PaymentRequestDto;
 import com.vladnickgo.Project.controller.dto.PaymentResponseDto;
 import com.vladnickgo.Project.dao.PaymentDao;
 import com.vladnickgo.Project.dao.entity.Payment;
@@ -69,11 +68,6 @@ public class PaymentServiceImpl implements PaymentService {
                 .stream()
                 .map(this::paymentToPaymentResponseDtoMapper)
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    public void confirmPaymentByPaymentId(Integer paymentId) {
-
     }
 
     @Override

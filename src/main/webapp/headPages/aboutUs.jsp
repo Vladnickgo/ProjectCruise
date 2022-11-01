@@ -34,7 +34,11 @@
         </div>
     </div>
 </div>
-
+${map}<br>
+<c:forEach items="${map}" var="entry">
+    key: ${entry.key}<br>
+    value: ${entry.value}<br>
+</c:forEach>
 <div class="container mt-5">
     <div class="row text-center">
         <div class="col-4"></div>

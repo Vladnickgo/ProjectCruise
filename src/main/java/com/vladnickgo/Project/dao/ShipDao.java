@@ -6,6 +6,7 @@ import com.vladnickgo.Project.dao.entity.Ship;
 import com.vladnickgo.Project.service.util.ShipRequestDtoUtil;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ShipDao extends CrudDao<Ship,Integer>{
@@ -16,4 +17,8 @@ public interface ShipDao extends CrudDao<Ship,Integer>{
     Integer countAll();
 
     List<Ship> findAllByPageNumberAndItemsOnPage(ShipRequestDtoUtil shipRequestDtoUtil);
+
+    List<Ship> findAllFreeShipsByDateStartAndDateEnd(LocalDate dateStart, LocalDate dateEnd);
+
+    void deleteShipBtId(Integer shipId);
 }

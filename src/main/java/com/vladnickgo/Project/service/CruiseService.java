@@ -1,12 +1,13 @@
 package com.vladnickgo.Project.service;
 
 import com.vladnickgo.Project.controller.dto.CruiseDto;
+import com.vladnickgo.Project.controller.dto.CruiseResponseDto;
 import com.vladnickgo.Project.service.util.CruiseRequestDtoUtil;
 
 import java.util.List;
 
 public interface CruiseService {
-    List<CruiseDto> findAll(CruiseRequestDtoUtil cruiseRequestDtoUtil);
+    List<CruiseResponseDto> findAll(CruiseRequestDtoUtil cruiseRequestDtoUtil);
 
     Integer initNumberOfPage(String numberOfPage);
 
@@ -14,5 +15,19 @@ public interface CruiseService {
 
     Integer getNumberOfPages(Integer recordsOnPage);
 
-    CruiseDto findCruiseById(Integer cruiseId);
+    CruiseResponseDto findCruiseById(Integer cruiseId);
+
+    void createCruise(CruiseDto cruiseDto);
+
+    void blockCruiseById(Integer cruiseId);
+
+    void unblockCruiseById(Integer cruiseId);
+
+    Integer getMaxCruiseDuration();
+
+    Integer getMinCruiseDuration();
+
+    Integer getBottomDuration(String bottomDurationStr);
+
+    Integer getTopDuration(String topDurationStr);
 }

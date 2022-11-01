@@ -19,6 +19,7 @@ import java.util.Set;
 public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
     private static final Logger LOGGER = Logger.getLogger(ShipDaoImpl.class);
     private static final Integer STATUS_STATEMENT_AVAILABLE = 1;
+    private static final Integer CABIN_STATUS_ACTIVE = 1;
     private static final LocalDate START_STATUS_DATE = LocalDate.now();
     private static final LocalDate END_STATUS_DATE = LocalDate.now().plusYears(1);
 
@@ -40,11 +41,24 @@ public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
             "WHERE ship_id = ?; ";
 
     private static final String INSERT_INTO_CABINS_BY_CABIN_TYPE_ID_AND_SHIP_ID = "INSERT INTO cabins(cabin_type_id, ship_id) " +
-            "VALUES (?,(SELECT max(ship_id) FROM ships)); ";
+            "VALUES (?,?); ";
+
+    public static final String SELECT_MAX_CABIN_ID_FROM_CABINS = "SELECT max(cabin_id) as last_added_cabin_id FROM cabins; ";
 
     private static final String INSERT_INTO_CABIN_STATUSES_BY_CABIN_ID = "INSERT INTO " +
             "cabin_statuses(cabin_id, status_start, status_end, status_statement_id) " +
-            "VALUES ((SELECT max(cabin_id) FROM cabins),?,?,?)";
+            "VALUES (?,?,?,?); ";
+
+    private static final String FIND_ALL_BY_DATE_START_DATE_END = "SELECT * FROM ships " +
+            "LEFT JOIN cabins c on ships.ship_id = c.ship_id " +
+            "LEFT JOIN cabin_statuses cs on c.cabin_id = cs.cabin_id " +
+            "WHERE status_start < ? AND status_end > ? AND status_statement_id = ? " +
+            "GROUP BY ship_name; ";
+
+    private static final String DELETE_SHIP_BY_ID = "DELETE FROM ships WHERE ship_id = ?; ";
+
+    public static final String SELECT_MAX_SHIP_ID_AS_LAST_ADDED_ID_FROM_SHIPS = "SELECT max(ship_id) as last_added_ship_id " +
+            "FROM ships;";
 
     public ShipDaoImpl(HikariConnectionPool connector) {
         super(connector, INSERT_QUERY, FIND_BY_ID, FIND_ALL, UPDATE);
@@ -74,21 +88,42 @@ public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
         Connection connection = connector.getConnection();
         try {
             connection.setAutoCommit(false);
+            LOGGER.info("Start transaction");
             PreparedStatement insertShip = connection.prepareStatement(INSERT_QUERY);
+            PreparedStatement findLastAddedShipId = connection.prepareStatement(SELECT_MAX_SHIP_ID_AS_LAST_ADDED_ID_FROM_SHIPS);
+            PreparedStatement findLastAddedCabinId = connection.prepareStatement(SELECT_MAX_CABIN_ID_FROM_CABINS);
             PreparedStatement insertCabin = connection.prepareStatement(INSERT_INTO_CABINS_BY_CABIN_TYPE_ID_AND_SHIP_ID);
             PreparedStatement insertCabinStatus = connection.prepareStatement(INSERT_INTO_CABIN_STATUSES_BY_CABIN_ID);
+
             mapForInsertStatement(insertShip, ship);
-            insertShip.execute();
+            insertShip.executeUpdate();
+            LOGGER.info("Ship inserted");
+
+            ResultSet resultSetLastAddedShipId = findLastAddedShipId.executeQuery();
+            resultSetLastAddedShipId.next();
+            int last_added_ship_id = resultSetLastAddedShipId.getInt("last_added_ship_id");
+            LOGGER.info("last_added_ship_id: " + last_added_ship_id);
+
+            int last_added_cabin_id = 0;
             for (CabinRequestDto cabinRequestDto : cabinRequestDtoList) {
+                LOGGER.info("cabinRequestDto: " + cabinRequestDto);
                 for (int i = 0; i < cabinRequestDto.getNumberOfCabins(); i++) {
-
+                    LOGGER.info("i = " + i);
                     insertCabin.setInt(1, cabinRequestDto.getCabinTypeId());
+                    insertCabin.setInt(2, last_added_ship_id);
                     insertCabin.execute();
+                    ResultSet resultSetLastAddedCabinId = findLastAddedCabinId.executeQuery();
+                    resultSetLastAddedCabinId.next();
+                    last_added_cabin_id = resultSetLastAddedCabinId.getInt("last_added_cabin_id");
+                    LOGGER.info("Cabin inserted id=" + last_added_cabin_id);
 
-                    insertCabinStatus.setDate(1, Date.valueOf(START_STATUS_DATE));
-                    insertCabinStatus.setDate(2, Date.valueOf(END_STATUS_DATE));
-                    insertCabinStatus.setInt(3, STATUS_STATEMENT_AVAILABLE);
-                    insertCabinStatus.execute();
+                    insertCabinStatus.setInt(1, last_added_cabin_id);
+                    insertCabinStatus.setDate(2, Date.valueOf(START_STATUS_DATE));
+                    insertCabinStatus.setDate(3, Date.valueOf(END_STATUS_DATE));
+                    insertCabinStatus.setInt(4, STATUS_STATEMENT_AVAILABLE);
+                    LOGGER.info(last_added_cabin_id + "\n" + Date.valueOf(START_STATUS_DATE) + "\n" + Date.valueOf(END_STATUS_DATE) + "\n" + STATUS_STATEMENT_AVAILABLE + "\n");
+                    insertCabinStatus.executeUpdate();
+
                 }
             }
             connection.commit();
@@ -97,7 +132,8 @@ public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
             connection.rollback();
             LOGGER.info("Rollback of the insert ship, cabins and cabin statuses transaction");
             throw new DataBaseRuntimeException(e);
-        }finally {
+        } finally {
+            LOGGER.info("Close connection");
             connection.close();
         }
     }
@@ -132,6 +168,37 @@ public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
                 }
                 return new ArrayList<>(entities);
             }
+        } catch (SQLException e) {
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Ship> findAllFreeShipsByDateStartAndDateEnd(LocalDate dateStart, LocalDate dateEnd) {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection
+                     .prepareStatement(FIND_ALL_BY_DATE_START_DATE_END)) {
+            preparedStatement.setDate(1, Date.valueOf(dateStart));
+            preparedStatement.setDate(2, Date.valueOf(dateEnd));
+            preparedStatement.setInt(3, CABIN_STATUS_ACTIVE);
+            try (final ResultSet resultSet = preparedStatement.executeQuery()) {
+                Set<Ship> entities = new HashSet<>();
+                while (resultSet.next()) {
+                    entities.add(mapResultSetToEntity(resultSet));
+                }
+                return new ArrayList<>(entities);
+            }
+        } catch (SQLException e) {
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public void deleteShipBtId(Integer shipId) {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SHIP_BY_ID);) {
+            preparedStatement.setInt(1, shipId);
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new DataBaseRuntimeException(e);
         }

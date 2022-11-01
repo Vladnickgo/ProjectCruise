@@ -3,10 +3,11 @@ package com.vladnickgo.Project.controller.command.home;
 import com.vladnickgo.Project.PagesConstant;
 import com.vladnickgo.Project.context.ApplicationContextInjector;
 import com.vladnickgo.Project.controller.command.Command;
-import com.vladnickgo.Project.controller.dto.CruiseDto;
-import com.vladnickgo.Project.controller.dto.CruiseRequestDto;
+import com.vladnickgo.Project.controller.dto.*;
 import com.vladnickgo.Project.service.CruiseService;
+import com.vladnickgo.Project.service.RoutePointService;
 import com.vladnickgo.Project.service.RouteService;
+import com.vladnickgo.Project.service.ShipService;
 import com.vladnickgo.Project.service.util.CruiseRequestDtoUtil;
 
 import javax.servlet.ServletException;
@@ -20,10 +21,54 @@ public class EditCruisesCommand implements Command {
     private final ApplicationContextInjector contextInjector = ApplicationContextInjector.getInstance();
     private final CruiseService cruiseService = contextInjector.getCruiseService();
     private final RouteService routeService = contextInjector.getRouteService();
+    private final RoutePointService routePointService = contextInjector.getRoutePontService();
+    private final ShipService shipService = contextInjector.getShipService();
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String command = request.getParameter("command");
+        String dateStart = request.getParameter("dateStart");
+        LocalDate localDateStart = dateStart == null ? LocalDate.now().plusMonths(1) : LocalDate.parse(dateStart);
+        String routeId = request.getParameter("routeId");
+        String shipId = request.getParameter("shipId");
+        String cruiseName = request.getParameter("cruiseName");
+
+        CruiseRequestDto cruiseRequestDto = getCruiseRequestDto(request);
+        CruiseRequestDtoUtil cruiseRequestDtoUtil = new CruiseRequestDtoUtil(cruiseRequestDto);
+        List<CruiseResponseDto> cruiseList = cruiseService.findAll(cruiseRequestDtoUtil);
+        Integer totalPages = cruiseService.getNumberOfPages(cruiseRequestDtoUtil.getItemsOnPage());
+        List<RouteDto> routeList = routeService.findAllRoutes();
+        if (routeId != null) {
+            Integer routeIdInteger = Integer.valueOf(routeId);
+            request.setAttribute("routeId", routeIdInteger);
+            List<RoutePointDto> routePointDtoList = routePointService.findAllByRouteId(routeIdInteger);
+            LocalDate localDateEnd = localDateStart.plusDays(routePointDtoList.size());
+            List<ShipDto> shipList = shipService.findAllFreeShipsByDateStartAndDateEnd(localDateStart, localDateEnd);
+            request.setAttribute("shipList", shipList);
+            request.setAttribute("routePointList", routePointDtoList);
+            request.setAttribute("dateEnd", localDateEnd);
+        }
+        request.setAttribute("shipId", shipId);
+        request.setAttribute("cruiseName",cruiseName);
+        request.setAttribute("cruiseList", cruiseList);
+        request.setAttribute("routeList", routeList);
+        request.setAttribute("totalPages", totalPages);
+        request.setAttribute("recordsOnPage", cruiseRequestDtoUtil.getItemsOnPage());
+        request.setAttribute("numberOfPage", cruiseRequestDtoUtil.getNumberOfPage());
+        request.setAttribute("sorting", cruiseRequestDtoUtil.getSorting());
+        request.setAttribute("ordering", cruiseRequestDtoUtil.getOrdering());
+        request.setAttribute("statusAvailable", cruiseRequestDtoUtil.getStatusAvailable());
+        request.setAttribute("statusInProgress", cruiseRequestDtoUtil.getStatusInProgress());
+        request.setAttribute("statusFinished", cruiseRequestDtoUtil.getStatusFinished());
+        request.setAttribute("statusNotAvailable", cruiseRequestDtoUtil.getStatusNotAvailable());
+        request.setAttribute("dateStart", dateStart == null ? LocalDate.now().plusMonths(1) : LocalDate.parse(dateStart));
+        request.setAttribute("minDateStart", LocalDate.now().plusMonths(1));
+        request.setAttribute("maxDateStart", LocalDate.now().plusMonths(12));
+        request.setAttribute("command", command);
+        return PagesConstant.EDIT_CRUISES_PAGE;
+    }
+
+    private CruiseRequestDto getCruiseRequestDto(HttpServletRequest request) {
         String numberOfPage = request.getParameter("numberOfPage");
         String recordsOnPage = request.getParameter("recordsOnPage");
         String sorting = request.getParameter("sorting");
@@ -32,10 +77,7 @@ public class EditCruisesCommand implements Command {
         String statusInProgress = request.getParameter("statusInProgress");
         String statusFinished = request.getParameter("statusFinished");
         String statusNotAvailable = request.getParameter("statusNotAvailable");
-        String dateStart = request.getParameter("dateStart");
-        String dateEnd = request.getParameter("dateEnd");
-
-        CruiseRequestDto cruiseRequestDto = CruiseRequestDto.newBuilder()
+        return CruiseRequestDto.newBuilder()
                 .numberOfPage(numberOfPage)
                 .recordsOnPage(recordsOnPage)
                 .sorting(sorting)
@@ -45,27 +87,6 @@ public class EditCruisesCommand implements Command {
                 .statusFinished(statusFinished)
                 .statusNotAvailable(statusNotAvailable)
                 .build();
-        CruiseRequestDtoUtil cruiseRequestDtoUtil = new CruiseRequestDtoUtil(cruiseRequestDto);
-        List<CruiseDto> cruiseList = cruiseService.findAll(cruiseRequestDtoUtil);
-        Integer totalPages = cruiseService.getNumberOfPages(cruiseRequestDtoUtil.getItemsOnPage());
-
-        request.setAttribute("cruiseList", cruiseList);
-        request.setAttribute("totalPages", totalPages);
-        request.setAttribute("recordsOnPage", cruiseRequestDtoUtil.getItemsOnPage());
-        request.setAttribute("numberOfPage", cruiseRequestDtoUtil.getNumberOfPage());
-        request.setAttribute("sorting", cruiseRequestDtoUtil.getSorting());
-        request.setAttribute("ordering", cruiseRequestDtoUtil.getOrdering());
-        request.setAttribute("statusAvailable", cruiseRequestDtoUtil.getStatusAvailable());
-        request.setAttribute("statusInProgress", statusInProgress);
-        request.setAttribute("statusFinished", statusFinished);
-        request.setAttribute("statusNotAvailable", statusNotAvailable);
-        request.setAttribute("dateStart", dateStart == null ? LocalDate.now().plusMonths(3) : LocalDate.parse(dateStart));
-        request.setAttribute("minDateStart", LocalDate.now().plusMonths(3));
-        request.setAttribute("maxDateStart", LocalDate.now().plusMonths(12));
-        request.setAttribute("dateEnd", dateEnd == null ? LocalDate.now().plusMonths(3).plusDays(3) : LocalDate.parse(dateEnd));
-        request.setAttribute("minDateEnd", LocalDate.now().plusMonths(3).plusDays(3));
-        request.setAttribute("maxDateEnd", LocalDate.now().plusMonths(12).plusDays(3));
-        request.setAttribute("command", command);
-        return PagesConstant.EDIT_CRUISES_PAGE;
     }
+
 }

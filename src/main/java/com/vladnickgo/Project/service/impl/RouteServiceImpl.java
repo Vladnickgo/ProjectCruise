@@ -31,7 +31,7 @@ public class RouteServiceImpl implements RouteService {
         return routeRepository.findAllByNumberOfPageAndSorting(routeRequestDtoUtil)
                 .stream()
                 .map(mapper::mapEntityToDto)
-                .sorted(Comparator.comparing(t->t.getRouteName().toLowerCase()))
+                .sorted(Comparator.comparing(t -> t.getRouteName().toLowerCase()))
                 .collect(Collectors.toList());
     }
 
@@ -41,7 +41,7 @@ public class RouteServiceImpl implements RouteService {
         Route route = mapper.mapDtoToEntity(routeDto);
         try {
             return routeRepository.addRouteAndRoutePoint(route, firstPortOfRouteId);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new DataBaseRuntimeException(e);
         }
     }
@@ -50,5 +50,13 @@ public class RouteServiceImpl implements RouteService {
     public Integer getNumberOfPages(Integer recordsOnPage) {
         Integer countAll = routeRepository.countAll();
         return countAll / recordsOnPage + (countAll % recordsOnPage > 0 ? 1 : 0);
+    }
+
+    @Override
+    public List<RouteDto> findAllRoutes() {
+        return routeRepository.findAll().stream()
+                .map(mapper::mapEntityToDto)
+                .sorted(Comparator.comparing(RouteDto::getRouteName))
+                .collect(Collectors.toList());
     }
 }

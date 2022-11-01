@@ -6,41 +6,37 @@ import java.util.Objects;
 public class CruiseDto {
     private final Integer id;
     private final String cruiseName;
-    private final String routeName;
+    private final Integer routeID;
     private final LocalDate dateStart;
     private final LocalDate dateEnd;
+    private final Integer cruiseStatusId;
+    private final Integer shipId;
     private final Integer nights;
-    private final String cruiseStatusName;
-    private final String shipName;
-    private final String shipImageSource;
 
     private CruiseDto(Builder builder) {
         id = builder.id;
         cruiseName = builder.cruiseName;
-        routeName = builder.routeName;
+        routeID = builder.routeID;
         dateStart = builder.dateStart;
         dateEnd = builder.dateEnd;
+        cruiseStatusId = builder.cruiseStatusId;
+        shipId = builder.shipId;
         nights = builder.nights;
-        cruiseStatusName = builder.cruiseStatusName;
-        shipName = builder.shipName;
-        shipImageSource = builder.shipImageSource;
     }
 
     public static Builder newBuilder() {
         return new Builder();
     }
 
-
     public static final class Builder {
         private Integer id;
         private String cruiseName;
-        private String routeName;
+        private Integer routeID;
         private LocalDate dateStart;
         private LocalDate dateEnd;
+        private Integer cruiseStatusId;
+        private Integer shipId;
         private Integer nights;
-        private String cruiseStatusName;
-        private String shipName;
-        private String shipImageSource;
 
         private Builder() {
         }
@@ -55,8 +51,8 @@ public class CruiseDto {
             return this;
         }
 
-        public Builder routeName(String val) {
-            routeName = val;
+        public Builder routeID(Integer val) {
+            routeID = val;
             return this;
         }
 
@@ -70,23 +66,18 @@ public class CruiseDto {
             return this;
         }
 
+        public Builder cruiseStatusId(Integer val) {
+            cruiseStatusId = val;
+            return this;
+        }
+
+        public Builder shipId(Integer val) {
+            shipId = val;
+            return this;
+        }
+
         public Builder nights(Integer val) {
             nights = val;
-            return this;
-        }
-
-        public Builder cruiseStatusName(String val) {
-            cruiseStatusName = val;
-            return this;
-        }
-
-        public Builder shipName(String val) {
-            shipName = val;
-            return this;
-        }
-
-        public Builder shipImageSource(String val) {
-            shipImageSource = val;
             return this;
         }
 
@@ -103,8 +94,8 @@ public class CruiseDto {
         return cruiseName;
     }
 
-    public String getRouteName() {
-        return routeName;
+    public Integer getRouteID() {
+        return routeID;
     }
 
     public LocalDate getDateStart() {
@@ -115,20 +106,16 @@ public class CruiseDto {
         return dateEnd;
     }
 
+    public Integer getCruiseStatusId() {
+        return cruiseStatusId;
+    }
+
+    public Integer getShipId() {
+        return shipId;
+    }
+
     public Integer getNights() {
         return nights;
-    }
-
-    public String getCruiseStatusName() {
-        return cruiseStatusName;
-    }
-
-    public String getShipName() {
-        return shipName;
-    }
-
-    public String getShipImageSource() {
-        return shipImageSource;
     }
 
     @Override
@@ -136,12 +123,12 @@ public class CruiseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CruiseDto cruiseDto = (CruiseDto) o;
-        return Objects.equals(id, cruiseDto.id) && Objects.equals(cruiseName, cruiseDto.cruiseName) && Objects.equals(routeName, cruiseDto.routeName) && Objects.equals(dateStart, cruiseDto.dateStart) && Objects.equals(dateEnd, cruiseDto.dateEnd) && Objects.equals(nights, cruiseDto.nights) && Objects.equals(cruiseStatusName, cruiseDto.cruiseStatusName) && Objects.equals(shipName, cruiseDto.shipName) && Objects.equals(shipImageSource, cruiseDto.shipImageSource);
+        return Objects.equals(id, cruiseDto.id) && Objects.equals(cruiseName, cruiseDto.cruiseName) && Objects.equals(routeID, cruiseDto.routeID) && Objects.equals(dateStart, cruiseDto.dateStart) && Objects.equals(dateEnd, cruiseDto.dateEnd) && Objects.equals(cruiseStatusId, cruiseDto.cruiseStatusId) && Objects.equals(shipId, cruiseDto.shipId) && Objects.equals(nights, cruiseDto.nights);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cruiseName, routeName, dateStart, dateEnd, nights, cruiseStatusName, shipName, shipImageSource);
+        return Objects.hash(id, cruiseName, routeID, dateStart, dateEnd, cruiseStatusId, shipId, nights);
     }
 
     @Override
@@ -149,13 +136,12 @@ public class CruiseDto {
         return "CruiseDto{" +
                 "id=" + id +
                 ", cruiseName='" + cruiseName + '\'' +
-                ", routeName='" + routeName + '\'' +
+                ", routeID=" + routeID +
                 ", dateStart=" + dateStart +
                 ", dateEnd=" + dateEnd +
+                ", cruiseStatusId=" + cruiseStatusId +
+                ", shipId=" + shipId +
                 ", nights=" + nights +
-                ", cruiseStatusName='" + cruiseStatusName + '\'' +
-                ", shipName='" + shipName + '\'' +
-                ", shipImageSource='" + shipImageSource + '\'' +
                 '}';
     }
 }

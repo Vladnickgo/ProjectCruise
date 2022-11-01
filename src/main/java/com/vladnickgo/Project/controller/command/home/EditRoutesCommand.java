@@ -29,6 +29,7 @@ public class EditRoutesCommand implements Command {
         request.getSession().removeAttribute("message");
         String numberOfPage = request.getParameter("numberOfPage");
         String recordsOnPage = request.getParameter("recordsOnPage");
+        String routeId = request.getParameter("routeId");
         RouteRequestDto routeRequestDto = RouteRequestDto.newBuilder()
                 .numberOfPage(numberOfPage)
                 .recordsOnPage(recordsOnPage)
@@ -37,6 +38,7 @@ public class EditRoutesCommand implements Command {
         List<RouteDto> routeList = routeService.findAllByNumberOfPageAndSorting(routeRequestDtoUtil);
         Integer pages = routeService.getNumberOfPages(routeRequestDtoUtil.getItemsOnPage());
         List<PortDto> portList = portService.findAll();
+        request.setAttribute("routeId",routeId!=null?Integer.valueOf(routeId):null);
         request.setAttribute("routeList", routeList);
         request.setAttribute("portList", portList);
         request.setAttribute("numberOfPage", routeRequestDtoUtil.getNumberOfPage());
