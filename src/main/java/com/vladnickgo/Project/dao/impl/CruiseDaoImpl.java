@@ -9,10 +9,9 @@ import com.vladnickgo.Project.service.util.CruiseRequestDtoUtil;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.*;
 
 public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements CruiseDao {
     private static final Logger LOGGER = Logger.getLogger(CruiseDaoImpl.class);
@@ -42,6 +41,26 @@ public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements Cruise
             "WHERE c.cruise_status_id=? OR c.cruise_status_id=? OR c.cruise_status_id=? OR c.cruise_status_id=? " +
             "ORDER BY ? " +
             "LIMIT ? OFFSET ?; ";
+
+    private static final String FIND_ALL_BY_CRUISE_STATUS_DATES_AND_DURATION = "SELECT * FROM cruises c " +
+            "LEFT JOIN routes r on r.route_id = c.route_id " +
+            "LEFT JOIN cruise_statuses cs on cs.cruise_status_id = c.cruise_status_id " +
+            "LEFT JOIN ships s on c.ship_id = s.ship_id " +
+            "WHERE c.cruise_status_id = ? " +
+            "AND date_start >= ? " +
+            "AND date_end <= ? " +
+            "AND nights >= ? " +
+            "AND nights <= ? " +
+            "ORDER BY ? " +
+            "LIMIT ? OFFSET ?; ";
+
+    private static final String COUNT_ALL_BY_CRUISE_STATUS_DATES_AND_DURATION = "SELECT count(*) " +
+            "            AS number_of_cruises FROM cruises c " +
+            "            WHERE c.cruise_status_id = ? " +
+            "            AND date_start >= ? " +
+            "            AND date_end <= ? " +
+            "            AND nights >= ? " +
+            "            AND nights <= ? ;";
 
     private static final String FIND_CABIN_STATUS_DATE_END = "SELECT status_end as temp_status_end FROM cabin_statuses " +
             "LEFT JOIN cabins c on c.cabin_id = cabin_statuses.cabin_id " +
@@ -73,8 +92,28 @@ public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements Cruise
 
     private static final String FIND_MAX_CRUISE_DURATION = "SELECT max(nights)+1 AS max_cruise_duration FROM cruises; ";
 
-    private static final String FIND_MIN_CRUISE_DURATION = "SELECT min(nights)+1 AS min_cruise_duration FROM cruises; ";
+    private static final String FIND_MIN_CRUISE_DURATION = "SELECT min(nights) AS min_cruise_duration FROM cruises; ";
 
+    private static final String FIND_MIN_CRUISES_DATE_START_BY_CRUISE_STATUS = "SELECT min(date_start) AS min_date_start " +
+            "FROM cruises WHERE cruise_status_id=?; ";
+
+    private static final String FIND_MAX_CRUISES_DATE_END_BY_CRUISE_STATUS = "SELECT max(date_end) AS max_date_end " +
+            "FROM cruises WHERE cruise_status_id=?; ";
+
+    private static final String FIND_ALL_BY_CRUISE_STATUS_DATE_START_DATE_END = "SELECT * FROM cruises c " +
+            "LEFT JOIN routes r on r.route_id = c.route_id " +
+            "LEFT JOIN cruise_statuses cs on cs.cruise_status_id = c.cruise_status_id " +
+            "LEFT JOIN ships s on c.ship_id = s.ship_id " +
+            "WHERE c.cruise_status_id = ? " +
+            "AND (date_start BETWEEN ? AND ? OR date_end BETWEEN ? AND ?); ";
+
+    public static final String FIND_NUMBER_OF_CABINS_FOR_EACH_CABIN_TYPE = "SELECT cabin_type_name, count(*) AS number_of_cabin " +
+            "FROM cruises " +
+            "LEFT JOIN ships s on s.ship_id = cruises.ship_id " +
+            "LEFT JOIN cabins c on s.ship_id = c.ship_id " +
+            "LEFT JOIN cabin_types ct on ct.cabin_type_id = c.cabin_type_id " +
+            "WHERE cruises.cruise_id = ? " +
+            "GROUP BY c.cabin_type_id;";
 
     public CruiseDaoImpl(HikariConnectionPool connector) {
         super(connector, INSERT_QUERY, FIND_BY_ID, FIND_ALL, UPDATE_CRUISE);
@@ -103,7 +142,7 @@ public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements Cruise
 
     @Override
     public List<Cruise> findAllByParameters(CruiseRequestDtoUtil cruiseRequestDtoUtil) {
-        Integer[] paymentStatusIds = cruiseRequestDtoUtil.getPaymentStatusIds();
+        Integer[] cruiseStatusIds = cruiseRequestDtoUtil.getCruiseStatusIds();
 
         String sorting = cruiseRequestDtoUtil.getSorting();
         String ordering = cruiseRequestDtoUtil.getOrdering();
@@ -112,10 +151,10 @@ public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements Cruise
         Integer firstRecordOnPage = cruiseRequestDtoUtil.getFirstRecordOnPage();
         try (Connection connection = connector.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL_BY_PARAM)) {
-            preparedStatement.setInt(1, paymentStatusIds[0]);
-            preparedStatement.setInt(2, paymentStatusIds[1]);
-            preparedStatement.setInt(3, paymentStatusIds[2]);
-            preparedStatement.setInt(4, paymentStatusIds[3]);
+            preparedStatement.setInt(1, cruiseStatusIds[0]);
+            preparedStatement.setInt(2, cruiseStatusIds[1]);
+            preparedStatement.setInt(3, cruiseStatusIds[2]);
+            preparedStatement.setInt(4, cruiseStatusIds[3]);
             preparedStatement.setString(5, orderParameters);
             preparedStatement.setInt(6, itemsOnPage);
             preparedStatement.setInt(7, firstRecordOnPage);
@@ -146,13 +185,11 @@ public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements Cruise
     @Override
     public void createCruise(Cruise cruise) throws SQLException {
         Connection connection = connector.getConnection();
-        try {
-            PreparedStatement saveCruise = connection.prepareStatement(INSERT_QUERY);
-            PreparedStatement findCabinStatusDateEnd = connection.prepareStatement(FIND_CABIN_STATUS_DATE_END);
-            PreparedStatement findAllCabinStatusesByShipIdDateStartDateEndAndStatusStatementId = connection.prepareStatement(FIND_ALL_CABIN_STATUSES_BY_SHIP_ID_DATE_START_DATE_END_STATUS_STATEMENT_ID);
-            PreparedStatement updateCabinStatusByShipIdStatusStartStatusEnd = connection.prepareStatement(UPDATE_CABIN_STATUS_BY_SHIP_ID_STATUS_START_AND_STATUS_END);
-            PreparedStatement insertIntoCabinStatusByShipIdStatusStartStatusEnd = connection.prepareStatement(INSERT_INTO_CABIN_STATUS_BY_CABIN_ID_DATE_START_DATE_END);
-
+        try (PreparedStatement saveCruise = connection.prepareStatement(INSERT_QUERY);
+             PreparedStatement findCabinStatusDateEnd = connection.prepareStatement(FIND_CABIN_STATUS_DATE_END);
+             PreparedStatement findAllCabinStatusesByShipIdDateStartDateEndAndStatusStatementId = connection.prepareStatement(FIND_ALL_CABIN_STATUSES_BY_SHIP_ID_DATE_START_DATE_END_STATUS_STATEMENT_ID);
+             PreparedStatement updateCabinStatusByShipIdStatusStartStatusEnd = connection.prepareStatement(UPDATE_CABIN_STATUS_BY_SHIP_ID_STATUS_START_AND_STATUS_END);
+             PreparedStatement insertIntoCabinStatusByShipIdStatusStartStatusEnd = connection.prepareStatement(INSERT_INTO_CABIN_STATUS_BY_CABIN_ID_DATE_START_DATE_END)) {
             connection.setAutoCommit(false);
             saveCruise.setString(1, cruise.getCruiseName());
             saveCruise.setInt(2, cruise.getRoute().getId());
@@ -220,10 +257,23 @@ public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements Cruise
     }
 
     @Override
+    public Integer getMinCruiseDuration() {
+        try (Connection connection = connector.getConnection();
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(FIND_MIN_CRUISE_DURATION);
+            resultSet.next();
+            int max_cruise_duration = resultSet.getInt("min_cruise_duration");
+            LOGGER.info("Min cruise duration is equal " + max_cruise_duration);
+            return max_cruise_duration;
+        } catch (SQLException e) {
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
     public Integer getMaxCruiseDuration() {
         try (Connection connection = connector.getConnection();
-             Statement statement = connection.createStatement()
-        ) {
+             Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(FIND_MAX_CRUISE_DURATION);
             resultSet.next();
             int max_cruise_duration = resultSet.getInt("max_cruise_duration");
@@ -235,15 +285,113 @@ public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements Cruise
     }
 
     @Override
-    public Integer getMinCruiseDuration() {
+    public LocalDate getMinDateStart() {
         try (Connection connection = connector.getConnection();
-             Statement statement = connection.createStatement()
-        ) {
-            ResultSet resultSet = statement.executeQuery(FIND_MIN_CRUISE_DURATION);
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_MIN_CRUISES_DATE_START_BY_CRUISE_STATUS)) {
+            preparedStatement.setInt(1, CRUISE_STATUS_AVAILABLE);
+            ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
-            int max_cruise_duration = resultSet.getInt("min_cruise_duration");
-            LOGGER.info("Max cruise duration is equal " + max_cruise_duration);
-            return max_cruise_duration;
+            Date min_date_start = resultSet.getDate("min_date_start");
+            LOGGER.info("Min date start of cruises: " + min_date_start);
+            return min_date_start.toLocalDate();
+        } catch (SQLException e) {
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public LocalDate getMaxDateEnd() {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_MAX_CRUISES_DATE_END_BY_CRUISE_STATUS)) {
+            preparedStatement.setInt(1, CRUISE_STATUS_AVAILABLE);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            Date max_date_end = resultSet.getDate("max_date_end");
+            LOGGER.info("Max date end of cruises: " + max_date_end);
+            return max_date_end.toLocalDate();
+        } catch (SQLException e) {
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public Map<String, Integer> getEachCabinTypeNumberMap(Integer cruiseId) {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_NUMBER_OF_CABINS_FOR_EACH_CABIN_TYPE)) {
+            preparedStatement.setInt(1, cruiseId);
+            try (final ResultSet resultSet = preparedStatement.executeQuery()) {
+                Map<String, Integer> entity = new HashMap<>();
+                while (resultSet.next()) {
+                    entity.put(resultSet.getString("cabin_type_name"), resultSet.getInt("number_of_cabin"));
+                }
+                LOGGER.info(entity);
+                return entity;
+            }
+        } catch (SQLException e) {
+            LOGGER.info("Can't do");
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Cruise> findAllByDates(LocalDate dateStart, LocalDate dateEnd) {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL_BY_CRUISE_STATUS_DATE_START_DATE_END)) {
+            preparedStatement.setInt(1, CRUISE_STATUS_AVAILABLE);
+            preparedStatement.setDate(2, Date.valueOf(dateStart));
+            preparedStatement.setDate(3, Date.valueOf(dateEnd));
+            preparedStatement.setDate(4, Date.valueOf(dateStart));
+            preparedStatement.setDate(5, Date.valueOf(dateEnd));
+            try (final ResultSet resultSet = preparedStatement.executeQuery()) {
+                Set<Cruise> entities = new HashSet<>();
+                while (resultSet.next()) {
+                    entities.add(mapResultSetToEntity(resultSet));
+                }
+                return new ArrayList<>(entities);
+            }
+        } catch (
+                SQLException e) {
+            LOGGER.info("Can't do FIND_ALL_BY_CRUISE_STATUS_DATE_START_DATE_END query");
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public Integer countAllByDatesAndDuration(CruiseRequestDtoUtil cruiseRequestDtoUtil) {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(COUNT_ALL_BY_CRUISE_STATUS_DATES_AND_DURATION)) {
+            preparedStatement.setInt(1, CRUISE_STATUS_AVAILABLE);
+            preparedStatement.setDate(2, Date.valueOf(cruiseRequestDtoUtil.getDateStart()));
+            preparedStatement.setDate(3, Date.valueOf(cruiseRequestDtoUtil.getDateEnd()));
+            preparedStatement.setInt(4, cruiseRequestDtoUtil.getBottomCruiseDuration());
+            preparedStatement.setInt(5, cruiseRequestDtoUtil.getTopCruiseDuration());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            return resultSet.getInt("number_of_cruises");
+        } catch (SQLException e) {
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Cruise> findAllByDatesAndDuration(CruiseRequestDtoUtil cruiseRequestDtoUtil) {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL_BY_CRUISE_STATUS_DATES_AND_DURATION)) {
+            preparedStatement.setInt(1, CRUISE_STATUS_AVAILABLE);
+            preparedStatement.setDate(2, Date.valueOf(cruiseRequestDtoUtil.getDateStart()));
+            preparedStatement.setDate(3, Date.valueOf(cruiseRequestDtoUtil.getDateEnd()));
+            preparedStatement.setInt(4, cruiseRequestDtoUtil.getBottomCruiseDuration());
+            preparedStatement.setInt(5, cruiseRequestDtoUtil.getTopCruiseDuration());
+            preparedStatement.setString(6, cruiseRequestDtoUtil.getSorting());
+            preparedStatement.setInt(7, cruiseRequestDtoUtil.getItemsOnPage());
+            preparedStatement.setInt(8, cruiseRequestDtoUtil.getFirstRecordOnPage());
+            try (final ResultSet resultSet = preparedStatement.executeQuery()) {
+                Set<Cruise> entities = new HashSet<>();
+                while (resultSet.next()) {
+                    entities.add(mapResultSetToEntity(resultSet));
+                }
+                return new ArrayList<>(entities);
+            }
         } catch (SQLException e) {
             throw new DataBaseRuntimeException(e);
         }

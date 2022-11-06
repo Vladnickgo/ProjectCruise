@@ -41,8 +41,8 @@
 </div>
 
 <div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
+    <div class="col-1"></div>
+    <div class="col-8">
         <h1><f:message key="liners" bundle="${bunCont}"/></h1>
         <hr>
         <form action="home" method="get" onchange="submit()">
@@ -153,8 +153,8 @@
         </div>
     </div>
     <div class="col-3">
-        <div class="container">
-            <div id="userForm">
+        <div class="container p-3">
+            <div id="userForm" class="p-3 m-3">
                 <h3 style="text-align: center"><f:message key="addLiner" bundle="${bunCont}"/></h3>
                 <form class="form-floating" action="home" method="post">
                     <div class="form-floating mb-3">
@@ -184,7 +184,6 @@
                                     <input name="persons" value="${cabinType.numberOfBeds}" hidden>
                                     <input name="cabinTypeName" value="${cabinType.cabinTypeName}" hidden>
                                     <input name="cabinTypeIds" value="${cabinType.id}" hidden>
-
                                 </td>
                             </tr>
                         </c:forEach>

@@ -1,17 +1,16 @@
 package com.vladnickgo.Project.service;
 
+import com.vladnickgo.Project.controller.dto.CabinTypeResponseDto;
 import com.vladnickgo.Project.controller.dto.CruiseDto;
 import com.vladnickgo.Project.controller.dto.CruiseResponseDto;
+import com.vladnickgo.Project.controller.dto.LocalDateDto;
 import com.vladnickgo.Project.service.util.CruiseRequestDtoUtil;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface CruiseService {
     List<CruiseResponseDto> findAll(CruiseRequestDtoUtil cruiseRequestDtoUtil);
-
-    Integer initNumberOfPage(String numberOfPage);
-
-    Integer initRecordsOnPage(String recordsOnPage);
 
     Integer getNumberOfPages(Integer recordsOnPage);
 
@@ -27,7 +26,15 @@ public interface CruiseService {
 
     Integer getMinCruiseDuration();
 
-    Integer getBottomDuration(String bottomDurationStr);
+    LocalDate getMinDateStartForStatusAvailable();
 
-    Integer getTopDuration(String topDurationStr);
+    LocalDate getMaxDateEndForStatusAvailable();
+
+    List<CruiseResponseDto> findAllByDatesAndDuration(CruiseRequestDtoUtil cruiseRequestDtoUtil);
+
+    Integer getNumberOfPagesByDatesAndDuration(CruiseRequestDtoUtil cruiseRequestDtoUtil);
+
+    List<CruiseDto> findAllByDates(LocalDateDto localDateDto);
+
+    List<CabinTypeResponseDto> getNumberOfAllAndBusyCabins(String cruiseId);
 }

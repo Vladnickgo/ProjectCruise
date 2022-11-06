@@ -12,8 +12,6 @@ import com.vladnickgo.Project.dao.impl.*;
 import com.vladnickgo.Project.service.*;
 import com.vladnickgo.Project.service.impl.*;
 import com.vladnickgo.Project.service.mapper.*;
-import com.vladnickgo.Project.service.util.PageService;
-import com.vladnickgo.Project.service.util.PageServiceImpl;
 import com.vladnickgo.Project.service.util.PasswordEncryptionService;
 import com.vladnickgo.Project.validator.*;
 
@@ -95,7 +93,7 @@ public final class ApplicationContextInjector {
 
     private static final UserService USER_SERVICE = new UserServiceImpl(USER_DAO, USER_MAPPER, USER_VALIDATOR, PASSWORD_ENCRYPTION_SERVICE);
 
-    private static final CruiseService CRUISE_SERVICE = new CruiseServiceImpl(CRUISE_DAO, CRUISE_RESPONSE_MAPPER, CRUISE_MAPPER, CRUISE_VALIDATOR);
+    private static final CruiseService CRUISE_SERVICE = new CruiseServiceImpl(CRUISE_DAO, ORDER_DAO, CRUISE_RESPONSE_MAPPER, CRUISE_MAPPER, CRUISE_VALIDATOR);
 
     private static final CabinTypeService CABIN_TYPE_SERVICE = new CabinTypeServiceImpl(CABIN_TYPE_DAO, CABIN_TYPE_MAPPER);
 
@@ -108,8 +106,6 @@ public final class ApplicationContextInjector {
     private static final OrderService ORDER_SERVICE = new OrderServiceImpl(ORDER_DAO);
 
     private static final PaymentDocumentsService PAYMENT_DOCUMENTS_SERVICE = new PaymentDocumentsServiceImpl(PAYMENT_DOCUMENTS_VALIDATOR);
-
-    private static final PageService PAGE_SERVICE = new PageServiceImpl();
 
     private static final ShipService SHIP_SERVICE = new ShipServiceImpl(SHIP_DAO, SHIP_MAPPER, SHIP_VALIDATOR);
 
@@ -199,6 +195,16 @@ public final class ApplicationContextInjector {
 
     private static final Command UNBLOCK_CRUISE_COMMAND = new UnblockCruiseCommand();
 
+    private static final Command EDIT_PORTS_COMMAND = new EditPortsCommand();
+
+    private static final Command ADD_PORT_COMMAND = new AddPortCommand();
+
+    private static final Command UNSUCCESSFUL_PORT_ADDING_COMMAND = new UnsuccessfulPortAddingCommand();
+
+    private static final Command SUCCESSFUL_PORT_ADDING_COMMAND = new SuccessfulPortAddingCommand();
+
+    private static final Command ADMIN_STATISTIC_COMMAND = new AdminStatisticCommand();
+
     private static final Map<String, Command> USER_COMMAND_NAME_TO_COMMAND = initUserCommand();
 
     private static final Map<String, Command> HOME_COMMAND_NAME_TO_COMMAND = initHomeCommand();
@@ -255,6 +261,11 @@ public final class ApplicationContextInjector {
         homeCommandNameToCommand.put("deleteLinerCommand", DELETE_LINER_COMMAND);
         homeCommandNameToCommand.put("blockCruiseCommand", BLOCK_CRUISE_COMMAND);
         homeCommandNameToCommand.put("unblockCruiseCommand", UNBLOCK_CRUISE_COMMAND);
+        homeCommandNameToCommand.put("editPortsCommand", EDIT_PORTS_COMMAND);
+        homeCommandNameToCommand.put("addPortCommand", ADD_PORT_COMMAND);
+        homeCommandNameToCommand.put("unsuccessfulPortAddingCommand", UNSUCCESSFUL_PORT_ADDING_COMMAND);
+        homeCommandNameToCommand.put("successfulPortAddingCommand", SUCCESSFUL_PORT_ADDING_COMMAND);
+        homeCommandNameToCommand.put("adminStatisticCommand", ADMIN_STATISTIC_COMMAND);
         homeCommandNameToCommand.put("defaultCommand", DEFAULT_COMMAND);
         return Collections.unmodifiableMap(homeCommandNameToCommand);
     }
@@ -288,10 +299,6 @@ public final class ApplicationContextInjector {
 
     public ShipService getShipService() {
         return SHIP_SERVICE;
-    }
-
-    public PageService getPageService() {
-        return PAGE_SERVICE;
     }
 
     public Map<String, Command> getHomeCommandNameToCommand() {

@@ -17,11 +17,11 @@ public class AboutPageCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Map<String, List<String>> map=new HashMap<>();
-        map.put("abc",new ArrayList<>(List.of("a","b","c")));
+        Map<String, List<String>> map = new HashMap<>();
+        map.put("abc", new ArrayList<>(List.of("a", "b", "c")));
         String command = request.getParameter("command");
         request.setAttribute("command", command);
-        request.setAttribute("map",map);
+        request.setAttribute("map", map);
         return PagesConstant.ABOUT_PAGE;
     }
 

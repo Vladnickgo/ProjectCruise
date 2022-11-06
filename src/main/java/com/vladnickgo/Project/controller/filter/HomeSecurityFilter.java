@@ -22,7 +22,9 @@ public class HomeSecurityFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
+        LOGGER.info("Log from HomeSecurityFilter");
         HttpServletRequest req = (HttpServletRequest) request;
+        req.setCharacterEncoding("utf-8");
         UserDto user = (UserDto) req.getSession().getAttribute("user");
         String command = req.getParameter("command");
         if (user == null && ("showUserProfile".equals(command)||"showAdminProfile".equals(command)||"orderHandlerPage".equals(command))){

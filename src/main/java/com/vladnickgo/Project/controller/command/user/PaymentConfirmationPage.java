@@ -33,8 +33,6 @@ public class PaymentConfirmationPage implements Command {
         String cardNumber = request.getParameter("cardNumber");
         String cvvCode = request.getParameter("cvvCode");
         String command = request.getParameter("command");
-        System.out.println("idCard: " + idCard + "\ncardNumber: " + cardNumber + "\ncvvCode: " + cvvCode + "\ncabinStatusId: " + cabinStatusId);
-
         request.setAttribute("cruiseId", cruiseId);
         request.setAttribute("cabinStatusId", cabinStatusId);
         request.setAttribute("cabinTypeId", cabinTypeId);

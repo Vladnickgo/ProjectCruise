@@ -238,6 +238,10 @@
                             style="width: 100%; height: 40px">
                         <f:message key="cruises" bundle="${bunCont}"/>
                     </button>
+                    <button class="btn btn-outline-primary" name="command" value="editPortsCommand" type="submit"
+                            style="width: 100%; height: 40px">
+                        <f:message key="ports" bundle="${bunCont}"/>
+                    </button>
                     <button class="btn btn-outline-primary" name="command" value="adminStatisticCommand" type="submit"
                             style="width: 100%; height: 40px">
                         <f:message key="statistics" bundle="${bunCont}"/>

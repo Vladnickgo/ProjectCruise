@@ -71,7 +71,9 @@
                                     </div>
                                     <div class="col-9"><input style="width: 100%" type="number" id="bottomDuration"
                                                               name="bottomDuration"
-                                                              value="inProgress"></div>
+                                                              min="${minDurationValue}"
+                                                              max="${topDuration-1}"
+                                                              value="${bottomDuration}"></div>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -81,14 +83,16 @@
                                     </div>
                                     <div class="col-9"><input style="width: 100%" type="number" id="topDuration"
                                                               name="topDuration"
-                                                              value="inProgress"></div>
+                                                              min="${bottomDuration+1}"
+                                                              max="${maxDurationValue}"
+                                                              value="${topDuration}"></div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
                     <div class="col-1"></div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div style="text-align: center; width: 100%;font-size: 9pt; font-weight: bold">
                             <f:message key="searchByDate" bundle="${bunCont}"/>:
                             <hr>
@@ -97,21 +101,25 @@
                         <div class="row" style="font-size: 9pt;">
                             <div class="col-6">
                                 <div class="row">
-                                    <div class="col-4"><label for="dateStart"><f:message key="from"
+                                    <div class="col-3"><label for="dateStart"><f:message key="from"
                                                                                               bundle="${bunCont}"/></label>
                                     </div>
-                                    <div class="col-8"><input style="width: 100%" type="date" id="dateStart"
+                                    <div class="col-9"><input style="width: 100%" type="date" id="dateStart"
                                                               name="dateStart"
+                                                              min="${minDateStart}"
+                                                              max="${dateEnd}"
                                                               value="${dateStart}"></div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="row">
-                                    <div class="col-4"><label for="dateEnd"><f:message key="to"
+                                    <div class="col-3"><label for="dateEnd"><f:message key="to"
                                                                                            bundle="${bunCont}"/></label>
                                     </div>
-                                    <div class="col-8"><input style="width: 100%" type="date" id="dateEnd"
+                                    <div class="col-9"><input style="width: 100%" type="date" id="dateEnd"
                                                               name="dateEnd"
+                                                              min="${dateStart}"
+                                                              max="${maxDateEnd}"
                                                               value="${dateEnd}"></div>
                                 </div>
                             </div>
@@ -252,6 +260,8 @@
                    href="home?command=showCruises&numberOfPage=${numberOfPage+1>totalPages?totalPages:numberOfPage+1}&recordsOnPage=${recordsOnPage}"
                 ${numberOfPage==totalPages?'hidden':''}>></a>
             </div>
+
+
         </div>
         <div class="col-3">
         </div>

@@ -27,6 +27,7 @@ public class LocalFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         servletRequest.setCharacterEncoding(UTF_8);
         servletResponse.setCharacterEncoding(UTF_8);
+        req.setCharacterEncoding(UTF_8);
         servletResponse.setContentType("text/html; charset=UTF-8");
         if (req.getParameter(LANGUAGE) != null) {
             req.getSession().setAttribute(LANGUAGE, req.getParameter(LANGUAGE));

@@ -20,5 +20,6 @@ public class PortValidator implements Validator<PortDto> {
     private void validateByParam(Function<PortDto, String> param, String errorMessage, PortDto portDto) {
         Optional.ofNullable(param.apply(portDto))
                 .orElseThrow(() -> new IllegalArgumentException(errorMessage));
+        if (param.apply(portDto).isBlank())throw new IllegalArgumentException(errorMessage);
     }
 }

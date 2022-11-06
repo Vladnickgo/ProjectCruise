@@ -1,6 +1,5 @@
 package com.vladnickgo.Project.controller;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/home")

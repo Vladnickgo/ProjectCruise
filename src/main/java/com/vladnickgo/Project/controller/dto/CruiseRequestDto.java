@@ -11,6 +11,8 @@ public class CruiseRequestDto {
     private final String statusInProgress;
     private final String statusFinished;
     private final String statusNotAvailable;
+    private final CruiseDurationDto cruiseDurationDto;
+    private final CruiseDatesDto cruiseDatesDto;
 
     private CruiseRequestDto(Builder builder) {
         sorting = builder.sorting;
@@ -21,6 +23,8 @@ public class CruiseRequestDto {
         statusInProgress = builder.statusInProgress;
         statusFinished = builder.statusFinished;
         statusNotAvailable = builder.statusNotAvailable;
+        cruiseDurationDto = builder.cruiseDurationDto;
+        cruiseDatesDto = builder.cruiseDatesDto;
     }
 
     public static Builder newBuilder() {
@@ -36,6 +40,8 @@ public class CruiseRequestDto {
         private String statusInProgress;
         private String statusFinished;
         private String statusNotAvailable;
+        private CruiseDurationDto cruiseDurationDto;
+        private CruiseDatesDto cruiseDatesDto;
 
         private Builder() {
         }
@@ -80,6 +86,16 @@ public class CruiseRequestDto {
             return this;
         }
 
+        public Builder cruiseDurationDto(CruiseDurationDto val) {
+            cruiseDurationDto = val;
+            return this;
+        }
+
+        public Builder cruiseDatesDto(CruiseDatesDto val) {
+            cruiseDatesDto = val;
+            return this;
+        }
+
         public CruiseRequestDto build() {
             return new CruiseRequestDto(this);
         }
@@ -117,17 +133,25 @@ public class CruiseRequestDto {
         return statusNotAvailable;
     }
 
+    public CruiseDurationDto getCruiseDurationDto() {
+        return cruiseDurationDto;
+    }
+
+    public CruiseDatesDto getCruiseDatesDto() {
+        return cruiseDatesDto;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CruiseRequestDto that = (CruiseRequestDto) o;
-        return Objects.equals(sorting, that.sorting) && Objects.equals(ordering, that.ordering) && Objects.equals(recordsOnPage, that.recordsOnPage) && Objects.equals(numberOfPage, that.numberOfPage) && Objects.equals(statusAvailable, that.statusAvailable) && Objects.equals(statusInProgress, that.statusInProgress) && Objects.equals(statusFinished, that.statusFinished) && Objects.equals(statusNotAvailable, that.statusNotAvailable);
+        return Objects.equals(sorting, that.sorting) && Objects.equals(ordering, that.ordering) && Objects.equals(recordsOnPage, that.recordsOnPage) && Objects.equals(numberOfPage, that.numberOfPage) && Objects.equals(statusAvailable, that.statusAvailable) && Objects.equals(statusInProgress, that.statusInProgress) && Objects.equals(statusFinished, that.statusFinished) && Objects.equals(statusNotAvailable, that.statusNotAvailable) && Objects.equals(cruiseDurationDto, that.cruiseDurationDto) && Objects.equals(cruiseDatesDto, that.cruiseDatesDto);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(sorting, ordering, recordsOnPage, numberOfPage, statusAvailable, statusInProgress, statusFinished, statusNotAvailable);
+        return Objects.hash(sorting, ordering, recordsOnPage, numberOfPage, statusAvailable, statusInProgress, statusFinished, statusNotAvailable, cruiseDurationDto, cruiseDatesDto);
     }
 
     @Override
@@ -141,6 +165,8 @@ public class CruiseRequestDto {
                 ", statusInProgress='" + statusInProgress + '\'' +
                 ", statusFinished='" + statusFinished + '\'' +
                 ", statusNotAvailable='" + statusNotAvailable + '\'' +
+                ", cruiseDurationDto=" + cruiseDurationDto +
+                ", cruiseDatesDto=" + cruiseDatesDto +
                 '}';
     }
 }

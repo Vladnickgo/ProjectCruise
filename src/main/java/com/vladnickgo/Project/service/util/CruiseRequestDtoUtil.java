@@ -3,6 +3,7 @@ package com.vladnickgo.Project.service.util;
 import com.vladnickgo.Project.controller.dto.CruiseResponseDto;
 import com.vladnickgo.Project.controller.dto.CruiseRequestDto;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -91,6 +92,45 @@ public class CruiseRequestDtoUtil {
         return cruiseRequestDto.getStatusNotAvailable();
     }
 
+    public Integer getBottomCruiseDuration(){
+        return Objects.equals(cruiseRequestDto.getCruiseDurationDto().getBottomDuration(),null)?
+                cruiseRequestDto.getCruiseDurationDto().getMinDurationValue():
+                Integer.valueOf(cruiseRequestDto.getCruiseDurationDto().getBottomDuration());
+    }
+    public Integer getTopCruiseDuration(){
+        return Objects.equals(cruiseRequestDto.getCruiseDurationDto().getTopDuration(),null)?
+                cruiseRequestDto.getCruiseDurationDto().getMaxDurationValue():
+                Integer.valueOf(cruiseRequestDto.getCruiseDurationDto().getTopDuration());
+    }
+
+    public LocalDate getDateStart(){
+        return Objects.equals(cruiseRequestDto.getCruiseDatesDto().getDateStart(),null)?
+                cruiseRequestDto.getCruiseDatesDto().getMinDateStart():
+                LocalDate.parse(cruiseRequestDto.getCruiseDatesDto().getDateStart());
+    }
+
+    public LocalDate getDateEnd(){
+        return Objects.equals(cruiseRequestDto.getCruiseDatesDto().getDateEnd(),null)?
+                cruiseRequestDto.getCruiseDatesDto().getMaxDateEnd():
+                LocalDate.parse(cruiseRequestDto.getCruiseDatesDto().getDateEnd());
+    }
+
+    public Integer getMinCruseDuration(){
+        return cruiseRequestDto.getCruiseDurationDto().getMinDurationValue();
+    }
+
+    public Integer getMaxCruiseDuration(){
+        return cruiseRequestDto.getCruiseDurationDto().getMaxDurationValue();
+    }
+
+    public LocalDate getMinDateStart(){
+        return cruiseRequestDto.getCruiseDatesDto().getMinDateStart();
+    }
+
+    public LocalDate getMaxDateEnd(){
+        return cruiseRequestDto.getCruiseDatesDto().getMaxDateEnd();
+    }
+
     public Comparator<CruiseResponseDto> extractedComparator() {
         String sort = getSorting();
         return getOrdering().equals("ASC") ? initNaturalComparatorMap().get(sort) : initReverseComparatorMap().get(sort);
@@ -112,7 +152,7 @@ public class CruiseRequestDtoUtil {
         return naturalComparatorMap;
     }
 
-    public Integer[] getPaymentStatusIds() {
+    public Integer[] getCruiseStatusIds() {
         Integer[] paymentStatusArray = new Integer[4];
         paymentStatusArray[0] = Objects.equals(getStatusAvailable(), "available") ? STATUS_AVAILABLE_ID : 0;
         paymentStatusArray[1] = Objects.equals(getStatusInProgress(), "in progress") ? STATUS_IN_PROGRESS : 0;

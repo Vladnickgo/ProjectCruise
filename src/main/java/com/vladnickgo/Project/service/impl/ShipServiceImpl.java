@@ -1,6 +1,7 @@
 package com.vladnickgo.Project.service.impl;
 
 import com.vladnickgo.Project.controller.dto.CabinRequestDto;
+import com.vladnickgo.Project.controller.dto.LocalDateDto;
 import com.vladnickgo.Project.controller.dto.ShipDto;
 import com.vladnickgo.Project.dao.ShipDao;
 import com.vladnickgo.Project.dao.entity.Ship;
@@ -13,24 +14,18 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ShipServiceImpl implements ShipService {
     private final ShipDao shipRepository;
     private final Mapper<ShipDto, Ship> mapper;
     private final Validator<ShipDto> shipDtoValidator;
-    private static final Integer DEFAULT_NUMBER_OF_PAGE = 1;
-    private static final Integer DEFAULT_ITEMS_ON_PAGE = 4;
 
     public ShipServiceImpl(ShipDao shipRepository, Mapper<ShipDto, Ship> mapper, Validator<ShipDto> shipDtoValidator) {
         this.shipRepository = shipRepository;
         this.mapper = mapper;
         this.shipDtoValidator = shipDtoValidator;
-    }
-
-    public List<ShipDto> findAllShips() {
-        return shipRepository.findAll().stream().map(mapper::mapEntityToDto).collect(Collectors.toList());
     }
 
     @Override
@@ -59,23 +54,9 @@ public class ShipServiceImpl implements ShipService {
         shipRepository.update(ship);
     }
 
-    @Override
-    public Integer initNumberOfPage(String numberOfPage) {
-        return initParameterValue(numberOfPage, DEFAULT_NUMBER_OF_PAGE);
-    }
-
-    @Override
-    public Integer initRecordsOnPage(String recordsOnPage) {
-        return initParameterValue(recordsOnPage, DEFAULT_ITEMS_ON_PAGE);
-    }
-
     private Ship validateAndMapShipDto(ShipDto shipDto) {
         shipDtoValidator.validate(shipDto);
         return mapper.mapDtoToEntity(shipDto);
-    }
-
-    private Integer initParameterValue(String stringValue, Integer defaultIntegerValue) {
-        return Objects.equals(stringValue, null) || Objects.equals(stringValue, "") ? defaultIntegerValue : Integer.valueOf(stringValue);
     }
 
     @Override
@@ -94,8 +75,12 @@ public class ShipServiceImpl implements ShipService {
     }
 
     @Override
+    public Map<String, Integer> getNumberOfCruisesForShips(LocalDateDto localDateDto) {
+        return shipRepository.getNumberOfCruisesForShips(localDateDto);
+    }
+
+    @Override
     public void deleteShipById(Integer shipId) {
         shipRepository.deleteShipBtId(shipId);
     }
-
 }

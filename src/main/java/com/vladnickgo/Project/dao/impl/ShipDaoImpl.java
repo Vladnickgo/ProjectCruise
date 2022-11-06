@@ -2,6 +2,7 @@ package com.vladnickgo.Project.dao.impl;
 
 import com.vladnickgo.Project.connection.HikariConnectionPool;
 import com.vladnickgo.Project.controller.dto.CabinRequestDto;
+import com.vladnickgo.Project.controller.dto.LocalDateDto;
 import com.vladnickgo.Project.dao.ShipDao;
 import com.vladnickgo.Project.dao.entity.Ship;
 import com.vladnickgo.Project.dao.exception.DataBaseRuntimeException;
@@ -10,11 +11,9 @@ import com.vladnickgo.Project.service.util.ShipRequestDtoUtil;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
+import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
     private static final Logger LOGGER = Logger.getLogger(ShipDaoImpl.class);
@@ -56,6 +55,11 @@ public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
             "GROUP BY ship_name; ";
 
     private static final String DELETE_SHIP_BY_ID = "DELETE FROM ships WHERE ship_id = ?; ";
+
+    private static final String FIND_NUMBER_OF_CRUISES_FOR_SHIPS = "SELECT ship_name,count(*) AS number_of_cruises FROM ships " +
+            "LEFT JOIN cruises c on ships.ship_id = c.ship_id " +
+            "WHERE cruise_id is not null AND (date_start BETWEEN ? AND ? OR date_end BETWEEN ? AND ?) " +
+            "GROUP BY ships.ship_id; ";
 
     public static final String SELECT_MAX_SHIP_ID_AS_LAST_ADDED_ID_FROM_SHIPS = "SELECT max(ship_id) as last_added_ship_id " +
             "FROM ships;";
@@ -121,7 +125,6 @@ public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
                     insertCabinStatus.setDate(2, Date.valueOf(START_STATUS_DATE));
                     insertCabinStatus.setDate(3, Date.valueOf(END_STATUS_DATE));
                     insertCabinStatus.setInt(4, STATUS_STATEMENT_AVAILABLE);
-                    LOGGER.info(last_added_cabin_id + "\n" + Date.valueOf(START_STATUS_DATE) + "\n" + Date.valueOf(END_STATUS_DATE) + "\n" + STATUS_STATEMENT_AVAILABLE + "\n");
                     insertCabinStatus.executeUpdate();
 
                 }
@@ -194,12 +197,33 @@ public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
     }
 
     @Override
+    public Map<String, Integer> getNumberOfCruisesForShips(LocalDateDto localDateDto) {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_NUMBER_OF_CRUISES_FOR_SHIPS)) {
+            preparedStatement.setDate(1, Date.valueOf(localDateDto.getDateStart()));
+            preparedStatement.setDate(2, Date.valueOf(localDateDto.getDateEnd()));
+            preparedStatement.setDate(3, Date.valueOf(localDateDto.getDateStart()));
+            preparedStatement.setDate(4, Date.valueOf(localDateDto.getDateEnd()));
+            try (final ResultSet resultSet = preparedStatement.executeQuery()) {
+                Map<String, Integer> entities = new HashMap<>();
+                while (resultSet.next()) {
+                    entities.put(resultSet.getString("ship_name"), resultSet.getInt("number_of_cruises"));
+                }
+                return entities;
+            }
+        } catch (SQLException e) {
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
     public void deleteShipBtId(Integer shipId) {
         try (Connection connection = connector.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SHIP_BY_ID);) {
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SHIP_BY_ID)) {
             preparedStatement.setInt(1, shipId);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
+            LOGGER.info("Can't delete ship");
             throw new DataBaseRuntimeException(e);
         }
     }

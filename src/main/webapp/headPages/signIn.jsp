@@ -1,6 +1,4 @@
-<%--<%@ page contentType="text/html; charset=UTF-8; pageEncoding=utf-8" %>--%>
-
-<%@page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@page contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -15,12 +13,11 @@
 <c:import url="../views/head.jsp"/>
 
 <!DOCTYPE html>
+<html lang="${sessionScope.language}">
 <head>
     <meta charset="UTF-8">
 </head>
-<html lang="${sessionScope.language}">
 <body>
-
 <div class="">
     <div class="row text-center" style="background-color:#F8F9FA">
         <div class="col-11">

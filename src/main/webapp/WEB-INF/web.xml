@@ -28,7 +28,4 @@
     <exception-type>com.vladnickgo.Project.service.impl.exception.EntityAlreadyExistException</exception-type>
     <location>/error</location>
   </error-page>
-
-
-
 </web-app>

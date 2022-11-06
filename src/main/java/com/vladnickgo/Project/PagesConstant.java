@@ -89,4 +89,6 @@ public final class PagesConstant {
     public static final String EDIT_ROUTE_DATA_PAGE = "/editRouteDataPage.jsp";
 
     public static final String DELETE_SHIP_PAGE = "/deleteLinerPage.jsp";
+
+    public static final String EDIT_PORTS_PAGE = "/editPortsPage.jsp";
 }

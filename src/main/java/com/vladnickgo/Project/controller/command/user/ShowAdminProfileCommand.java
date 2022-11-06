@@ -25,6 +25,7 @@ public class ShowAdminProfileCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PaymentRequestDto paymentRequestDto = getPaymentRequestDto(request);
+        request.getSession().removeAttribute("message");
         String command = request.getParameter("command");
         request.setAttribute("command", command);
         PaymentRequestDtoUtil paymentRequestDtoUtil = new PaymentRequestDtoUtil(paymentRequestDto);
