@@ -37,7 +37,7 @@ public class ShipServiceImpl implements ShipService {
                 .collect(Collectors.toList());
     }
 
-    private Integer countAll() {
+    public Integer countAll() {
         return shipRepository.countAll();
     }
 

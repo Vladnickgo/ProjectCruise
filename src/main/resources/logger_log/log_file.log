@@ -7232,3 +7232,166 @@
 2022-11-06 20:31:21 INFO  AbstractServlet:48 - doGet: /adminStatisticPage.jsp
 2022-11-06 20:32:21 INFO  LocalFilter:46 - LocalFilter destroyed
 2022-11-06 20:32:21 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-11-06 20:32:41 INFO  LocalFilter:22 - LocalFilter init
+2022-11-06 20:32:43 INFO  LocalFilter:22 - LocalFilter init
+2022-11-06 20:32:44 INFO  LocalFilter:38 - ua
+2022-11-06 20:32:44 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-11-06 20:32:45 INFO  LocalFilter:38 - ua
+2022-11-06 20:32:45 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-11-06 20:32:46 INFO  LocalFilter:38 - ua
+2022-11-06 20:32:46 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-11-06 20:32:48 INFO  AbstractServlet:34 - Path: user
+2022-11-06 20:32:48 INFO  LocalFilter:38 - ua
+2022-11-06 20:32:48 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-11-06 20:32:48 INFO  UserSecurityFilter:27 - Log from UserSecurityFilter, method doFilter()
+2022-11-06 20:32:48 INFO  AbstractServlet:62 - Command name: loginPage
+2022-11-06 20:32:48 INFO  AbstractServlet:63 - method: GET
+2022-11-06 20:32:48 INFO  LoginPageCommand:23 - errorMessage: null
+2022-11-06 20:32:48 INFO  AbstractServlet:66 - page: /headPages/loginPage.jsp
+2022-11-06 20:32:48 INFO  AbstractServlet:48 - doGet: /headPages/loginPage.jsp
+2022-11-06 20:32:58 INFO  LocalFilter:38 - ua
+2022-11-06 20:32:58 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-11-06 20:32:58 INFO  UserSecurityFilter:27 - Log from UserSecurityFilter, method doFilter()
+2022-11-06 20:32:58 INFO  AbstractServlet:62 - Command name: login
+2022-11-06 20:32:58 INFO  AbstractServlet:63 - method: POST
+2022-11-06 20:32:58 INFO  AbstractServlet:66 - page: home?command=homePage
+2022-11-06 20:32:58 INFO  AbstractServlet:55 - doPost: home?command=homePage
+2022-11-06 20:32:58 INFO  AbstractServlet:29 - Path: home
+2022-11-06 20:32:58 INFO  HomeSecurityFilter:25 - Log from HomeSecurityFilter
+2022-11-06 20:32:58 INFO  LocalFilter:38 - ua
+2022-11-06 20:32:58 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-11-06 20:32:58 INFO  AbstractServlet:62 - Command name: homePage
+2022-11-06 20:32:58 INFO  AbstractServlet:63 - method: GET
+2022-11-06 20:32:58 INFO  AbstractServlet:66 - page: /headPages/index.jsp
+2022-11-06 20:32:58 INFO  AbstractServlet:48 - doGet: /headPages/index.jsp
+2022-11-06 20:33:01 INFO  LocalFilter:38 - ua
+2022-11-06 20:33:01 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-11-06 20:33:01 INFO  UserSecurityFilter:27 - Log from UserSecurityFilter, method doFilter()
+2022-11-06 20:33:01 INFO  AbstractServlet:62 - Command name: showAdminProfile
+2022-11-06 20:33:01 INFO  AbstractServlet:63 - method: GET
+2022-11-06 20:33:01 INFO  AbstractServlet:66 - page: /adminProfile.jsp
+2022-11-06 20:33:01 INFO  AbstractServlet:48 - doGet: /adminProfile.jsp
+2022-11-06 20:33:03 INFO  HomeSecurityFilter:25 - Log from HomeSecurityFilter
+2022-11-06 20:33:03 INFO  LocalFilter:38 - ua
+2022-11-06 20:33:03 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-11-06 20:33:03 INFO  AbstractServlet:62 - Command name: adminStatisticCommand
+2022-11-06 20:33:03 INFO  AbstractServlet:63 - method: GET
+2022-11-06 20:33:03 INFO  CruiseDaoImpl:327 - {}
+2022-11-06 20:33:03 INFO  AbstractServlet:66 - page: /adminStatisticPage.jsp
+2022-11-06 20:33:03 INFO  AbstractServlet:48 - doGet: /adminStatisticPage.jsp
+2022-11-06 20:33:07 INFO  HomeSecurityFilter:25 - Log from HomeSecurityFilter
+2022-11-06 20:33:07 INFO  LocalFilter:38 - ua
+2022-11-06 20:33:07 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-11-06 20:33:07 INFO  AbstractServlet:62 - Command name: adminStatisticCommand
+2022-11-06 20:33:07 INFO  AbstractServlet:63 - method: GET
+2022-11-06 20:33:07 INFO  CruiseDaoImpl:327 - {single=250, oceanview=450, suite=350, inside=350, balcony=450}
+2022-11-06 20:33:07 INFO  AbstractServlet:66 - page: /adminStatisticPage.jsp
+2022-11-06 20:33:08 INFO  AbstractServlet:48 - doGet: /adminStatisticPage.jsp
+2022-11-06 20:33:12 INFO  HomeSecurityFilter:25 - Log from HomeSecurityFilter
+2022-11-06 20:33:12 INFO  LocalFilter:38 - ua
+2022-11-06 20:33:12 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-11-06 20:33:12 INFO  AbstractServlet:62 - Command name: adminStatisticCommand
+2022-11-06 20:33:12 INFO  AbstractServlet:63 - method: GET
+2022-11-06 20:33:12 INFO  CruiseDaoImpl:327 - {single=125, oceanview=300, suite=150, inside=222, balcony=200}
+2022-11-06 20:33:12 INFO  AbstractServlet:66 - page: /adminStatisticPage.jsp
+2022-11-06 20:33:12 INFO  AbstractServlet:48 - doGet: /adminStatisticPage.jsp
+2022-11-06 20:33:27 INFO  HomeSecurityFilter:25 - Log from HomeSecurityFilter
+2022-11-06 20:33:27 INFO  LocalFilter:38 - ua
+2022-11-06 20:33:27 INFO  LocalFilter:40 - Logging from doFilter LocalFilter
+2022-11-06 20:33:27 INFO  AbstractServlet:62 - Command name: adminStatisticCommand
+2022-11-06 20:33:27 INFO  AbstractServlet:63 - method: GET
+2022-11-06 20:33:27 INFO  CruiseDaoImpl:327 - {single=2, suite=4, balcony=5}
+2022-11-06 20:33:27 INFO  AbstractServlet:66 - page: /adminStatisticPage.jsp
+2022-11-06 20:33:27 INFO  AbstractServlet:48 - doGet: /adminStatisticPage.jsp
+2022-11-06 21:55:28 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-06 21:55:28 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-06 21:55:28 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-06 21:56:01 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-06 21:56:01 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-06 21:56:01 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-06 22:02:28 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-06 22:02:28 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-06 22:02:28 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-06 22:04:07 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-06 22:04:07 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-06 22:04:07 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-06 22:06:08 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-06 22:06:08 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-06 22:06:08 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-06 22:17:00 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-06 22:17:00 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-06 22:17:00 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-06 22:23:59 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-06 22:24:00 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-06 22:24:00 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-06 23:22:35 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-11-06 23:22:35 INFO  LocalFilter:46 - LocalFilter destroyed
+2022-11-07 13:23:38 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 13:23:38 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 13:23:38 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 13:54:10 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 13:54:10 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 13:54:10 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 13:55:03 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 13:55:03 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 13:55:03 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 13:58:44 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 13:58:45 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 13:58:45 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 16:13:11 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 16:13:11 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 16:13:11 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 16:17:08 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 16:17:08 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 16:17:08 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 16:18:51 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 16:18:51 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 16:18:51 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 16:32:49 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 16:32:49 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 16:32:49 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 17:05:29 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 17:05:29 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 17:05:29 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 18:04:56 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 18:04:56 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 18:04:56 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 18:17:57 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 18:17:57 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 18:17:57 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 18:23:24 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 18:23:24 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 18:23:24 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 18:46:35 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 18:46:35 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 18:46:35 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 18:52:12 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 18:52:12 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 18:52:12 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 18:59:58 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 18:59:58 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 18:59:58 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 19:15:03 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 19:15:03 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 19:15:03 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 19:46:33 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 19:46:33 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 19:46:33 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 20:12:10 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 20:12:10 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 20:12:10 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 20:21:41 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 20:21:41 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 20:21:41 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 20:40:20 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 20:40:20 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 20:40:20 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 20:42:29 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 20:42:29 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 20:42:29 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 21:27:31 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 21:27:31 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 21:27:31 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered
+2022-11-07 21:32:09 INFO  UserServiceImpl:49 - User with email <strong>test@gmail.com</strong> is already registered
+2022-11-07 21:32:09 INFO  UserServiceImpl:49 - User with email <strong>post@gmail.com</strong> is already registered
+2022-11-07 21:32:09 INFO  UserServiceImpl:49 - User with email <strong>dax@gmail.com</strong> is already registered

@@ -16,6 +16,10 @@ public class RoutePointMapper implements Mapper<RoutePointDto, RoutePoint> {
                 .dayNumber(routePointDto.getDayNumber())
                 .port(Port.newBuilder()
                         .id(routePointDto.getId())
+                        .portNameUa(routePointDto.getPortNameUa())
+                        .portNameEn(routePointDto.getPortNameEn())
+                        .countryUa(routePointDto.getCountryUa())
+                        .countryEn(routePointDto.getCountryEn())
                         .build())
                 .build();
     }
