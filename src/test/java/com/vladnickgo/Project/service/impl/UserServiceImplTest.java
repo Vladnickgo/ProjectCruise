@@ -81,7 +81,6 @@ public class UserServiceImplTest {
         Mockito.doNothing().when(userValidator).validateEmail(email);
         Mockito.when(userDao.findByEmail(email)).thenReturn(Optional.ofNullable(user));
         Mockito.when(mapper.mapEntityToDto(user)).thenReturn(expectedUserDto);
-
         UserDto actualUserDto = userService.findByEmail(email);
         assertEquals(expectedUserDto, actualUserDto);
     }
