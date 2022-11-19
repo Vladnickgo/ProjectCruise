@@ -23,6 +23,7 @@ public class EditShipsCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String message = request.getParameter("message");
         String command = request.getParameter("command");
         String numberOfPage = request.getParameter("numberOfPage");
         String itemsOnPage = request.getParameter("recordsOnPage");
@@ -34,18 +35,19 @@ public class EditShipsCommand implements Command {
                 .sorting(sorting)
                 .ordering(ordering)
                 .build();
-        ShipRequestDtoUtil shipRequestDtoUtil=new ShipRequestDtoUtil(shipRequestDto);
+        ShipRequestDtoUtil shipRequestDtoUtil = new ShipRequestDtoUtil(shipRequestDto);
         Integer totalPages = shipService.getTotalPages(shipRequestDtoUtil.getItemsOnPage());
         List<ShipDto> shipList = shipService.findAllShipsByNumberOfPageAndRecordsOnPage(shipRequestDtoUtil);
         List<CabinTypeDto> allCabinTypes = cabinTypeService.findAll();
-        request.setAttribute("numberOfPage",shipRequestDtoUtil.getNumberOfPage());
-        request.setAttribute("recordsOnPage",shipRequestDtoUtil.getItemsOnPage());
-        request.setAttribute("sorting",shipRequestDtoUtil.getSorting());
-        request.setAttribute("ordering",shipRequestDtoUtil.getOrdering());
+        request.setAttribute("numberOfPage", shipRequestDtoUtil.getNumberOfPage());
+        request.setAttribute("recordsOnPage", shipRequestDtoUtil.getItemsOnPage());
+        request.setAttribute("sorting", shipRequestDtoUtil.getSorting());
+        request.setAttribute("ordering", shipRequestDtoUtil.getOrdering());
         request.setAttribute("allCabinTypes", allCabinTypes);
-        request.setAttribute("totalPages",totalPages);
+        request.setAttribute("totalPages", totalPages);
         request.setAttribute("shipList", shipList);
         request.setAttribute("command", command);
+        request.setAttribute("message",message);
         return PagesConstant.EDIT_LINERS_PAGE;
     }
 }

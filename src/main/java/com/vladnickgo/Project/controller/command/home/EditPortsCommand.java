@@ -20,6 +20,10 @@ public class EditPortsCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String portName = (String) request.getSession().getAttribute("portName");
+        String message = (String) request.getSession().getAttribute("message");
+        request.getSession().removeAttribute("portName");
+        request.getSession().removeAttribute("message");
         String sorting = request.getParameter("sorting");
         String ordering = request.getParameter("ordering");
         String itemsOnPage = request.getParameter("itemsOnPage");
@@ -40,7 +44,8 @@ public class EditPortsCommand implements Command {
         request.setAttribute("sorting", portRequestDtoUtil.getSorting());
         request.setAttribute("ordering", portRequestDtoUtil.getOrdering());
         request.setAttribute("numberOfPage", portRequestDtoUtil.getNumberOfPage());
-        System.out.println("numberOfPage: " + numberOfPage);
+        request.setAttribute("portName", portName);
+        request.setAttribute("message", message);
         request.setAttribute("totalPages", totalPages);
         return PagesConstant.EDIT_PORTS_PAGE;
     }

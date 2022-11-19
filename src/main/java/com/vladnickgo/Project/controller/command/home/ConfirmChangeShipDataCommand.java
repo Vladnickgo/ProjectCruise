@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.vladnickgo.Project.ApplicationConstant.SHIP_IMAGE_PATH;
+import static com.vladnickgo.Project.PagesConstant.SHIP_IMAGE_PATH;
 
 public class ConfirmChangeShipDataCommand implements Command {
     private final ApplicationContextInjector contextInjector = ApplicationContextInjector.getInstance();

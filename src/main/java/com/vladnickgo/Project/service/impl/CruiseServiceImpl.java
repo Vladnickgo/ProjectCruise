@@ -31,9 +31,9 @@ public class CruiseServiceImpl implements CruiseService {
     private final OrderDao orderRepository;
     private final Mapper<CruiseResponseDto, Cruise> cruiseResponseMapper;
     private final Mapper<CruiseDto, Cruise> cruiseMapper;
-    private final Validator<CruiseResponseDto> validator;
+    private final Validator<CruiseDto> validator;
 
-    public CruiseServiceImpl(CruiseDao cruiseRepository, OrderDao orderRepository, Mapper<CruiseResponseDto, Cruise> cruiseMapper, Mapper<CruiseDto, Cruise> cruiseMapper1, Validator<CruiseResponseDto> validator) {
+    public CruiseServiceImpl(CruiseDao cruiseRepository, OrderDao orderRepository, Mapper<CruiseResponseDto, Cruise> cruiseMapper, Mapper<CruiseDto, Cruise> cruiseMapper1, Validator<CruiseDto> validator) {
         this.cruiseRepository = cruiseRepository;
         this.orderRepository = orderRepository;
         this.cruiseResponseMapper = cruiseMapper;
@@ -62,13 +62,10 @@ public class CruiseServiceImpl implements CruiseService {
     }
 
     @Override
-    public void createCruise(CruiseDto cruiseDto) {
+    public void createCruise(CruiseDto cruiseDto) throws SQLException {
+        validator.validate(cruiseDto);
         Cruise cruise = cruiseMapper.mapDtoToEntity(cruiseDto);
-        try {
             cruiseRepository.createCruise(cruise);
-        } catch (SQLException e) {
-            throw new DataBaseRuntimeException(e);
-        }
     }
 
     @Override
@@ -78,6 +75,9 @@ public class CruiseServiceImpl implements CruiseService {
 
     @Override
     public Integer getMaxCruiseDuration() {
+        if (cruiseRepository.getMaxCruiseDuration() == 0) {
+            throw new IllegalArgumentException(CRUISE_NOT_FOUND);
+        }
         return cruiseRepository.getMaxCruiseDuration();
     }
 
@@ -97,7 +97,6 @@ public class CruiseServiceImpl implements CruiseService {
         Integer cruiseIdInteger = Integer.valueOf(s);
         Map<String, Integer> cabinTypeMap = cruiseRepository.getEachCabinTypeNumberMap(cruiseIdInteger);
         Map<String, Integer> busyCabinTypeMap = orderRepository.getEachBusyCabinTypeNumberMap(cruiseIdInteger);
-
         return cabinTypeMap.entrySet().stream().map(t -> CabinTypeResponseDto.newBuilder()
                         .cabinTypeName(t.getKey())
                         .numberOfCabins(t.getValue())

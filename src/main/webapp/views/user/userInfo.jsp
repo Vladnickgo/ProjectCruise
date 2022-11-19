@@ -7,9 +7,6 @@
 <f:setLocale value="${sessionScope.language}"/>
 
 <f:setBundle var="bunCont" basename="resources"/>
-
-
-
 <html>
 <head>
     <title>userInfo</title>

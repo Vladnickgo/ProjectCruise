@@ -8,7 +8,7 @@ import java.util.List;
 public interface RouteService {
     List<RouteDto> findAllByNumberOfPageAndSorting(RouteRequestDtoUtil routeRequestDtoUtil);
 
-    Integer addRoute(RouteDto routeDto, Integer firstPortOfRouteId);
+    Integer addRoute(RouteDto routeDto, String firstPortOfRouteId);
 
     Integer getNumberOfPages(Integer recordsOnPage);
 

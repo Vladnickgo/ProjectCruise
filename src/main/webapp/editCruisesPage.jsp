@@ -204,8 +204,8 @@
     </div>
 
     <div class="col-3">
-        <div class="container">
-            <div id="userForm">
+        <div class="container mt-5">
+            <div id="userForm" class="p-3">
                 <h3 style="text-align: center"><f:message key="addCruise" bundle="${bunCont}"/></h3>
                 <form class="form-floating" action="home" method="get" onchange="submit()">
                     <div class="form-floating mb-3">
@@ -223,7 +223,7 @@
                         <select class="form-control" id="route" name="routeId" required>
                             <option selected disabled value="">Choose...</option>
                             <c:forEach var="route" items="${routeList}">
-                                <option value="${route.id}"
+                                <option name="routeId" value="${route.id}"
                                     ${route.id==routeId?'selected':''}
                                 >${route.routeName}</option>
                             </c:forEach>
@@ -259,11 +259,11 @@
                 </form>
                 <form>
                     <button class="btn btn-outline-primary"
-                            name="command" value="addCruiseCommand"
                             type="submit"
                             style="width: 120px">
                         ok
                     </button>
+                    <input name="command" value="addCruiseCommand" hidden>
                     <input name="shipId" value="${shipId}" hidden>
                     <input name="dateStart" value="${dateStart}" hidden>
                     <input name="dateEnd" value="${dateEnd}" hidden>
@@ -271,7 +271,7 @@
                     <input name="nights" value="${routePointList.size()-1}" hidden>
                     <input name="cruiseName" value="${cruiseName}" hidden>
                 </form>
-
+                ${message}
             </div>
         </div>
 

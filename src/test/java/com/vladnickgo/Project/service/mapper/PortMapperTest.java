@@ -2,17 +2,20 @@ package com.vladnickgo.Project.service.mapper;
 
 import com.vladnickgo.Project.controller.dto.PortDto;
 import com.vladnickgo.Project.dao.entity.Port;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+@ExtendWith(MockitoExtension.class)
 class PortMapperTest {
-    private final Mapper<PortDto, Port> mapper = new PortMapper();
+    @InjectMocks
+    private PortMapper mapper;
 
     @ParameterizedTest(name = "[{index}]{2}")
     @MethodSource("provideDataForMapPortDtoToEntityMethod")
@@ -45,7 +48,16 @@ class PortMapperTest {
                                 .countryUa("Італія")
                                 .countryEn("Italy")
                                 .build(),
-                        "Check mapPortDtoToPort method"));
+                        "Check mapPortDtoToPort method"),
+                Arguments.of(
+                        PortDto.newBuilder()
+                                .build(),
+                        Port.newBuilder()
+                                .build(),
+                        "Check mapPortDtoToPort method with empty values"),
+                Arguments.of(null,null,
+                        "Check mapPortDtoToPort method with null values")
+                );
     }
 
     private static Stream<Arguments> provideDataForMapEntityToPortDtoMethod() {
@@ -65,6 +77,15 @@ class PortMapperTest {
                                 .countryUa("Італія")
                                 .countryEn("Italy")
                                 .build(),
-                        "Check mapEntityToPortDto method"));
+                        "Check mapEntityToPortDto method"),
+                Arguments.of(
+                        Port.newBuilder()
+                                .build(),
+                        PortDto.newBuilder()
+                                .build(),
+                        "Check mapEntityToPortDto method with empty values"),
+                Arguments.of(null,null,
+                        "Check mapEntityToPortDto method")
+        );
     }
 }

@@ -5,9 +5,12 @@ import com.vladnickgo.Project.dao.entity.Port;
 import com.vladnickgo.Project.dao.entity.Route;
 import com.vladnickgo.Project.dao.entity.RoutePoint;
 
+import java.util.Optional;
+
 public class RoutePointMapper implements Mapper<RoutePointDto, RoutePoint> {
     @Override
     public RoutePoint mapDtoToEntity(RoutePointDto routePointDto) {
+        if (routePointDto == null) return null;
         return RoutePoint.newBuilder()
                 .id(routePointDto.getId())
                 .route(Route.newBuilder()
@@ -26,14 +29,45 @@ public class RoutePointMapper implements Mapper<RoutePointDto, RoutePoint> {
 
     @Override
     public RoutePointDto mapEntityToDto(RoutePoint routePoint) {
+        if (routePoint == null) return null;
         return RoutePointDto.newBuilder()
                 .id(routePoint.getId())
-                .routeName(routePoint.getRoute().getRouteName())
+                .routeName(getRouteName(routePoint))
                 .dayNumber(routePoint.getDayNumber())
-                .portNameUa(routePoint.getPort().getPortNameUa())
-                .portNameEn(routePoint.getPort().getPortNameEn())
-                .countryUa(routePoint.getPort().getCountryUa())
-                .countryEn(routePoint.getPort().getCountryEn())
+                .portNameUa(getPortNameUa(routePoint))
+                .portNameEn(getPortNameEn(routePoint))
+                .countryUa(getCountryUa(routePoint))
+                .countryEn(getCountryEn(routePoint))
                 .build();
+    }
+
+    private String getPortNameUa(RoutePoint routePoint) {
+        return Optional.ofNullable(routePoint.getPort())
+                .map(Port::getPortNameUa)
+                .orElse(null);
+    }
+
+    private String getPortNameEn(RoutePoint routePoint) {
+        return Optional.ofNullable(routePoint.getPort())
+                .map(Port::getPortNameEn)
+                .orElse(null);
+    }
+
+    private String getCountryUa(RoutePoint routePoint) {
+        return Optional.ofNullable(routePoint.getPort())
+                .map(Port::getCountryUa)
+                .orElse(null);
+    }
+
+    private String getCountryEn(RoutePoint routePoint) {
+        return Optional.ofNullable(routePoint.getPort())
+                .map(Port::getCountryEn)
+                .orElse(null);
+    }
+
+    private String getRouteName(RoutePoint routePoint) {
+        return Optional.ofNullable(routePoint.getRoute())
+                .map(Route::getRouteName)
+                .orElse(null);
     }
 }

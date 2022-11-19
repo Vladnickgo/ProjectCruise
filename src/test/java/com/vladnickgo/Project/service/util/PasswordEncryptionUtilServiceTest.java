@@ -10,13 +10,13 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PasswordEncryptionServiceTest {
-    private final PasswordEncryptionService passwordEncryptionService = new PasswordEncryptionService();
+public class PasswordEncryptionUtilServiceTest {
+    private final PasswordEncryptionUtilService passwordEncryptionUtilService = new PasswordEncryptionUtilService();
 
     @ParameterizedTest(name = "[{index}]{4}")
     @MethodSource("providePasswordEncryptedPasswordAndSalt")
     public void testOfAuthenticationUser(String encryptedPassword, String salt, String password, boolean expectedAuthenticate, String message) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        boolean actualAuthenticate = passwordEncryptionService.authenticate(password, encryptedPassword, salt);
+        boolean actualAuthenticate = passwordEncryptionUtilService.authenticate(password, encryptedPassword, salt);
         assertEquals(expectedAuthenticate, actualAuthenticate, message);
     }
 

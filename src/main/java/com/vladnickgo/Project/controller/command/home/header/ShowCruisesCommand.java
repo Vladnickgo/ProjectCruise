@@ -25,32 +25,37 @@ public class ShowCruisesCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String numberOfPage = request.getParameter("numberOfPage");
         String recordsOnPage = request.getParameter("recordsOnPage");
-        CruiseDurationDto cruiseDurationDto = getCruiseDurationDto(request);
-        CruiseDatesDto cruiseDatesDto = getCruiseDatesDto(request);
-        String command = request.getParameter("command");
-        request.setAttribute("command", command);
-        CruiseRequestDto cruiseRequestDto = CruiseRequestDto.newBuilder()
-                .cruiseDurationDto(cruiseDurationDto)
-                .cruiseDatesDto(cruiseDatesDto)
-                .numberOfPage(numberOfPage)
-                .recordsOnPage(recordsOnPage)
-                .build();
-        CruiseRequestDtoUtil cruiseRequestDtoUtil = new CruiseRequestDtoUtil(cruiseRequestDto);
-        List<CruiseResponseDto> allCruises = cruiseService.findAllByDatesAndDuration(cruiseRequestDtoUtil);
-        Integer pages = cruiseService.getNumberOfPagesByDatesAndDuration(cruiseRequestDtoUtil);
-        request.setAttribute("bottomDuration", cruiseRequestDtoUtil.getBottomCruiseDuration());
-        request.setAttribute("topDuration", cruiseRequestDtoUtil.getTopCruiseDuration());
-        request.setAttribute("minDurationValue", cruiseRequestDtoUtil.getMinCruseDuration());
-        request.setAttribute("maxDurationValue", cruiseRequestDtoUtil.getMaxCruiseDuration());
-        request.setAttribute("minDateStart", cruiseRequestDtoUtil.getMinDateStart());
-        request.setAttribute("maxDateEnd", cruiseRequestDtoUtil.getMaxDateEnd());
-        request.setAttribute("dateStart", cruiseRequestDtoUtil.getDateStart());
-        request.setAttribute("dateEnd", cruiseRequestDtoUtil.getDateEnd());
-        request.setAttribute("listOfCruises", allCruises);
-        request.setAttribute("totalPages", pages);
-        request.setAttribute("recordsOnPage", cruiseRequestDto.getRecordsOnPage());
-        request.setAttribute("numberOfPage", cruiseRequestDtoUtil.getNumberOfPage());
-        return PagesConstant.SHOW_CRUISES;
+        try {
+            CruiseDurationDto cruiseDurationDto = getCruiseDurationDto(request);
+            CruiseDatesDto cruiseDatesDto = getCruiseDatesDto(request);
+            String command = request.getParameter("command");
+            request.setAttribute("command", command);
+            CruiseRequestDto cruiseRequestDto = CruiseRequestDto.newBuilder()
+                    .cruiseDurationDto(cruiseDurationDto)
+                    .cruiseDatesDto(cruiseDatesDto)
+                    .numberOfPage(numberOfPage)
+                    .recordsOnPage(recordsOnPage)
+                    .build();
+            CruiseRequestDtoUtil cruiseRequestDtoUtil = new CruiseRequestDtoUtil(cruiseRequestDto);
+            List<CruiseResponseDto> allCruises = cruiseService.findAllByDatesAndDuration(cruiseRequestDtoUtil);
+            Integer pages = cruiseService.getNumberOfPagesByDatesAndDuration(cruiseRequestDtoUtil);
+            request.setAttribute("bottomDuration", cruiseRequestDtoUtil.getBottomCruiseDuration());
+            request.setAttribute("topDuration", cruiseRequestDtoUtil.getTopCruiseDuration());
+            request.setAttribute("minDurationValue", cruiseRequestDtoUtil.getMinCruseDuration());
+            request.setAttribute("maxDurationValue", cruiseRequestDtoUtil.getMaxCruiseDuration());
+            request.setAttribute("minDateStart", cruiseRequestDtoUtil.getMinDateStart());
+            request.setAttribute("maxDateEnd", cruiseRequestDtoUtil.getMaxDateEnd());
+            request.setAttribute("dateStart", cruiseRequestDtoUtil.getDateStart());
+            request.setAttribute("dateEnd", cruiseRequestDtoUtil.getDateEnd());
+            request.setAttribute("listOfCruises", allCruises);
+            request.setAttribute("totalPages", pages);
+            request.setAttribute("recordsOnPage", cruiseRequestDto.getRecordsOnPage());
+            request.setAttribute("numberOfPage", cruiseRequestDtoUtil.getNumberOfPage());
+            return PagesConstant.SHOW_CRUISES;
+        } catch (IllegalArgumentException e) {
+            return PagesConstant.CRUISE_NOT_EXIST;
+        }
+
     }
 
     private CruiseDatesDto getCruiseDatesDto(HttpServletRequest request) {

@@ -32,7 +32,12 @@ public class EditCruisesCommand implements Command {
         String routeId = request.getParameter("routeId");
         String shipId = request.getParameter("shipId");
         String cruiseName = request.getParameter("cruiseName");
-
+        String message = request.getParameter("message");
+        if (message != null) {
+            CruiseDto cruiseDto = (CruiseDto) request.getSession().getAttribute("cruiseDto");
+            routeId = cruiseDto.getRouteID()==null?null:String.valueOf(cruiseDto.getRouteID());
+            request.getSession().removeAttribute("cruiseDto");
+        }
         CruiseRequestDto cruiseRequestDto = getCruiseRequestDto(request);
         CruiseRequestDtoUtil cruiseRequestDtoUtil = new CruiseRequestDtoUtil(cruiseRequestDto);
         List<CruiseResponseDto> cruiseList = cruiseService.findAll(cruiseRequestDtoUtil);
@@ -49,7 +54,7 @@ public class EditCruisesCommand implements Command {
             request.setAttribute("dateEnd", localDateEnd);
         }
         request.setAttribute("shipId", shipId);
-        request.setAttribute("cruiseName",cruiseName);
+        request.setAttribute("cruiseName", cruiseName);
         request.setAttribute("cruiseList", cruiseList);
         request.setAttribute("routeList", routeList);
         request.setAttribute("totalPages", totalPages);
@@ -64,6 +69,7 @@ public class EditCruisesCommand implements Command {
         request.setAttribute("dateStart", dateStart == null ? LocalDate.now().plusMonths(1) : LocalDate.parse(dateStart));
         request.setAttribute("minDateStart", LocalDate.now().plusMonths(1));
         request.setAttribute("maxDateStart", LocalDate.now().plusMonths(12));
+        request.setAttribute("message", message);
         request.setAttribute("command", command);
         return PagesConstant.EDIT_CRUISES_PAGE;
     }

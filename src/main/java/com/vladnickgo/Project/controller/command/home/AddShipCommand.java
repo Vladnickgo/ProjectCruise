@@ -5,6 +5,8 @@ import com.vladnickgo.Project.controller.command.Command;
 import com.vladnickgo.Project.controller.dto.CabinRequestDto;
 import com.vladnickgo.Project.controller.dto.ShipDto;
 import com.vladnickgo.Project.service.ShipService;
+import com.vladnickgo.Project.service.impl.exception.EntityAlreadyExistException;
+import org.jetbrains.annotations.Nullable;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +16,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.vladnickgo.Project.ApplicationConstant.SHIP_IMAGE_PATH;
 
 public class AddShipCommand implements Command {
     private final ApplicationContextInjector contextInjector = ApplicationContextInjector.getInstance();
@@ -28,19 +29,19 @@ public class AddShipCommand implements Command {
 
         try {
             shipService.addShip(shipDto, cabinRequestDtoList);
-        } catch (SQLException e) {
-            return "home?command=editLinersCommand";
+        } catch (IllegalArgumentException| EntityAlreadyExistException |SQLException e) {
+            return "home?command=editLinersCommand&message="+e.getMessage();
         }
         return "home?command=editLinersCommand";
     }
 
     private ShipDto getShipDto(HttpServletRequest request) {
-        String shipName = request.getParameter("shipName");
-        Integer numberOfStaff = Integer.valueOf(request.getParameter("numberOfStaff"));
+        String shipName = getStringParameter(request,"shipName");
+        Integer numberOfStaff = getNumberOfStaff(request);
         String[] numbersOfCabin = request.getParameterValues("numberOfCabin");
         String[] cabinCapacities = request.getParameterValues("persons");
-        String shipImage = request.getParameter("shipImage");
-        int passengers = getPassengers(numbersOfCabin, cabinCapacities);
+        String shipImage = getStringParameter(request,"shipImage");
+        Integer passengers = getPassengers(numbersOfCabin, cabinCapacities);
         return ShipDto.newBuilder()
                 .shipName(shipName)
                 .numberOfStaff(numberOfStaff)
@@ -49,12 +50,22 @@ public class AddShipCommand implements Command {
                 .build();
     }
 
-    private int getPassengers(String[] numbersOfCabin, String[] cabinCapacities) {
+    @Nullable
+    private String getStringParameter(HttpServletRequest request, String parameter) {
+        return request.getParameter(parameter).isBlank() ? null : request.getParameter(parameter);
+    }
+
+    @Nullable
+    private Integer getNumberOfStaff(HttpServletRequest request) {
+        return request.getParameter("numberOfStaff").isBlank() ? null : Integer.valueOf(request.getParameter("numberOfStaff"));
+    }
+
+    private Integer getPassengers(String[] numbersOfCabin, String[] cabinCapacities) {
         int passengers = 0;
         for (int i = 0; i < numbersOfCabin.length; i++) {
             passengers += Integer.parseInt(numbersOfCabin[i]) * Integer.parseInt(cabinCapacities[i]);
         }
-        return passengers;
+        return passengers==0?null:passengers;
     }
 
     private List<CabinRequestDto> getCabinRequestDtoList(HttpServletRequest request) {

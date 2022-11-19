@@ -6,14 +6,13 @@ import com.vladnickgo.Project.dao.entity.Port;
 import com.vladnickgo.Project.dao.exception.DataBaseRuntimeException;
 import com.vladnickgo.Project.dao.mapper.ResultSetMapper;
 import com.vladnickgo.Project.service.util.PortRequestDtoUtil;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class PortDaoImpl extends AbstractCrudDaoImpl<Port> implements PortDao {
+    private static final Logger LOGGER = Logger.getLogger(PortDaoImpl.class);
 
     private static final String INSERT_QUERY = "INSERT INTO ports(port_name_ua, port_name_en, country_ua, country_en) " +
             "VALUES (?,?,?,?);";
@@ -31,6 +30,10 @@ public class PortDaoImpl extends AbstractCrudDaoImpl<Port> implements PortDao {
 
     private static final String COUNT_ALL = "SELECT count(*) AS number_of_ports FROM ports; ";
 
+    private static final String FIND_BY_PORT_NAME_EN = "SELECT * FROM ports WHERE port_name_en = ?";
+
+    private static final String FIND_BY_PORT_NAME_UA = "SELECT * FROM ports WHERE port_name_ua = ?";
+
     public PortDaoImpl(HikariConnectionPool connector) {
         super(connector, INSERT_QUERY, FIND_BY_ID, FIND_ALL, UPDATE);
     }
@@ -46,13 +49,36 @@ public class PortDaoImpl extends AbstractCrudDaoImpl<Port> implements PortDao {
         preparedStatement.setString(2, entity.getPortNameEn());
         preparedStatement.setString(3, entity.getCountryUa());
         preparedStatement.setString(4, entity.getCountryEn());
-
     }
 
     @Override
     protected void mapForUpdateStatement(PreparedStatement preparedStatement, Port entity) throws SQLException {
         mapForInsertStatement(preparedStatement, entity);
         preparedStatement.setInt(5, entity.getId());
+    }
+
+    @Override
+    public Optional<Port> findByNameUa(String portNameUa) {
+        return findByStringParam(portNameUa, FIND_BY_PORT_NAME_UA);
+    }
+
+    @Override
+    public void deletePortById(Integer id) {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM ports WHERE port_id = ?; ")
+        ) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+            LOGGER.info("The port has been removed");
+        } catch (SQLException e) {
+            LOGGER.info("The request could not be completed");
+            throw new DataBaseRuntimeException(e);
+        }
+    }
+
+    @Override
+    public Optional<Port> findByNameEn(String portNameEn) {
+        return findByStringParam(portNameEn, FIND_BY_PORT_NAME_EN);
     }
 
     @Override
@@ -63,6 +89,7 @@ public class PortDaoImpl extends AbstractCrudDaoImpl<Port> implements PortDao {
             resultSet.next();
             return resultSet.getInt("number_of_ports");
         } catch (SQLException e) {
+            LOGGER.info("The request could not be completed");
             throw new DataBaseRuntimeException(e);
         }
     }

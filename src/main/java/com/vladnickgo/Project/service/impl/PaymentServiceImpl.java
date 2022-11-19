@@ -8,7 +8,6 @@ import com.vladnickgo.Project.service.PaymentService;
 import com.vladnickgo.Project.service.mapper.Mapper;
 import com.vladnickgo.Project.service.util.PaymentRequestDtoUtil;
 import com.vladnickgo.Project.validator.Validator;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
@@ -16,7 +15,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PaymentServiceImpl implements PaymentService {
-    private static final Logger LOGGER = Logger.getLogger(PaymentServiceImpl.class);
     private static final Integer PAYMENT_STATUS_CANCELED = 2;
     private static final Integer ORDER_STATUS_CANCELED = 3;
 

@@ -1,46 +1,38 @@
 package com.vladnickgo.Project.service.mapper;
 
+import com.vladnickgo.Project.controller.dto.PasswordEncryptionDto;
 import com.vladnickgo.Project.controller.dto.UserDto;
 import com.vladnickgo.Project.dao.entity.User;
-import com.vladnickgo.Project.service.util.PasswordEncryptionService;
-import com.vladnickgo.Project.validator.ValidatorErrorMessage;
-
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
+import com.vladnickgo.Project.service.util.PasswordEncryptionUtilService;
 
 public class UserMapper implements Mapper<UserDto, User> {
     @Override
     public User mapDtoToEntity(UserDto userDto) {
-        PasswordEncryptionService passwordEncryptionService = new PasswordEncryptionService();
-        String salt;
-        String encryptedPassword;
-        try {
-            salt = passwordEncryptionService.generateSalt();
-        } catch (NoSuchAlgorithmException e) {
-            throw new IllegalArgumentException(ValidatorErrorMessage.PASSWORD_ERROR_MESSAGE);
+        if (userDto == null) {
+            return null;
         }
-        try {
-            encryptedPassword = passwordEncryptionService.getEncryptedPassword(userDto.getPassword(), salt);
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            throw new IllegalArgumentException(ValidatorErrorMessage.PASSWORD_ERROR_MESSAGE);
-        }
+        PasswordEncryptionDto passwordEncryptionDto = PasswordEncryptionUtilService.generateEncryptedPassword(userDto.getPassword());
         return User.newBuilder()
                 .id(userDto.getId())
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())
                 .email(userDto.getEmail())
-                .salt(salt)
-                .password(encryptedPassword)
+                .salt(passwordEncryptionDto.getSalt())
+                .password(passwordEncryptionDto.getEncryptedPassword())
                 .role(userDto.getRole())
                 .build();
     }
 
     @Override
     public UserDto mapEntityToDto(User user) {
+        if (user == null) {
+            return null;
+        }
         return UserDto.newBuilder()
                 .id(user.getId())
                 .email(user.getEmail())
                 .password(user.getPassword())
+                .confirmationPassword(user.getPassword())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .role(user.getRole())

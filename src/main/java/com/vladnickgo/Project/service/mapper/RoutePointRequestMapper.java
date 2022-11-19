@@ -5,9 +5,12 @@ import com.vladnickgo.Project.dao.entity.Port;
 import com.vladnickgo.Project.dao.entity.Route;
 import com.vladnickgo.Project.dao.entity.RoutePoint;
 
+import java.util.Optional;
+
 public class RoutePointRequestMapper implements Mapper<RoutePointRequestDto, RoutePoint> {
     @Override
     public RoutePoint mapDtoToEntity(RoutePointRequestDto routePointRequestDto) {
+        if (routePointRequestDto == null) return null;
         return RoutePoint.newBuilder()
                 .id(routePointRequestDto.getRoutePointId())
                 .route(Route.newBuilder()
@@ -22,11 +25,24 @@ public class RoutePointRequestMapper implements Mapper<RoutePointRequestDto, Rou
 
     @Override
     public RoutePointRequestDto mapEntityToDto(RoutePoint routePoint) {
+        if (routePoint == null) return null;
         return RoutePointRequestDto.newBuilder()
                 .routePointId(routePoint.getId())
-                .routeId(routePoint.getRoute().getId())
+                .routeId(getRouteId(routePoint))
                 .dayNumber(routePoint.getDayNumber())
-                .portId(routePoint.getPort().getId())
+                .portId(getPortId(routePoint))
                 .build();
+    }
+
+    private Integer getPortId(RoutePoint routePoint) {
+        return Optional.ofNullable(routePoint.getPort())
+                .map(Port::getId)
+                .orElse(null);
+    }
+
+    private Integer getRouteId(RoutePoint routePoint) {
+        return Optional.ofNullable(routePoint.getRoute())
+                .map(Route::getId)
+                .orElse(null);
     }
 }

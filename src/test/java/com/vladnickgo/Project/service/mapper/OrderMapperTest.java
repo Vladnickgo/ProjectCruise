@@ -2,23 +2,35 @@ package com.vladnickgo.Project.service.mapper;
 
 import com.vladnickgo.Project.controller.dto.OrderDto;
 import com.vladnickgo.Project.dao.entity.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@ExtendWith(MockitoExtension.class)
 class OrderMapperTest {
-    private final Mapper<OrderDto, Order> orderMapper = new OrderMapper();
+    @InjectMocks
+    private OrderMapper orderMapper;
 
     @ParameterizedTest(name = "[{index}]{2}")
     @MethodSource("provideDataForMapEntityToOrderDtoMethod")
     void mapEntityToDto(Order order, OrderDto expectedOrderDto, String message) {
         OrderDto actualOrderDto = orderMapper.mapEntityToDto(order);
         assertEquals(expectedOrderDto, actualOrderDto, message);
+    }
+
+    @ParameterizedTest(name = "[{index}]{2}")
+    @MethodSource("provideDataForMapDtoToEntityMethod")
+    void mapEntityToDto(OrderDto orderDto, Order expected, String message) {
+        Order actual = orderMapper.mapDtoToEntity(orderDto);
+        assertEquals(expected, actual, message);
     }
 
     private static Stream<Arguments> provideDataForMapEntityToOrderDtoMethod() {
@@ -91,6 +103,66 @@ class OrderMapperTest {
                                 .orderStatusId(1)
                                 .cruiseId(1)
                                 .build(),
-                        ""));
+                        "Check mapEntityToDto method"),
+                Arguments.of(
+                        Order.newBuilder()
+                                .build(),
+                        OrderDto.newBuilder()
+                                .build(),
+                        "Check mapEntityToDto method with empty values"),
+                Arguments.of(null, null,
+                        "Check mapEntityToDto method with null values")
+        );
     }
+
+    private static Stream<Arguments> provideDataForMapDtoToEntityMethod() {
+        return Stream.of(
+                Arguments.of(
+                        OrderDto.newBuilder()
+                                .id(1)
+                                .userId(5)
+                                .userDocuments("user_doc.jpg")
+                                .cabinStatusId(1)
+                                .orderDate(LocalDate.parse("2022-11-08"))
+                                .orderStatusId(1)
+                                .cruiseId(1)
+                                .build(),
+                        Order.newBuilder()
+                                .id(1)
+                                .user(User.newBuilder()
+                                        .id(5)
+                                        .build())
+                                .userDocuments("user_doc.jpg")
+                                .orderDate(LocalDate.parse("2022-11-08"))
+                                .cabinStatus(CabinStatus.newBuilder()
+                                        .id(1)
+                                        .build())
+                                .orderStatus(OrderStatus.newBuilder()
+                                        .id(1)
+                                        .build())
+                                .cruise(Cruise.newBuilder()
+                                        .id(1)
+                                        .build())
+                                .build(),
+                        "Check mapDtoToEntity method"
+                ),
+                Arguments.of(
+                        OrderDto.newBuilder().build(),
+                        Order.newBuilder()
+                                .user(User.newBuilder()
+                                        .build())
+                                .cabinStatus(CabinStatus.newBuilder()
+                                        .build())
+                                .orderStatus(OrderStatus.newBuilder()
+                                        .build())
+                                .cruise(Cruise.newBuilder()
+                                        .build())
+                                .build(),
+                        "Check mapDtoToEntity method with empty values"
+                ),
+                Arguments.of(null, null,
+                        "Check mapDtoToEntity method with null values"
+                ));
+    }
+
 }

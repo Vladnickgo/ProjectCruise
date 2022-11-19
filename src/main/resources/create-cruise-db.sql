@@ -29,24 +29,6 @@ CREATE TABLE IF NOT EXISTS ships
     ship_image_source VARCHAR(255)        NOT NULL
 );
 
-# CREATE TABLE IF NOT EXISTS ship_status_statements
-# (
-#     ship_status_statement_id   INTEGER PRIMARY KEY AUTO_INCREMENT,
-#     ship_status_statement_name VARCHAR(255) NOT NULL
-# );
-#
-# CREATE TABLE IF NOT EXISTS ship_statuses
-# (
-#     ship_status_id           INTEGER PRIMARY KEY AUTO_INCREMENT,
-#     ship_id                  INTEGER NOT NULL,
-#     date_start               DATE    NOT NULL,
-#     date_end                 DATE    NOT NULL,
-#     ship_status_statement_id INTEGER NOT NULL,
-#     FOREIGN KEY (ship_status_statement_id) REFERENCES ship_status_statements (ship_status_statement_id) ON DELETE CASCADE,
-#     FOREIGN KEY (ship_id) REFERENCES ships (ship_id) ON DELETE CASCADE
-# );
-
-
 CREATE TABLE IF NOT EXISTS cabin_types
 (
     cabin_type_id   INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -103,7 +85,7 @@ CREATE TABLE IF NOT EXISTS route_points
     day_number     INTEGER NOT NULL,
     port_id        INTEGER NOT NULL,
     FOREIGN KEY (route_id) REFERENCES routes (route_id) ON DELETE CASCADE,
-    FOREIGN KEY (port_id) REFERENCES ports (port_id)
+    FOREIGN KEY (port_id) REFERENCES ports (port_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS cruise_statuses
@@ -122,9 +104,9 @@ CREATE TABLE IF NOT EXISTS cruises
     cruise_status_id INTEGER      NOT NULL,
     ship_id          INTEGER      NOT NULL,
     nights           INTEGER AS (datediff(date_end, date_start)),
-    FOREIGN KEY (route_id) REFERENCES routes (route_id),
-    FOREIGN KEY (cruise_status_id) REFERENCES cruise_statuses (cruise_status_id),
-    FOREIGN KEY (ship_id) REFERENCES ships (ship_id)
+    FOREIGN KEY (route_id) REFERENCES routes (route_id) ON DELETE CASCADE,
+    FOREIGN KEY (cruise_status_id) REFERENCES cruise_statuses (cruise_status_id) ON DELETE CASCADE,
+    FOREIGN KEY (ship_id) REFERENCES ships (ship_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS order_statuses
@@ -161,11 +143,9 @@ CREATE TABLE IF NOT EXISTS payments
     payment_status_id INTEGER NOT NULL,
     payment_date      DATE    NOT NULL,
     amount            INTEGER NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES orders (order_id),
-    FOREIGN KEY (payment_status_id) REFERENCES payment_statuses (payment_status_id)
+    FOREIGN KEY (order_id) REFERENCES orders (order_id) ON DELETE CASCADE,
+    FOREIGN KEY (payment_status_id) REFERENCES payment_statuses (payment_status_id) ON DELETE CASCADE
 );
-
-
 
 # CREATE TABLE cabins_orders
 # (

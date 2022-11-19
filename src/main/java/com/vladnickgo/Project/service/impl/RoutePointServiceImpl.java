@@ -16,9 +16,9 @@ public class RoutePointServiceImpl implements RoutePointService {
     private final RoutePointDao routePointRepository;
     private final Mapper<RoutePointDto, RoutePoint> routePointMapper;
     private final Mapper<RoutePointRequestDto, RoutePoint> routePointRequestDtoRoutePointMapper;
-    private final Validator<RoutePointDto> validator;
+    private final Validator<RoutePointRequestDto> validator;
 
-    public RoutePointServiceImpl(RoutePointDao routePointRepository, Mapper<RoutePointDto, RoutePoint> routePointMapper, Mapper<RoutePointRequestDto, RoutePoint> routePointRequestDtoRoutePointMapper, Validator<RoutePointDto> validator) {
+    public RoutePointServiceImpl(RoutePointDao routePointRepository, Mapper<RoutePointDto, RoutePoint> routePointMapper, Mapper<RoutePointRequestDto, RoutePoint> routePointRequestDtoRoutePointMapper, Validator<RoutePointRequestDto> validator) {
         this.routePointRepository = routePointRepository;
         this.routePointMapper = routePointMapper;
         this.routePointRequestDtoRoutePointMapper = routePointRequestDtoRoutePointMapper;
@@ -43,9 +43,9 @@ public class RoutePointServiceImpl implements RoutePointService {
 
     @Override
     public void createRoutePoint(RoutePointRequestDto routePointRequestDto) {
+        validator.validate(routePointRequestDto);
         RoutePoint routePoint = routePointRequestDtoRoutePointMapper.mapDtoToEntity(routePointRequestDto);
         routePointRepository.save(routePoint);
-
     }
 
     @Override

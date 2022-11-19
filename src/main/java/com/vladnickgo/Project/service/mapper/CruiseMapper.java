@@ -6,9 +6,12 @@ import com.vladnickgo.Project.dao.entity.CruiseStatus;
 import com.vladnickgo.Project.dao.entity.Route;
 import com.vladnickgo.Project.dao.entity.Ship;
 
+import java.util.Optional;
+
 public class CruiseMapper implements Mapper<CruiseDto, Cruise> {
     @Override
     public Cruise mapDtoToEntity(CruiseDto cruiseDto) {
+        if (cruiseDto == null) return null;
         return Cruise.newBuilder()
                 .id(cruiseDto.getId())
                 .cruiseName(cruiseDto.getCruiseName())
@@ -29,15 +32,35 @@ public class CruiseMapper implements Mapper<CruiseDto, Cruise> {
 
     @Override
     public CruiseDto mapEntityToDto(Cruise cruise) {
+        if (cruise == null) return null;
         return CruiseDto.newBuilder()
                 .id(cruise.getId())
                 .cruiseName(cruise.getCruiseName())
-                .routeID(cruise.getRoute().getId())
+                .routeID(getRouteId(cruise))
                 .dateStart(cruise.getDateStart())
                 .dateEnd(cruise.getDateEnd())
-                .cruiseStatusId(cruise.getCruiseStatus().getId())
-                .shipId(cruise.getShip().getId())
+                .cruiseStatusId(getCruiseStatusId(cruise))
+                .shipId(getShipId(cruise))
                 .nights(cruise.getNights())
                 .build();
     }
+
+    private Integer getShipId(Cruise cruise) {
+        return Optional.ofNullable(cruise.getShip())
+                .map(Ship::getId)
+                .orElse(null);
+    }
+
+    private Integer getCruiseStatusId(Cruise cruise) {
+        return Optional.ofNullable(cruise.getCruiseStatus())
+                .map(CruiseStatus::getId)
+                .orElse(null);
+    }
+
+    private Integer getRouteId(Cruise cruise) {
+        return Optional.ofNullable(cruise.getRoute())
+                .map(Route::getId)
+                .orElse(null);
+    }
+
 }

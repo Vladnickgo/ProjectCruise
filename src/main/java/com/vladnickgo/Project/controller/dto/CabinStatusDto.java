@@ -6,15 +6,15 @@ import java.util.Objects;
 public class CabinStatusDto {
     private final Integer id;
     private final Integer cabinId;
-    private final LocalDate status_start;
-    private final LocalDate status_end;
+    private final LocalDate statusStart;
+    private final LocalDate statusEnd;
     private final String statusStatementName;
 
     private CabinStatusDto(Builder builder) {
         id = builder.id;
         cabinId = builder.cabinId;
-        status_start = builder.status_start;
-        status_end = builder.status_end;
+        statusStart = builder.statusStart;
+        statusEnd = builder.statusEnd;
         statusStatementName = builder.statusStatementName;
     }
 
@@ -26,8 +26,8 @@ public class CabinStatusDto {
     public static final class Builder {
         private Integer id;
         private Integer cabinId;
-        private LocalDate status_start;
-        private LocalDate status_end;
+        private LocalDate statusStart;
+        private LocalDate statusEnd;
         private String statusStatementName;
 
         private Builder() {
@@ -43,13 +43,13 @@ public class CabinStatusDto {
             return this;
         }
 
-        public Builder status_start(LocalDate val) {
-            status_start = val;
+        public Builder statusStart(LocalDate val) {
+            statusStart = val;
             return this;
         }
 
-        public Builder status_end(LocalDate val) {
-            status_end = val;
+        public Builder statusEnd(LocalDate val) {
+            statusEnd = val;
             return this;
         }
 
@@ -71,12 +71,12 @@ public class CabinStatusDto {
         return cabinId;
     }
 
-    public LocalDate getStatus_start() {
-        return status_start;
+    public LocalDate getStatusStart() {
+        return statusStart;
     }
 
-    public LocalDate getStatus_end() {
-        return status_end;
+    public LocalDate getStatusEnd() {
+        return statusEnd;
     }
 
     public String getStatusStatementName() {
@@ -88,12 +88,12 @@ public class CabinStatusDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CabinStatusDto that = (CabinStatusDto) o;
-        return Objects.equals(id, that.id) && Objects.equals(cabinId, that.cabinId) && Objects.equals(status_start, that.status_start) && Objects.equals(status_end, that.status_end) && Objects.equals(statusStatementName, that.statusStatementName);
+        return Objects.equals(id, that.id) && Objects.equals(cabinId, that.cabinId) && Objects.equals(statusStart, that.statusStart) && Objects.equals(statusEnd, that.statusEnd) && Objects.equals(statusStatementName, that.statusStatementName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cabinId, status_start, status_end, statusStatementName);
+        return Objects.hash(id, cabinId, statusStart, statusEnd, statusStatementName);
     }
 
     @Override
@@ -101,8 +101,8 @@ public class CabinStatusDto {
         return "CabinStatusDto{" +
                 "id=" + id +
                 ", cabinId=" + cabinId +
-                ", status_start=" + status_start +
-                ", status_end=" + status_end +
+                ", statusStart=" + statusStart +
+                ", statusEnd=" + statusEnd +
                 ", statusStatementName='" + statusStatementName + '\'' +
                 '}';
     }

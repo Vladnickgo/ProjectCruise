@@ -5,6 +5,7 @@ import com.vladnickgo.Project.dao.RouteDao;
 import com.vladnickgo.Project.dao.entity.Route;
 import com.vladnickgo.Project.dao.exception.DataBaseRuntimeException;
 import com.vladnickgo.Project.service.RouteService;
+import com.vladnickgo.Project.service.impl.exception.EntityAlreadyExistException;
 import com.vladnickgo.Project.service.mapper.Mapper;
 import com.vladnickgo.Project.service.util.RouteRequestDtoUtil;
 import com.vladnickgo.Project.validator.Validator;
@@ -12,10 +13,13 @@ import com.vladnickgo.Project.validator.Validator;
 import java.sql.SQLException;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
+import static com.vladnickgo.Project.validator.ValidatorErrorMessage.FIRST_PORT_ID_IS_NULL;
+import static com.vladnickgo.Project.validator.ValidatorErrorMessage.ROUTE_ALREADY_EXIST_ERROR_MESSAGE;
+
 public class RouteServiceImpl implements RouteService {
+
     private final RouteDao routeRepository;
     private final Mapper<RouteDto, Route> mapper;
     private final Validator<RouteDto> routeDtoValidator;
@@ -36,11 +40,20 @@ public class RouteServiceImpl implements RouteService {
     }
 
     @Override
-    public Integer addRoute(RouteDto routeDto, Integer firstPortOfRouteId) {
+    public Integer addRoute(RouteDto routeDto, String firstPortOfRouteId) {
+        int firstPortId;
+        try{firstPortId = Integer.parseInt(firstPortOfRouteId);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException(FIRST_PORT_ID_IS_NULL);
+        }
         routeDtoValidator.validate(routeDto);
         Route route = mapper.mapDtoToEntity(routeDto);
+        if (routeRepository.findByName(route.getRouteName()).isPresent()) {
+            String message = String.format(ROUTE_ALREADY_EXIST_ERROR_MESSAGE, route.getRouteName());
+            throw new EntityAlreadyExistException(message);
+        }
         try {
-            return routeRepository.addRouteAndRoutePoint(route, firstPortOfRouteId);
+            return routeRepository.addRouteAndRoutePoint(route, firstPortId);
         } catch (SQLException e) {
             throw new DataBaseRuntimeException(e);
         }
@@ -59,4 +72,6 @@ public class RouteServiceImpl implements RouteService {
                 .sorted(Comparator.comparing(RouteDto::getRouteName))
                 .collect(Collectors.toList());
     }
+
+
 }

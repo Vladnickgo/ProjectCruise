@@ -195,6 +195,7 @@
                         ok
                     </button>
                 </form>
+                message: ${message}
             </div>
         </div>
     </div>

@@ -6,9 +6,11 @@ import com.vladnickgo.Project.controller.dto.ShipDto;
 import com.vladnickgo.Project.dao.ShipDao;
 import com.vladnickgo.Project.dao.entity.Ship;
 import com.vladnickgo.Project.service.ShipService;
+import com.vladnickgo.Project.service.impl.exception.EntityAlreadyExistException;
 import com.vladnickgo.Project.service.mapper.Mapper;
 import com.vladnickgo.Project.service.util.ShipRequestDtoUtil;
 import com.vladnickgo.Project.validator.Validator;
+import com.vladnickgo.Project.validator.ValidatorErrorMessage;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -16,6 +18,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import static com.vladnickgo.Project.validator.ValidatorErrorMessage.*;
 
 public class ShipServiceImpl implements ShipService {
     private final ShipDao shipRepository;
@@ -44,7 +48,10 @@ public class ShipServiceImpl implements ShipService {
     @Override
     public void addShip(ShipDto shipDto, List<CabinRequestDto> cabinRequestDtoList) throws SQLException {
         Ship ship = validateAndMapShipDto(shipDto);
-        System.out.println(cabinRequestDtoList);
+        if (shipRepository.findByName(shipDto.getShipName()).isPresent()) {
+            String message = String.format(ValidatorErrorMessage.SHIP_ALREADY_EXIST_ERROR_MESSAGE, ship.getShipName());
+            throw new EntityAlreadyExistException(message);
+        }
         shipRepository.insertShipAndCabinsAndCabinStatuses(ship, cabinRequestDtoList);
     }
 
@@ -67,11 +74,18 @@ public class ShipServiceImpl implements ShipService {
 
     @Override
     public List<ShipDto> findAllFreeShipsByDateStartAndDateEnd(LocalDate dateStart, LocalDate dateEnd) {
+        validateLocalDate(dateStart, DATE_START_IS_NULL);
+        validateLocalDate(dateEnd, DATE_END_IS_NULL);
+        if (dateStart.isAfter(dateEnd)) throw new IllegalArgumentException(DATE_START_MORE_OR_EQUAL_THAN_DATE_END);
         return shipRepository.findAllFreeShipsByDateStartAndDateEnd(dateStart, dateEnd)
                 .stream()
                 .map(mapper::mapEntityToDto)
                 .sorted(Comparator.comparing(ShipDto::getShipName))
                 .collect(Collectors.toList());
+    }
+
+    private void validateLocalDate(LocalDate date, String message) {
+        if (date == null) throw new IllegalArgumentException(message);
     }
 
     @Override
@@ -81,6 +95,6 @@ public class ShipServiceImpl implements ShipService {
 
     @Override
     public void deleteShipById(Integer shipId) {
-        shipRepository.deleteShipBtId(shipId);
+        shipRepository.deleteShipById(shipId);
     }
 }

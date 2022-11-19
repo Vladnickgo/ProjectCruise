@@ -12,10 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class RouteDaoImpl extends AbstractCrudDaoImpl<Route> implements RouteDao {
 
@@ -39,6 +36,8 @@ public class RouteDaoImpl extends AbstractCrudDaoImpl<Route> implements RouteDao
 
     private static final String INSERT_ROUTE_POINT = "INSERT INTO route_points(route_id, day_number, port_id) " +
             "VALUES (?,?,?);";
+
+    private static final String FIND_BY_ROUTE_NAME = "SELECT * FROM routes WHERE route_name = ?";
 
     public RouteDaoImpl(HikariConnectionPool connector) {
         super(connector, INSERT_QUERY, FIND_BY_ID, FIND_ALL, UPDATE);
@@ -91,6 +90,11 @@ public class RouteDaoImpl extends AbstractCrudDaoImpl<Route> implements RouteDao
         } catch (SQLException e) {
             throw new DataBaseRuntimeException(e);
         }
+    }
+
+    @Override
+    public Optional<Route> findByName(String routeName) {
+        return findByStringParam(routeName,FIND_BY_ROUTE_NAME);
     }
 
     @Override

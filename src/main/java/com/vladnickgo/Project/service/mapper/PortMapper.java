@@ -6,6 +6,7 @@ import com.vladnickgo.Project.dao.entity.Port;
 public class PortMapper implements Mapper<PortDto, Port> {
     @Override
     public Port mapDtoToEntity(PortDto portDto) {
+        if (portDto == null) return null;
         return Port.newBuilder()
                 .id(portDto.getId())
                 .portNameUa(portDto.getPortNameUa())
@@ -17,6 +18,7 @@ public class PortMapper implements Mapper<PortDto, Port> {
 
     @Override
     public PortDto mapEntityToDto(Port port) {
+        if (port == null) return null;
         return PortDto.newBuilder()
                 .id(port.getId())
                 .portNameUa(port.getPortNameUa())

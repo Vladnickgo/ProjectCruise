@@ -123,7 +123,7 @@
         </div>
         <div class="col-3">
             <div class="container">
-                <div id="userForm">
+                <div id="userForm" class="p-3">
                     <h3 style="text-align: center"><f:message key="addRoute" bundle="${bunCont}"/></h3>
                     <form action="home" method="post">
                         <div class="mb-3">
@@ -157,6 +157,11 @@
                     <div ${message=='Route name is empty'?'':'hidden'}>
                         <h3>
                             <f:message key="error.emptyRouteName" bundle="${bunCont}"/>
+                        </h3>
+                    </div>
+                    <div ${message=='First port id is null'?'':'hidden'}>
+                        <h3>
+                            <f:message key="error.notValidFirstRoutePoint" bundle="${bunCont}"/>
                         </h3>
                     </div>
                 </div>

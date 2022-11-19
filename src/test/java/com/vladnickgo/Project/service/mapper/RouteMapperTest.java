@@ -2,17 +2,21 @@ package com.vladnickgo.Project.service.mapper;
 
 import com.vladnickgo.Project.controller.dto.RouteDto;
 import com.vladnickgo.Project.dao.entity.Route;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@ExtendWith(MockitoExtension.class)
 class RouteMapperTest {
-    private final Mapper<RouteDto, Route> routeMapper = new RouteMapper();
+    @InjectMocks
+    private RouteMapper routeMapper;
 
     @ParameterizedTest(name = "[{index}]{2}")
     @MethodSource("provideDataForMapRouteDtoToRoute")
@@ -39,7 +43,16 @@ class RouteMapperTest {
                                 .id(1)
                                 .routeName("european")
                                 .build(),
-                        "Check mapRouteDtoToEntity method"));
+                        "Check mapRouteDtoToEntity method"),
+                Arguments.of(
+                        RouteDto.newBuilder()
+                                .build(),
+                        Route.newBuilder()
+                                .build(),
+                        "Check mapRouteDtoToEntity method with empty values"),
+                Arguments.of(null, null,
+                        "Check mapRouteDtoToEntity method with null values")
+        );
     }
 
     private static Stream<Arguments> provideDataForMapRouteToRouteDto() {
@@ -53,6 +66,15 @@ class RouteMapperTest {
                                 .id(1)
                                 .routeName("european")
                                 .build(),
-                        "Check mapEntityToRouteDto method"));
+                        "Check mapEntityToRouteDto method"),
+                Arguments.of(
+                        Route.newBuilder()
+                                .build(),
+                        RouteDto.newBuilder()
+                                .build(),
+                        "Check mapEntityToRouteDto method with empty values"),
+                Arguments.of(null, null,
+                        "Check mapEntityToRouteDto method with null values")
+        );
     }
 }

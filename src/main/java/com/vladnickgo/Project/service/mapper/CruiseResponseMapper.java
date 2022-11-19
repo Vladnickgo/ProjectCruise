@@ -6,9 +6,12 @@ import com.vladnickgo.Project.dao.entity.CruiseStatus;
 import com.vladnickgo.Project.dao.entity.Route;
 import com.vladnickgo.Project.dao.entity.Ship;
 
-public class CruiseResponseMapper implements Mapper<CruiseResponseDto, Cruise>{
+import java.util.Optional;
+
+public class CruiseResponseMapper implements Mapper<CruiseResponseDto, Cruise> {
     @Override
     public Cruise mapDtoToEntity(CruiseResponseDto cruiseResponseDto) {
+        if (cruiseResponseDto == null) return null;
         return Cruise.newBuilder()
                 .id(cruiseResponseDto.getId())
                 .cruiseName(cruiseResponseDto.getCruiseName())
@@ -30,16 +33,39 @@ public class CruiseResponseMapper implements Mapper<CruiseResponseDto, Cruise>{
 
     @Override
     public CruiseResponseDto mapEntityToDto(Cruise cruise) {
+        if (cruise == null) return null;
         return CruiseResponseDto.newBuilder()
                 .id(cruise.getId())
                 .cruiseName(cruise.getCruiseName())
-                .routeName(cruise.getRoute().getRouteName())
+                .routeName(getRouteName(cruise))
                 .dateStart(cruise.getDateStart())
                 .dateEnd(cruise.getDateEnd())
                 .nights(cruise.getNights())
-                .cruiseStatusName(cruise.getCruiseStatus().getCruiseStatusName())
-                .shipName(cruise.getShip().getShipName())
-                .shipImageSource(cruise.getShip().getShipImage())
+                .cruiseStatusName(getCruiseStatusName(cruise))
+                .shipName(getShipName(cruise))
+                .shipImageSource(getShipImage(cruise))
                 .build();
+    }
+
+    private String getShipImage(Cruise cruise) {
+        return Optional.ofNullable(cruise.getShip()).map(Ship::getShipImage).orElse(null);
+    }
+
+    private String getShipName(Cruise cruise) {
+        return Optional.ofNullable(cruise.getShip())
+                .map(Ship::getShipName)
+                .orElse(null);
+    }
+
+    private String getCruiseStatusName(Cruise cruise) {
+        return Optional.ofNullable(cruise.getCruiseStatus())
+                .map(CruiseStatus::getCruiseStatusName)
+                .orElse(null);
+    }
+
+    private String getRouteName(Cruise cruise) {
+        return Optional.ofNullable(cruise.getRoute())
+                .map(Route::getRouteName)
+                .orElse(null);
     }
 }

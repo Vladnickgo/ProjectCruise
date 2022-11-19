@@ -18,7 +18,7 @@ public class AddRouteCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String routeName = request.getParameter("routeName");
-        Integer firstPortOfRouteId = Integer.valueOf(request.getParameter("firstPortOfRoute"));
+        String firstPortOfRouteId = request.getParameter("firstPortOfRoute");
         RouteDto routeDto = RouteDto.newBuilder()
                 .routeName(routeName)
                 .build();
@@ -28,7 +28,7 @@ public class AddRouteCommand implements Command {
             return String.format("home?command=editRouteDataCommand&routeId=%d",routePointId);
         } catch (IllegalArgumentException e) {
             request.getSession().setAttribute("message", e.getMessage());
-            return "home?command=editRoutesCommand";
+            return "home?command=editRoutesCommand&routeName="+routeName;
         }
     }
 }

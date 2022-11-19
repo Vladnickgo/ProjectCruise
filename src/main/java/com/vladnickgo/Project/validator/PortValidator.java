@@ -11,10 +11,11 @@ public class PortValidator implements Validator<PortDto> {
     @Override
     public void validate(PortDto entity) {
         if (entity == null) throw new IllegalArgumentException(PORT_IS_NULL);
+        if(entity.equals(PortDto.newBuilder().build()))throw new IllegalArgumentException(PORT_IS_EMPTY);
         validateByParam(PortDto::getPortNameUa, PORT_NAME_UA_IS_NULL_MESSAGE, entity);
         validateByParam(PortDto::getPortNameEn, PORT_NAME_EN_IS_NULL_MESSAGE, entity);
         validateByParam(PortDto::getCountryUa, COUNTRY_NAME_UA_IS_NULL_MESSAGE, entity);
-        validateByParam(PortDto::getCountryEn, PORT_NAME_EN_IS_NULL_MESSAGE, entity);
+        validateByParam(PortDto::getCountryEn, COUNTRY_NAME_EN_IS_NULL_MESSAGE, entity);
     }
 
     private void validateByParam(Function<PortDto, String> param, String errorMessage, PortDto portDto) {

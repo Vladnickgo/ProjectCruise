@@ -2,16 +2,21 @@ package com.vladnickgo.Project.service.mapper;
 
 import com.vladnickgo.Project.controller.dto.ShipDto;
 import com.vladnickgo.Project.dao.entity.Ship;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@ExtendWith(MockitoExtension.class)
 class ShipMapperTest {
-    private final Mapper<ShipDto, Ship> shipMapper = new ShipMapper();
+    @InjectMocks
+    private ShipMapper shipMapper;
 
     @ParameterizedTest(name = "[{index}]{2}")
     @MethodSource("provideDataForCheckMapDtoToEntityMethod")
@@ -42,23 +47,16 @@ class ShipMapperTest {
                                 .numberOfStaff(100)
                                 .passengersCapacity(200)
                                 .build(),
-                        "Check ShipDtoToEntity mapper"),
+                        "Check mapDtoToEntity method"),
                 Arguments.of(ShipDto.newBuilder()
-                                .id(1)
-                                .shipName("Silver Wave")
-                                .shipImage("img.jpg")
-                                .numberOfStaff(1000)
-                                .passengersCapacity(2200)
                                 .build(),
                         Ship.newBuilder()
-                                .id(1)
-                                .shipName("Silver Wave")
-                                .shipImageSource("img.jpg")
-                                .numberOfStaff(1000)
-                                .passengersCapacity(2200)
                                 .build(),
-                        "Check ShipDtoToEntity mapper")
-        );
+                        "Check mapDtoToEntity method with empty values")
+                ,
+                Arguments.of(null,
+                        null,
+                        "Check mapDtoToEntity method with null values"));
     }
 
     private static Stream<Arguments> provideDataForCheckMapEntityToDtoMethod() {
@@ -77,21 +75,14 @@ class ShipMapperTest {
                                 .numberOfStaff(100)
                                 .passengersCapacity(200)
                                 .build(),
-                        "Check EntityToShipDto mapper"),
+                        "Check entityToShipDto mapper"),
                 Arguments.of(Ship.newBuilder()
-                                .id(1)
-                                .shipName("Silver Wave")
-                                .shipImageSource("img.jpg")
-                                .numberOfStaff(1000)
-                                .passengersCapacity(2200)
                                 .build(),
                         ShipDto.newBuilder()
-                                .id(1)
-                                .shipName("Silver Wave")
-                                .shipImage("img.jpg")
-                                .numberOfStaff(1000)
-                                .passengersCapacity(2200)
                                 .build(),
-                        "Check EntityToShipDto mapper"));
+                        "Check entityToShipDto mapper with empty values"),
+                Arguments.of(null,
+                        null,
+                        "Check entityToShipDto mapper with null values"));
     }
 }

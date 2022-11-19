@@ -12,7 +12,6 @@ import com.vladnickgo.Project.dao.impl.*;
 import com.vladnickgo.Project.service.*;
 import com.vladnickgo.Project.service.impl.*;
 import com.vladnickgo.Project.service.mapper.*;
-import com.vladnickgo.Project.service.util.PasswordEncryptionService;
 import com.vladnickgo.Project.validator.*;
 
 import java.util.Collections;
@@ -46,7 +45,6 @@ public final class ApplicationContextInjector {
     private static final PortDao PORT_DTO = new PortDaoImpl(HIKARI_CONNECTION_POOL);
 
     private static final Mapper<UserDto, User> USER_MAPPER = new UserMapper();
-
     public static final Mapper<CruiseResponseDto, Cruise> CRUISE_RESPONSE_MAPPER = new CruiseResponseMapper();
 
     private static final Mapper<CabinDto, Cabin> CABIN_MAPPER = new CabinMapper();
@@ -71,7 +69,7 @@ public final class ApplicationContextInjector {
 
     private static final UserValidator USER_VALIDATOR = new UserValidator();
 
-    private static final Validator<CruiseResponseDto> CRUISE_VALIDATOR = new CruiseValidator();
+    private static final Validator<CruiseDto> CRUISE_VALIDATOR = new CruiseValidator();
 
     private static final Validator<CabinDto> CABIN_VALIDATOR = new CabinValidator();
 
@@ -89,9 +87,9 @@ public final class ApplicationContextInjector {
 
     private static final Validator<PortDto> PORT_VALIDATOR = new PortValidator();
 
-    private static final PasswordEncryptionService PASSWORD_ENCRYPTION_SERVICE = new PasswordEncryptionService();
+    private static final Validator<RoutePointRequestDto> ROUTE_POINT_REQUEST_VALIDATOR = new RoutePointRequestValidator();
 
-    private static final UserService USER_SERVICE = new UserServiceImpl(USER_DAO, USER_MAPPER, USER_VALIDATOR, PASSWORD_ENCRYPTION_SERVICE);
+    private static final UserService USER_SERVICE = new UserServiceImpl(USER_DAO, USER_MAPPER, USER_VALIDATOR);
 
     private static final CruiseService CRUISE_SERVICE = new CruiseServiceImpl(CRUISE_DAO, ORDER_DAO, CRUISE_RESPONSE_MAPPER, CRUISE_MAPPER, CRUISE_VALIDATOR);
 
@@ -111,7 +109,7 @@ public final class ApplicationContextInjector {
 
     private static final RouteService ROUTE_SERVICE = new RouteServiceImpl(ROUTE_DAO, ROUTE_MAPPER, ROUTE_VALIDATOR);
 
-    private static final RoutePointService ROUTE_POINT_SERVICE = new RoutePointServiceImpl(ROUTE_POINT_DAO, ROUTE_POINT_MAPPER, ROUTE_POINT_REQUEST_DTO_MAPPER, ROUTE_POINT_VALIDATOR);
+    private static final RoutePointService ROUTE_POINT_SERVICE = new RoutePointServiceImpl(ROUTE_POINT_DAO, ROUTE_POINT_MAPPER, ROUTE_POINT_REQUEST_DTO_MAPPER, ROUTE_POINT_REQUEST_VALIDATOR);
 
     private static final PortService PORT_SERVICE = new PortServiceImpl(PORT_DTO, PORT_MAPPER, PORT_VALIDATOR);
 
@@ -205,9 +203,14 @@ public final class ApplicationContextInjector {
 
     private static final Command ADMIN_STATISTIC_COMMAND = new AdminStatisticCommand();
 
+    private static final Command DELETE_PORT_PAGE_COMMAND = new DeletePortPageCommand();
+
+    private static final Command DELETE_PORT_COMMAND = new DeletePortCommand();
+
     private static final Map<String, Command> USER_COMMAND_NAME_TO_COMMAND = initUserCommand();
 
     private static final Map<String, Command> HOME_COMMAND_NAME_TO_COMMAND = initHomeCommand();
+
 
     private static ApplicationContextInjector applicationContextInjector;
 
@@ -266,6 +269,9 @@ public final class ApplicationContextInjector {
         homeCommandNameToCommand.put("unsuccessfulPortAddingCommand", UNSUCCESSFUL_PORT_ADDING_COMMAND);
         homeCommandNameToCommand.put("successfulPortAddingCommand", SUCCESSFUL_PORT_ADDING_COMMAND);
         homeCommandNameToCommand.put("adminStatisticCommand", ADMIN_STATISTIC_COMMAND);
+        homeCommandNameToCommand.put("deletePortPageCommand",DELETE_PORT_PAGE_COMMAND);
+        homeCommandNameToCommand.put("deletePortCommand",DELETE_PORT_COMMAND);
+
         homeCommandNameToCommand.put("defaultCommand", DEFAULT_COMMAND);
         return Collections.unmodifiableMap(homeCommandNameToCommand);
     }

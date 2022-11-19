@@ -2,6 +2,8 @@ package com.vladnickgo.Project.controller.dto;
 
 import com.vladnickgo.Project.dao.entity.Role;
 
+import java.util.Objects;
+
 public class UserDto {
     private final Integer id;
     private final String firstName;
@@ -116,5 +118,18 @@ public class UserDto {
                 ", confirmationPassword='" + confirmationPassword + '\'' +
                 ", role=" + role +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserDto userDto = (UserDto) o;
+        return Objects.equals(id, userDto.id) && Objects.equals(firstName, userDto.firstName) && Objects.equals(lastName, userDto.lastName) && Objects.equals(email, userDto.email) && Objects.equals(password, userDto.password) && Objects.equals(confirmationPassword, userDto.confirmationPassword) && role == userDto.role;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email, password, confirmationPassword, role);
     }
 }

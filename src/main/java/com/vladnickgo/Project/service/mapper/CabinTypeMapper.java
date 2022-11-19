@@ -6,6 +6,7 @@ import com.vladnickgo.Project.dao.entity.CabinType;
 public class CabinTypeMapper implements Mapper<CabinTypeDto, CabinType> {
     @Override
     public CabinType mapDtoToEntity(CabinTypeDto cabinTypeDto) {
+        if (cabinTypeDto == null) return null;
         return CabinType.newBuilder()
                 .id(cabinTypeDto.getId())
                 .cabinTypeName(cabinTypeDto.getCabinTypeName())
@@ -16,6 +17,7 @@ public class CabinTypeMapper implements Mapper<CabinTypeDto, CabinType> {
 
     @Override
     public CabinTypeDto mapEntityToDto(CabinType cabinType) {
+        if (cabinType == null) return null;
         return CabinTypeDto.newBuilder()
                 .id(cabinType.getId())
                 .cabinTypeName(cabinType.getCabinTypeName())

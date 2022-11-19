@@ -4,17 +4,21 @@ import com.vladnickgo.Project.controller.dto.RoutePointDto;
 import com.vladnickgo.Project.dao.entity.Port;
 import com.vladnickgo.Project.dao.entity.Route;
 import com.vladnickgo.Project.dao.entity.RoutePoint;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@ExtendWith(MockitoExtension.class)
 class RoutePointMapperTest {
-    private final Mapper<RoutePointDto, RoutePoint> routePointMapper = new RoutePointMapper();
+    @InjectMocks
+    private RoutePointMapper routePointMapper;
 
     @ParameterizedTest(name = "[{index}]{2}")
     @MethodSource("provideDataForCheckMapDtoToEntityMethod")
@@ -55,7 +59,21 @@ class RoutePointMapperTest {
                                         .build())
                                 .dayNumber(1)
                                 .build(),
-                        "Check mapDtoToEntity"));
+                        "Check mapDtoToEntity"),
+                Arguments.of(RoutePointDto.newBuilder()
+                                .build(),
+                        RoutePoint.newBuilder()
+                                .id(null)
+                                .route(Route.newBuilder()
+                                        .build())
+                                .port(Port.newBuilder()
+                                        .build())
+                                .dayNumber(null)
+                                .build(),
+                        "Check mapDtoToEntity with empty values"),
+                Arguments.of(null, null,
+                        "Check mapDtoToEntity method with null values")
+        );
     }
 
     private static Stream<Arguments> provideDataForCheckMapEntityToDtoMethod() {
@@ -84,6 +102,15 @@ class RoutePointMapperTest {
                                 .countryEn("Italy")
                                 .dayNumber(1)
                                 .build(),
-                        "Check mapDtoToEntity"));
+                        "Check mapEntityToDto method"),
+                Arguments.of(
+                        RoutePoint.newBuilder()
+                                .build(),
+                        RoutePointDto.newBuilder()
+                                .build(),
+                        "Check mapEntityToDto method with empty values"),
+                Arguments.of(null, null,
+                        "Check mapEntityToDto method with null values")
+        );
     }
 }

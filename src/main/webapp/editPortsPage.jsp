@@ -126,12 +126,18 @@
                             <button class="btn btn-outline-primary">
                                 <f:message key="delete" bundle="${bunCont}"/>
                             </button>
+                            <input name="portId" value="${port.id}" hidden>
+                            <input name="portNameUa" value="${port.portNameUa}" hidden>
+                            <input name="portNameEn" value="${port.portNameEn}" hidden>
+                            <input name="countryUa" value="${port.countryUa}" hidden>
+                            <input name="countryEn" value="${port.countryEn}" hidden>
+                            <input name="command" value="deletePortPageCommand" hidden>
                         </form>
                     </td>
                 </tr>
             </c:forEach>
         </table>
-        <div style="padding-bottom: 100px" class="row">
+        <div style="padding-bottom: 100px; display: flex">
             <form action="home" method="get">
                 <button type="submit" class="btn btn-light" ${numberOfPage==1?'hidden':''}><</button>
                 <input name="command" value="editPortsCommand" hidden>

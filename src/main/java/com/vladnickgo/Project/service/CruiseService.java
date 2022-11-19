@@ -6,6 +6,7 @@ import com.vladnickgo.Project.controller.dto.CruiseResponseDto;
 import com.vladnickgo.Project.controller.dto.LocalDateDto;
 import com.vladnickgo.Project.service.util.CruiseRequestDtoUtil;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface CruiseService {
 
     CruiseResponseDto findCruiseById(Integer cruiseId);
 
-    void createCruise(CruiseDto cruiseDto);
+    void createCruise(CruiseDto cruiseDto) throws SQLException;
 
     void blockCruiseById(Integer cruiseId);
 
