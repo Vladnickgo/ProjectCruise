@@ -34,11 +34,6 @@
         </div>
     </div>
 </div>
-${map}<br>
-<c:forEach items="${map}" var="entry">
-    key: ${entry.key}<br>
-    value: ${entry.value}<br>
-</c:forEach>
 <div class="container mt-5">
     <div class="row text-center">
         <div class="col-4"></div>
@@ -60,14 +55,14 @@ ${map}<br>
             <div class="above">
                 <img src="view\img\shipImage\above.jpg" alt="">
             </div>
-            <div class="conteiner">
+            <div class="container">
                 <div class="row">
                     <div class="col-2"></div>
                     <div class="col-8">
 
-                        <div class="conteiner2">
+                        <div class="container2">
                             <div class="row">
-                                <div class="col-4"><img src="view\img\shipImage\collage.jpg" alt=""></div>
+                                <div class="col-4"><img src="views\img\shipImage\collage.jpg" alt=""></div>
                                 <div class="col-8" id="col-81">
                                     <div class="Reasons">
                                         <b>Reasons to choose our company</b>

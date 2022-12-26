@@ -41,7 +41,7 @@ public class ShowCruisesCommand implements Command {
             Integer pages = cruiseService.getNumberOfPagesByDatesAndDuration(cruiseRequestDtoUtil);
             request.setAttribute("bottomDuration", cruiseRequestDtoUtil.getBottomCruiseDuration());
             request.setAttribute("topDuration", cruiseRequestDtoUtil.getTopCruiseDuration());
-            request.setAttribute("minDurationValue", cruiseRequestDtoUtil.getMinCruseDuration());
+            request.setAttribute("minDurationValue", cruiseRequestDtoUtil.getMinCruiseDuration());
             request.setAttribute("maxDurationValue", cruiseRequestDtoUtil.getMaxCruiseDuration());
             request.setAttribute("minDateStart", cruiseRequestDtoUtil.getMinDateStart());
             request.setAttribute("maxDateEnd", cruiseRequestDtoUtil.getMaxDateEnd());

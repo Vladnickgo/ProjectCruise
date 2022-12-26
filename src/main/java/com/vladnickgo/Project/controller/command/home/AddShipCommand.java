@@ -16,6 +16,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.vladnickgo.Project.PagesConstant.SHIP_IMAGE_PATH;
+
 
 public class AddShipCommand implements Command {
     private final ApplicationContextInjector contextInjector = ApplicationContextInjector.getInstance();
@@ -46,7 +48,7 @@ public class AddShipCommand implements Command {
                 .shipName(shipName)
                 .numberOfStaff(numberOfStaff)
                 .passengersCapacity(passengers)
-                .shipImage(shipImage)
+                .shipImage(String.format(SHIP_IMAGE_PATH,shipImage))
                 .build();
     }
 

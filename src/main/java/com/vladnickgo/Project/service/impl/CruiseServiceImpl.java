@@ -7,7 +7,6 @@ import com.vladnickgo.Project.controller.dto.LocalDateDto;
 import com.vladnickgo.Project.dao.CruiseDao;
 import com.vladnickgo.Project.dao.OrderDao;
 import com.vladnickgo.Project.dao.entity.Cruise;
-import com.vladnickgo.Project.dao.exception.DataBaseRuntimeException;
 import com.vladnickgo.Project.service.CruiseService;
 import com.vladnickgo.Project.service.mapper.Mapper;
 import com.vladnickgo.Project.service.util.CruiseRequestDtoUtil;
@@ -93,8 +92,8 @@ public class CruiseServiceImpl implements CruiseService {
 
     @Override
     public List<CabinTypeResponseDto> getNumberOfAllAndBusyCabins(String cruiseId) {
-        String s = Optional.ofNullable(cruiseId).orElse("0");
-        Integer cruiseIdInteger = Integer.valueOf(s);
+        String stringCruiseId = Optional.ofNullable(cruiseId).orElse("0");
+        Integer cruiseIdInteger = Integer.valueOf(stringCruiseId);
         Map<String, Integer> cabinTypeMap = cruiseRepository.getEachCabinTypeNumberMap(cruiseIdInteger);
         Map<String, Integer> busyCabinTypeMap = orderRepository.getEachBusyCabinTypeNumberMap(cruiseIdInteger);
         return cabinTypeMap.entrySet().stream().map(t -> CabinTypeResponseDto.newBuilder()

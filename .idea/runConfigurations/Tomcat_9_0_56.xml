@@ -2,14 +2,9 @@
   <configuration default="false" name="Tomcat 9.0.56" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.56" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11" nameIsGenerated="true">
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
-      <artifact name="Project:war">
+      <artifact name="FinalServletProject:war">
         <settings>
           <option name="CONTEXT_PATH" value="/" />
-        </settings>
-      </artifact>
-      <artifact name="Project:war exploded">
-        <settings>
-          <option name="CONTEXT_PATH" value="/Project_war_exploded" />
         </settings>
       </artifact>
     </deployment>
@@ -92,6 +87,7 @@
       <option name="BuildArtifacts" enabled="true">
         <artifact name="Project:war" />
         <artifact name="Project:war exploded" />
+        <artifact name="FinalServletProject:war" />
       </option>
     </method>
   </configuration>

@@ -28,8 +28,6 @@ public final class ApplicationContextInjector {
 
     private static final CabinTypeDao CABIN_TYPE_DAO = new CabinTypeDaoImpl(HIKARI_CONNECTION_POOL);
 
-    private static final CabinDao CABIN_DAO = new CabinDaoImpl(HIKARI_CONNECTION_POOL);
-
     private static final CabinStatusDao CABIN_STATUS_DAO = new CabinStatusDaoImpl(HIKARI_CONNECTION_POOL);
 
     private static final PaymentDao PAYMENT_DAO = new PaymentDaoImpl(HIKARI_CONNECTION_POOL);
@@ -45,9 +43,8 @@ public final class ApplicationContextInjector {
     private static final PortDao PORT_DTO = new PortDaoImpl(HIKARI_CONNECTION_POOL);
 
     private static final Mapper<UserDto, User> USER_MAPPER = new UserMapper();
-    public static final Mapper<CruiseResponseDto, Cruise> CRUISE_RESPONSE_MAPPER = new CruiseResponseMapper();
 
-    private static final Mapper<CabinDto, Cabin> CABIN_MAPPER = new CabinMapper();
+    public static final Mapper<CruiseResponseDto, Cruise> CRUISE_RESPONSE_MAPPER = new CruiseResponseMapper();
 
     private static final Mapper<RoutePointDto, RoutePoint> ROUTE_POINT_MAPPER = new RoutePointMapper();
 
@@ -71,8 +68,6 @@ public final class ApplicationContextInjector {
 
     private static final Validator<CruiseDto> CRUISE_VALIDATOR = new CruiseValidator();
 
-    private static final Validator<CabinDto> CABIN_VALIDATOR = new CabinValidator();
-
     private static final Validator<PaymentDocumentsDto> PAYMENT_DOCUMENTS_VALIDATOR = new PaymentDocumentsValidator();
 
     private static final Validator<PaymentDto> PAYMENT_VALIDATOR = new PaymentValidator();
@@ -80,10 +75,6 @@ public final class ApplicationContextInjector {
     private static final Validator<ShipDto> SHIP_VALIDATOR = new ShipValidator();
 
     private static final Validator<RouteDto> ROUTE_VALIDATOR = new RouteValidator();
-
-    private static final Validator<CabinTypeRequestDto> CABIN_TYPE_REQUEST_DTO_VALIDATOR = new CabinTypeRequestValidator();
-
-    private static final Validator<RoutePointDto> ROUTE_POINT_VALIDATOR = new RoutePointValidator();
 
     private static final Validator<PortDto> PORT_VALIDATOR = new PortValidator();
 
@@ -94,8 +85,6 @@ public final class ApplicationContextInjector {
     private static final CruiseService CRUISE_SERVICE = new CruiseServiceImpl(CRUISE_DAO, ORDER_DAO, CRUISE_RESPONSE_MAPPER, CRUISE_MAPPER, CRUISE_VALIDATOR);
 
     private static final CabinTypeService CABIN_TYPE_SERVICE = new CabinTypeServiceImpl(CABIN_TYPE_DAO, CABIN_TYPE_MAPPER);
-
-    private static final CabinService CABIN_SERVICE = new CabinServiceImpl(CABIN_DAO, CABIN_MAPPER, CABIN_VALIDATOR);
 
     private static final CabinStatusService CABIN_STATUS_SERVICE = new CabinStatusServiceImpl(CABIN_STATUS_DAO, CABIN_STATUS_MAPPER);
 
@@ -211,7 +200,6 @@ public final class ApplicationContextInjector {
 
     private static final Map<String, Command> HOME_COMMAND_NAME_TO_COMMAND = initHomeCommand();
 
-
     private static ApplicationContextInjector applicationContextInjector;
 
     private ApplicationContextInjector() {
@@ -271,7 +259,6 @@ public final class ApplicationContextInjector {
         homeCommandNameToCommand.put("adminStatisticCommand", ADMIN_STATISTIC_COMMAND);
         homeCommandNameToCommand.put("deletePortPageCommand",DELETE_PORT_PAGE_COMMAND);
         homeCommandNameToCommand.put("deletePortCommand",DELETE_PORT_COMMAND);
-
         homeCommandNameToCommand.put("defaultCommand", DEFAULT_COMMAND);
         return Collections.unmodifiableMap(homeCommandNameToCommand);
     }
@@ -313,10 +300,6 @@ public final class ApplicationContextInjector {
 
     public Map<String, Command> getUserCommands() {
         return USER_COMMAND_NAME_TO_COMMAND;
-    }
-
-    public CabinService getCabinService() {
-        return CABIN_SERVICE;
     }
 
     public PaymentService getPaymentService() {

@@ -115,7 +115,7 @@ public class CruiseRequestDtoUtil {
                 LocalDate.parse(cruiseRequestDto.getCruiseDatesDto().getDateEnd());
     }
 
-    public Integer getMinCruseDuration(){
+    public Integer getMinCruiseDuration(){
         return cruiseRequestDto.getCruiseDurationDto().getMinDurationValue();
     }
 

@@ -27,6 +27,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -194,6 +195,13 @@ class ShipServiceImplTest {
         when(mapper.mapDtoToEntity(any(ShipDto.class))).thenReturn(TEST_SHIP_ENTITY);
         shipService.updateShip(TEST_SHIP_DTO);
         verify(shipRepository).update(TEST_SHIP_ENTITY);
+    }
+
+    @Test
+    public void updateShipIfNull() {
+        IllegalArgumentException actual = assertThrows(IllegalArgumentException.class, () -> shipService.updateShip(null));
+        String expectedMessage = "Ship is null";
+        assertEquals(expectedMessage, actual.getMessage());
     }
 
     @Test
