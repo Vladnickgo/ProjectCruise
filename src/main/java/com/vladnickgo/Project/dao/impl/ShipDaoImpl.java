@@ -42,16 +42,16 @@ public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
     private static final String INSERT_INTO_CABINS_BY_CABIN_TYPE_ID_AND_SHIP_ID = "INSERT INTO cabins(cabin_type_id, ship_id) " +
             "VALUES (?,?); ";
 
-    public static final String SELECT_MAX_CABIN_ID_FROM_CABINS = "SELECT max(cabin_id) as last_added_cabin_id FROM cabins; ";
+    private static final String SELECT_MAX_CABIN_ID_FROM_CABINS = "SELECT max(cabin_id) as last_added_cabin_id FROM cabins; ";
 
     private static final String INSERT_INTO_CABIN_STATUSES_BY_CABIN_ID = "INSERT INTO " +
             "cabin_statuses(cabin_id, status_start, status_end, status_statement_id) " +
             "VALUES (?,?,?,?); ";
-    private static final String FIND_ALL_BY_DATE_START_DATE_END = "SELECT * FROM ships " +
+    private static final String FIND_ALL_BY_DATE_START_DATE_END = "SELECT DISTINCT ships.ship_id, ship_name, passengers, number_of_staff, ship_image_source FROM ships " +
             "LEFT JOIN cabins c on ships.ship_id = c.ship_id " +
             "LEFT JOIN cabin_statuses cs on c.cabin_id = cs.cabin_id " +
-            "WHERE status_start < ? AND status_end > ? AND status_statement_id = ? " +
-            "GROUP BY ship_name; ";
+            "WHERE status_start < ? AND status_end > ? AND status_statement_id = ? ";
+//            "GROUP BY ship_name; ";
     private static final String DELETE_SHIP_BY_ID = "DELETE FROM ships WHERE ship_id = ?; ";
     private static final String FIND_NUMBER_OF_CRUISES_FOR_SHIPS = "SELECT ship_name,count(*) AS number_of_cruises FROM ships " +
             "LEFT JOIN cruises c on ships.ship_id = c.ship_id " +
@@ -195,7 +195,7 @@ public class ShipDaoImpl extends AbstractCrudDaoImpl<Ship> implements ShipDao {
 
     @Override
     public Optional<Ship> findByName(String shipName) {
-        return findByStringParam(shipName,FIND_BY_SHIP_NAME);
+        return findByStringParam(shipName, FIND_BY_SHIP_NAME);
     }
 
     @Override

@@ -232,7 +232,6 @@
                             <f:message key="route" bundle="${bunCont}"/>
                         </label>
                     </div>
-
                     <div ${routePointList.size()>1?'':'hidden'} class="col-md-12 mb-3">
                         <f:message key="numberOfDays" bundle="${bunCont}"/>:
                         ${routePointList.size()}
@@ -256,6 +255,7 @@
                         </label>
                     </div>
                     <input name="command" value="editCruisesCommand" hidden>
+<%--                    <input name="routeId" value="${routeId}" hidden>--%>
                 </form>
                 <form>
                     <button class="btn btn-outline-primary"

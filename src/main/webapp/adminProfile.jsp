@@ -47,24 +47,6 @@
 </div>
 
 
-<%--<div>--%>
-<%--    <div class="row container-fluid">--%>
-<%--        <div class="col-2" style="">--%>
-
-<%--        </div>--%>
-<%--        <div class="col-8">--%>
-<%--            <h1 class="text-center"><f:message key="adminProfile" bundle="${bunCont}"/></h1>--%>
-<%--            <hr>--%>
-<%--            <h3 style="text-align: left; margin-bottom: 20px; color: darkslateblue">--%>
-<%--                <f:message key="usersOrders" bundle="${bunCont}"/>--%>
-<%--            </h3>--%>
-<%--            <div style="margin-top: 10px;" >--%>
-
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
-
 <div>
     <div class="row">
         <div class="col-2" style="">

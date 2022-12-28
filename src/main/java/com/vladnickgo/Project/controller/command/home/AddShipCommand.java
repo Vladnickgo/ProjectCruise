@@ -31,24 +31,24 @@ public class AddShipCommand implements Command {
 
         try {
             shipService.addShip(shipDto, cabinRequestDtoList);
-        } catch (IllegalArgumentException| EntityAlreadyExistException |SQLException e) {
-            return "home?command=editLinersCommand&message="+e.getMessage();
+        } catch (IllegalArgumentException | EntityAlreadyExistException | SQLException e) {
+            return "home?command=editLinersCommand&message=" + e.getMessage();
         }
         return "home?command=editLinersCommand";
     }
 
     private ShipDto getShipDto(HttpServletRequest request) {
-        String shipName = getStringParameter(request,"shipName");
+        String shipName = getStringParameter(request, "shipName");
         Integer numberOfStaff = getNumberOfStaff(request);
         String[] numbersOfCabin = request.getParameterValues("numberOfCabin");
         String[] cabinCapacities = request.getParameterValues("persons");
-        String shipImage = getStringParameter(request,"shipImage");
+        String shipImage = getStringParameter(request, "shipImage");
         Integer passengers = getPassengers(numbersOfCabin, cabinCapacities);
         return ShipDto.newBuilder()
                 .shipName(shipName)
                 .numberOfStaff(numberOfStaff)
                 .passengersCapacity(passengers)
-                .shipImage(String.format(SHIP_IMAGE_PATH,shipImage))
+                .shipImage(String.format(SHIP_IMAGE_PATH, shipImage))
                 .build();
     }
 
@@ -67,7 +67,7 @@ public class AddShipCommand implements Command {
         for (int i = 0; i < numbersOfCabin.length; i++) {
             passengers += Integer.parseInt(numbersOfCabin[i]) * Integer.parseInt(cabinCapacities[i]);
         }
-        return passengers==0?null:passengers;
+        return passengers == 0 ? null : passengers;
     }
 
     private List<CabinRequestDto> getCabinRequestDtoList(HttpServletRequest request) {

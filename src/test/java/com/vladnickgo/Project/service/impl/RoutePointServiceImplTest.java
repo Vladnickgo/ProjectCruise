@@ -149,14 +149,6 @@ class RoutePointServiceImplTest {
         assertEquals(TEST_ROUTE_POINT_DTO_LIST, actual);
     }
 
-    @ParameterizedTest(name = "[{index}]{2}")
-    @MethodSource("provideDataForCreateRoutPointWithNullParameters")
-    void createRoutePointIfRoutePointIsNull(RoutePointRequestDto routePointRequestDto, String expected, String message) {
-        IllegalArgumentException illegalArgumentException = Assertions.assertThrows(IllegalArgumentException.class,
-                () -> routePointService.createRoutePoint(routePointRequestDto));
-        Assertions.assertEquals(expected, illegalArgumentException.getMessage(), message);
-    }
-
     @Test
     void deleteRoutePointByIdIsSuccessful() {
         routePointService.deleteRoutePointById(TEST_ROUTE_POINT_DTO1.getId());

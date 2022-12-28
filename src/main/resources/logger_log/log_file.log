@@ -7712,3 +7712,11 @@
 2022-11-24 22:08:37 INFO  UserServiceImpl:62 - Password is not valid
 2022-12-20 21:05:08 INFO  UserServiceImpl:47 - ConfirmationPassword is not valid
 2022-12-20 21:05:08 INFO  UserServiceImpl:62 - Password is not valid
+2022-12-28 07:35:24 INFO  UserServiceImpl:47 - ConfirmationPassword is not valid
+2022-12-28 07:35:25 INFO  UserServiceImpl:62 - Password is not valid
+2022-12-28 07:38:44 INFO  UserServiceImpl:47 - ConfirmationPassword is not valid
+2022-12-28 07:38:44 INFO  UserServiceImpl:62 - Password is not valid
+2022-12-28 07:39:26 INFO  UserServiceImpl:47 - ConfirmationPassword is not valid
+2022-12-28 07:39:26 INFO  UserServiceImpl:62 - Password is not valid
+2022-12-28 10:29:36 INFO  UserServiceImpl:47 - ConfirmationPassword is not valid
+2022-12-28 10:29:37 INFO  UserServiceImpl:62 - Password is not valid
