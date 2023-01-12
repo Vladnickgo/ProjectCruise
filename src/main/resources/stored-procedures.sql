@@ -7,7 +7,7 @@ BEGIN
     DECLARE date_now DATE;
     SELECT curdate() INTO date_now;
     UPDATE cruises SET cruise_status_id=2 WHERE date_start >= date_now AND date_end <= date_now;
-    UPDATE cruises SET cruise_status_id=3 WHERE date_end > date_now;
+    UPDATE cruises SET cruise_status_id=3 WHERE date_end < date_now;
 END;
 //
 CREATE PROCEDURE change_date_end_for_cabin_status()

@@ -122,7 +122,7 @@
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th style="font-size: 48pt; color: darkslateblue">${item.price*cruise.nights}
+                                        <th style="font-size: 42pt; color: darkslateblue">${item.price*cruise.nights}
                                             <f:message key="uah"
                                                        bundle="${bunCont}"/></th>
                                     </tr>

@@ -72,16 +72,6 @@
             </div>
         </div>
         <div class="col-3">
-            andrey@mail.com<br>
-            sergey@mail.com<br>
-            gena@mail.com<br>
-            chuiko@mail.com<br>
-            ivan@mail.com<br>
-            artem@mail.com<br>
-            holubkova@test.com<br>
-            inna@gmail.com<br>
-            algol@gmail.com<br>
-            admin@mail.com<br>
         </div>
     </div>
 </div>

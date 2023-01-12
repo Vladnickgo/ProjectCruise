@@ -32,7 +32,6 @@ public class UserSecurityFilter implements Filter {
             LOGGER.info("AuthorisationFailException("+NOT_AVAILABLE_PAGE+")");
             throw new AuthorisationFailException(NOT_AVAILABLE_PAGE);
         }
-
         filterChain.doFilter(request, servletResponse);
     }
 

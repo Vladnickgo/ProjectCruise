@@ -1,7 +1,3 @@
-<%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.time.LocalDate" %>
-<%@ page contentType="text/html;charset=UTF-8" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -32,17 +28,16 @@
                     <option value="ua" ${language == 'ua' ? 'selected' : ''}>Українська</option>
                     <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
                 </select>
-                <%--                <input name="command" value="${command}" hidden>--%>
             </form>
         </div>
     </div>
 </div>
 
-<div class="container mt-5 mb-5 pb-5">
+<div class="mb-4 pb-5">
     <div class="row text-center">
         <div class="col-4"></div>
         <div class="col-4">
-            <div style="margin-top: 150px"><img src="/views/img/cruise_logo.png"/></div>
+            <div style="margin-top: 120px"><img src="/views/img/cruise_logo.png"/></div>
             <h1 style="color: darkslateblue">Cruise Line Company</h1>
         </div>
         <div class="col-4">
@@ -50,15 +45,13 @@
     </div>
 </div>
 
-<div class="container mt-1 pt-1">
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4 text-center">
-            <h1 class="display-1"><f:message key="welcome" bundle="${bunCont}"></f:message></h1>
-            <h2 class="mt-5">☆ ☆ ☆ ☆ ☆</h2>
-        </div>
-        <div class="col-4">
-        </div>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4 text-center">
+        <h1 class="display-1"><f:message key="welcome" bundle="${bunCont}"></f:message></h1>
+        <h2 class="mt-4">☆ ☆ ☆ ☆ ☆</h2>
+    </div>
+    <div class="col-4">
     </div>
 </div>
 <c:import url="../views/footer.jsp"/>

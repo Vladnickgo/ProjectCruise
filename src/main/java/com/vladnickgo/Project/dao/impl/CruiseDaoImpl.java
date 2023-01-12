@@ -293,7 +293,7 @@ public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements Cruise
             resultSet.next();
             Date min_date_start = resultSet.getDate("min_date_start");
             LOGGER.info("Min date start of cruises: " + min_date_start);
-            return min_date_start==null?null:min_date_start.toLocalDate();
+            return min_date_start == null ? null : min_date_start.toLocalDate();
         } catch (SQLException e) {
             throw new DataBaseRuntimeException(e);
         }
@@ -308,7 +308,7 @@ public class CruiseDaoImpl extends AbstractCrudDaoImpl<Cruise> implements Cruise
             resultSet.next();
             Date max_date_end = resultSet.getDate("max_date_end");
             LOGGER.info("Max date end of cruises: " + max_date_end);
-            return max_date_end==null?null:max_date_end.toLocalDate();
+            return max_date_end == null ? null : max_date_end.toLocalDate();
         } catch (SQLException e) {
             throw new DataBaseRuntimeException(e);
         }

@@ -40,7 +40,6 @@
                 <input name="ordering" value="${ordering}" hidden>
                 <input name="itemsOnPage" value="${itemsOnPage}" hidden>
                 <input name="numberOfPage" value="${numberOfPage}" hidden>
-
                 <input name="statusInProgress" value="${statusInProgress}" hidden>
                 <input name="statusConfirmed" value="${statusConfirmed}" hidden>
                 <input name="statusCanceled" value="${statusCanceled}" hidden>
@@ -128,12 +127,6 @@
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-8">
-                    <form action="user" method="get" style="margin-top: 30px;">
-                        <button class="btn btn-outline-primary" name="command" value="myOrdersPage" type="submit"
-                                style="width: 100%; height: 40px">
-                            <f:message key="myProfile" bundle="${bunCont}"/>
-                        </button>
-                    </form>
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -145,60 +138,53 @@
         <div class="col-2">
         </div>
         <div class="col-8 text-center">
-            <form action="home" method="get">
-                <table class="table table-striped" style="width: 100%;padding-bottom: 30px">
-                    <tr class="table-primary">
-                        <th><f:message key="receipt" bundle="${bunCont}"/></th>
-                        <th><f:message key="orderDate" bundle="${bunCont}"/></th>
-                        <th><f:message key="cruise" bundle="${bunCont}"/></th>
-                        <th><f:message key="dateStart" bundle="${bunCont}"/></th>
-                        <th><f:message key="dateEnd" bundle="${bunCont}"/></th>
-                        <th><f:message key="cabinType" bundle="${bunCont}"/></th>
-                        <th><f:message key="cabin" bundle="${bunCont}"/></th>
-                        <th><f:message key="price" bundle="${bunCont}"/></th>
-                        <th>
-                            <div style="display: flex;flex-direction: row;justify-content: center">
-                                <button class="btn btn-outline-primary" ${statusNotPaid=='notPaid'&&bookingsByUserIdAndParameters!='[]'?'':'hidden'}
-                                        name="command" value="groupCancelBooking"
-                                        type="submit"
-                                        style="">
-                                    <f:message key="cancel" bundle="${bunCont}"/>
+            <table class="table table-striped" style="width: 100%;padding-bottom: 30px">
+                <tr class="table-primary">
+                    <th><f:message key="receipt" bundle="${bunCont}"/></th>
+                    <th><f:message key="orderDate" bundle="${bunCont}"/></th>
+                    <th><f:message key="cruise" bundle="${bunCont}"/></th>
+                    <th><f:message key="dateStart" bundle="${bunCont}"/></th>
+                    <th><f:message key="dateEnd" bundle="${bunCont}"/></th>
+                    <th><f:message key="cabinType" bundle="${bunCont}"/></th>
+                    <th><f:message key="cabin" bundle="${bunCont}"/></th>
+                    <th><f:message key="price" bundle="${bunCont}"/></th>
+                    <th>
+                        <f:message key="action" bundle="${bunCont}"/></th>
+                    </th>
+                </tr>
+                <c:forEach var="payment" items="${paymentsList}">
+                    <tr>
+                        <td>${payment.paymentNumber}</td>
+                        <td><tags:fulldate date="${payment.paymentDate}"/></td>
+                        <td>${payment.cruiseName}</td>
+                        <td><tags:fulldate date="${payment.dateStart}"/></td>
+                        <td><tags:fulldate date="${payment.dateEnd}"/></td>
+                        <td>${payment.cabinType}</td>
+                        <td>${payment.cabinNumber}</td>
+                        <td>${payment.amount} <f:message key="uah" bundle="${bunCont}"/></td>
+                        <td style="text-align: center">
+                            <form method="get" action="user">
+                                <button class="btn btn-outline-primary" name="command" value="myOrdersPage"
+                                        type="submit" style="width: 100%; height: 40px">
+                                    <f:message key="view" bundle="${bunCont}"/>
                                 </button>
-                                <button class="btn btn-outline-primary" ${statusNotPaid=='notPaid'&&bookingsByUserIdAndParameters!='[]'?'':'hidden'}
-                                        name="command" value="groupPayment"
-                                        type="submit"
-                                        style="">
-                                    <f:message key="toPayIt" bundle="${bunCont}"/>
-                                </button>
-                            </div>
-                        </th>
+                                <input name="paymentNumber" value="${payment.paymentNumber}" hidden>
+                                <input name="paymentDate" value="${payment.paymentDate}" hidden>
+                                <input name="cruiseName" value="${payment.cruiseName}" hidden>
+                                <input name="dateStart" value="${payment.dateStart}" hidden>
+                                <input name="dateEnd" value="${payment.dateEnd}" hidden>
+                                <input name="cabinType" value="${payment.cabinType}" hidden>
+                                <input name="cabinNumber" value="${payment.cabinNumber}" hidden>
+                                <input name="amount" value="${payment.amount}" hidden>
+                                <input name="routeName" value="${payment.routeName}" hidden>
+                                <input name="userDocument" value="${payment.userDocument}" hidden>
+                                <input name="orderStatusName" value="${payment.orderStatusName}" hidden>
+                            </form>
+                        </td>
                     </tr>
-                    <c:forEach var="payment" items="${paymentsList}">
-                        <tr>
-                            <td>${payment.paymentNumber}</td>
-                            <td><tags:fulldate date="${payment.paymentDate}"/></td>
-                            <td>${payment.cruiseName}</td>
-                            <td><tags:fulldate date="${payment.dateStart}"/></td>
-                            <td><tags:fulldate date="${payment.dateEnd}"/></td>
-                            <td>
-                                    ${payment.cabinType}
-                            </td>
-                            <td>${payment.cabinNumber}</td>
-                            <td>${payment.amount} <f:message key="uah" bundle="${bunCont}"/></td>
-                            <td style="text-align: center">
-                                <input type="checkbox" ${booking.bookingStatusId==1?'':'hidden'} name="bookingId"
-                                       value="${booking.id}">
-                                <a style="text-decoration: none"
-                                   href="user?command=paymentReceipt&bookingId=${booking.id}" ${booking.bookingStatusId==2?'':'hidden'}><f:message
-                                        key="paid" bundle="${bunCont}"/></a>
-                                <a style="text-decoration: none"
-                                   href="user?command=cancellationReceipt&bookingId=${booking.id}" ${booking.bookingStatusId==3||booking.bookingStatusId==4?'':'hidden'}><f:message
-                                        key="canceled" bundle="${bunCont}"/></a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </form>
+                </c:forEach>
+            </table>
+            <%--            </form>--%>
             <div style="padding-bottom: 100px">
                 <a class="btn btn-light"
                    href="user?command=showUserProfile&numberOfPage=${numberOfPage-1<1?1:numberOfPage-1}&itemsOnPage=${itemsOnPage}&statusInProgress=${statusInProgress}&statusConfirmed=${statusConfirmed}&statusCanceled=${statusCanceled}&statusCompleted=${statusCompleted}&sorting=${sorting}&ordering=${ordering}"

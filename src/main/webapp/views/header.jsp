@@ -19,10 +19,6 @@
                             type="submit" ${user.role == 'ADMIN'?'hidden':''}>
                         <f:message key="cruises"></f:message>
                     </button>
-                    <button class="btn btn-outline-primary" name="command" value="cruiseManage"
-                            type="submit" ${user.role == 'ADMIN'?'':'hidden'}>
-                        <f:message key="cruises"></f:message>
-                    </button>
                     <button class="btn btn-outline-primary" name="command" value="aboutPage" type="submit">
                         <f:message key="about"></f:message>
                     </button>
@@ -65,15 +61,6 @@
                 <%@ taglib uri="/WEB-INF/mytags.tld" prefix="m" %>
                 <m:userinfo/>
             </ul>
-            <%--            <form class="d-flex" method="post" onchange="submit()">--%>
-            <%--                <select class=" form-control select-size" id="language" name="language"--%>
-            <%--                        style="width: 120px;">--%>
-            <%--                    <option value="ua" ${language == 'ua' ? 'selected' : ''}>Українська</option>--%>
-            <%--                    <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>--%>
-            <%--                </select>--%>
-            <%--                <input name="command" value="${command==null?'homePage':command}" hidden>--%>
-            <%--                <input name="parameters" value="${parameters}" hidden>--%>
-            <%--            </form>--%>
         </div>
     </div>
 </nav>

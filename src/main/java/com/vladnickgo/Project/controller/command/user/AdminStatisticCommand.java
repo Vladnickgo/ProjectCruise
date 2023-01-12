@@ -34,7 +34,6 @@ public class AdminStatisticCommand implements Command {
         Map<String, Integer> numberOfCruisesForShips = shipService.getNumberOfCruisesForShips(localDateDto);
         List<CruiseDto> cruiseDtoList = cruiseService.findAllByDates(localDateDto);
         List<CabinTypeResponseDto> cabinTypeResponseDtoList = cruiseService.getNumberOfAllAndBusyCabins(cruiseId);
-        System.out.println(cabinTypeResponseDtoList);
         request.setAttribute("dateStart", localDateDtoUtil.getLocalDateDto().getDateStart());
         request.setAttribute("dateEnd", localDateDtoUtil.getLocalDateDto().getDateEnd());
         request.setAttribute("minDateStart", localDateDtoUtil.getMinDateStart());
