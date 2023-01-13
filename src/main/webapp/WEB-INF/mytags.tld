@@ -12,7 +12,7 @@
 
     <tag>
         <name>userinfo</name>
-        <tag-class>tagHandler.MyTagHandler</tag-class>
+        <tag-class>com.vladnickgo.Project.service.util.tagHandler.MyTagHandler</tag-class>
     </tag>
 
 </taglib>

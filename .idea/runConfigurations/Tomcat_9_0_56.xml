@@ -85,9 +85,8 @@
     <method v="2">
       <option name="Make" enabled="true" />
       <option name="BuildArtifacts" enabled="true">
-        <artifact name="Project:war" />
-        <artifact name="Project:war exploded" />
         <artifact name="FinalServletProject:war" />
+        <artifact name="FinalServletProject:war exploded" />
       </option>
     </method>
   </configuration>
